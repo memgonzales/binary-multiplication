@@ -1,0 +1,41 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(214, 193, 193);
+}
+
+.colored {
+    background-color: rgb(25, 44, 2);
+    color: white;
+}
+
+.flex-container > div {
+    text-align: left;
+    display: table;
+}
+
+.inner {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.flex-container {
+    display: flex;
+    padding-left: 40px;
+    font-size: 18px;
+}
+
+.code {
+    font-family: 'Courier New', Arial, sans-serif;
+    font-size: 18px;
+    color: rgb(240, 240, 119);
+}
+
+.hidden {
+    visibility: hidden;
+}
