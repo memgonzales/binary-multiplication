@@ -5,10 +5,10 @@
         <title>Binary Multiplication</title>
 
         <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Open Sans">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel = "stylesheet" href = "style/style.css">
         <link rel = "stylesheet" href = "style/header.css">
         <link rel = "stylesheet" href = "style/footer.css">
-
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src = "scripts/header.js"></script>
@@ -61,14 +61,10 @@
 
             <div id = "display-mode" class = "hidden">
                 <div class = "inner">
-                    <span>Step by Step</span>
+                    <span>Step by Step</span> &nbsp;
+                    <i class = "fa fa-caret-down"></i>
                 </div>    
-            </div>
 
-            <div class = "small-padding">
-                <div class = "inner">
-                    <span></span>
-                </div>    
             </div>
         </div>
         
@@ -76,11 +72,32 @@
         </div>
 
         <div id = "footer" class = "colored flex-container">
-            <div id = "save" class = "hidden">
+            <div id = "about" class = "hidden">
+                <div id = "about-logo-div" class = "inner">
+                    <a class = "no-decor"><img id = "about-logo" src = "assets/about.png"></a>
+                </div>   
                 <div class = "inner">
-                    <span>Extended Booth's</span>
+                    <a class = "no-decor"><span>About Us</span></a>
                 </div>    
             </div>
+
+            <div id = "playback-control" class = "hidden">
+                <div class = "inner">
+                    <i class = "fa fa-caret-left" class = "play-control"></i>&nbsp;&nbsp;
+                    Step <input id = "step-number" type = "number" value = "1"> of <span id = "total-steps">30</span>
+                    &nbsp;&nbsp;<i class = "fa fa-caret-right" class = "play-control"></i>
+                </div>    
+            </div>
+
+            <div id = "save" class = "hidden">
+                <div class = "inner">
+                    <a class = "no-decor"><img id = "save-logo" src = "assets/save.png"></a>
+                </div>   
+                <div class = "inner">
+                    <a class = "no-decor"><span>Save to Text File</span></a>
+                </div>    
+            </div>
+            
         </div>
     </body>
 </html>
