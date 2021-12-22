@@ -22,9 +22,10 @@ input[type=number] {
 }
 
 #save-logo {
-    height: 19px;
+    height: 17px;
     vertical-align: bottom;
     margin-bottom: 2px;
+    margin-right: 3px;
 }
 
 #playback-control {

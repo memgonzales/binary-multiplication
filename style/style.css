@@ -57,3 +57,11 @@ a {
     display: table-cell;
     vertical-align: middle;
 }
+
+i {
+    cursor: pointer;
+}
+
+i:hover {
+    color: var(--yellow-emphasis);
+}

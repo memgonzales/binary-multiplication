@@ -10,7 +10,7 @@
     flex-grow: 1;
 }
 
-#site-title {
+#title {
     flex-grow: 2;
     margin-left: 5px;
     font-weight: bold;
@@ -51,10 +51,10 @@
 }
 
 #booths-logo {
-    height: 17px;
+    height: 18px;
     vertical-align: bottom;
     margin-bottom: 4px;
-    margin-right: -1px;
+    margin-right: -3px;
 }
 
 #extended-booths-logo {

@@ -11,16 +11,17 @@
         <link rel = "stylesheet" href = "style/footer.css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "scripts/util.js"></script>
         <script src = "scripts/header.js"></script>
     </head>
 
     <body>
         <div id = "header" class = "colored flex-container">
             <div id = "logo">
-                <a class = "no-decor" href = "home.html"><img id = "logo-img" src = "assets/logo.png"></a>
+                <a class = "no-decor" href = "home.html"><img id = "title-logo" src = "assets/title.PNG"></a>
             </div>
 
-            <div id = "site-title">
+            <div id = "title">
                 <div class = "inner">
                     <a class = "no-decor" href = "home.html"><span id = "title-text"></span></a>
                 </div>
@@ -61,7 +62,7 @@
 
             <div id = "display-mode" class = "hidden">
                 <div class = "inner">
-                    <span>Step by Step</span> &nbsp;
+                    <a class = "no-decor"><span>Step by Step</span></a> &nbsp;
                     <i class = "fa fa-caret-down"></i>
                 </div>    
 
@@ -77,15 +78,15 @@
                     <a class = "no-decor"><img id = "about-logo" src = "assets/about.png"></a>
                 </div>   
                 <div class = "inner">
-                    <a class = "no-decor"><span>About Us</span></a>
+                    <a class = "no-decor"><span id = "about-text">About Us</span></a>
                 </div>    
             </div>
 
             <div id = "playback-control" class = "hidden">
                 <div class = "inner">
-                    <i class = "fa fa-caret-left" class = "play-control"></i>&nbsp;&nbsp;
+                    <i class = "fa fa-step-backward" class = "play-control"></i>&nbsp;&nbsp;
                     Step <input id = "step-number" type = "number" value = "1"> of <span id = "total-steps">30</span>
-                    &nbsp;&nbsp;<i class = "fa fa-caret-right" class = "play-control"></i>
+                    &nbsp;&nbsp;<i class = "fa fa-step-forward" class = "play-control"></i>
                 </div>    
             </div>
 
@@ -94,7 +95,7 @@
                     <a class = "no-decor"><img id = "save-logo" src = "assets/save.png"></a>
                 </div>   
                 <div class = "inner">
-                    <a class = "no-decor"><span>Save to Text File</span></a>
+                    <a class = "no-decor"><span id = "save-text">Export Steps to Text File</span></a>
                 </div>    
             </div>
             
