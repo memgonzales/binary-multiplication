@@ -18,6 +18,14 @@ a {
     display: inline-block;
 }
 
+i {
+    cursor: pointer;
+}
+
+i:hover {
+    color: var(--yellow-emphasis);
+}
+
 .colored {
     background-color: var(--green-emphasis);
     color: white;
@@ -56,12 +64,4 @@ a {
     height: 100%;
     display: table-cell;
     vertical-align: middle;
-}
-
-i {
-    cursor: pointer;
-}
-
-i:hover {
-    color: var(--yellow-emphasis);
 }

@@ -8,7 +8,7 @@ $(function() {
     setTimeout(
         function() {
             $('#title-text').text('01110101010');
-            $('#title-text').css('color', 'white');
+            $('#title-text').css('color', white);
         }, timer 
     )
 
@@ -23,7 +23,7 @@ $(function() {
     setTimeout(
         function() {
             $('#title-text').text('110101010101');
-            $('#title-text').css('color', 'white');
+            $('#title-text').css('color', white);
         }, 3 * timer
     )
 
@@ -38,7 +38,7 @@ $(function() {
     setTimeout(
         function() {
             $('#title-text').text('110001110010');
-            $('#title-text').css('color', 'white');
+            $('#title-text').css('color', white);
         }, 5 * timer
     )
 
@@ -69,4 +69,6 @@ $(function() {
     for (let elem of elems) {
         hoverElem(elem);
     }
+
+    hoverDropdown('display-mode');
 });

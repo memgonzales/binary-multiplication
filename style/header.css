@@ -27,6 +27,7 @@
 
 #display-mode {
     flex-grow: 15;
+    position: relative;
 }
 
 #display-mode > div {
