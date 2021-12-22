@@ -40,10 +40,6 @@ a {
     cursor: pointer;
 }
 
-.no-decor:hover {
-    color: var(--yellow-emphasis);
-}
-
 .flex-container {
     display: flex;
     padding-left: 40px;

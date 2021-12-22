@@ -75,21 +75,44 @@ $(function() {
         $('#logo-img').attr('src', 'assets/logo-yellow.png');
         $('#title-text').css('color', yellow);
     });
-
+    
     $('#title-text').on('mouseout', function() {
         $('#logo-img').attr('src', 'assets/logo.png');
         $('#title-text').css('color', 'white');
     });
 
-    $('#pencil-text').on('mouseover', function() {
-        if ($('#pencil-text').attr('class') != 'selected') {
-            $('#pencil-logo').attr('src', 'assets/pencil-yellow.png');
-        }
-    });
+    function hoverMulMethod(method) {
+        $('#' + method + '-text').on('mouseover', function() {
+            if ($('#' + method + '-text').attr('class') != 'selected') {
+                $('#' + method + '-logo').attr('src', 'assets/' + method + '-yellow.png');
+                $('#' + method + '-text').css('color', yellow);
+            }
+        });
 
-    $('#pencil-text').on('mouseout', function() {
-        if ($('#pencil-text').attr('class') != 'selected') {
-            $('#pencil-logo').attr('src', 'assets/pencil.png');
-        }
-    });
+        $('#' + method + '-text').on('mouseout', function() {
+            if ($('#' + method + '-text').attr('class') != 'selected') {
+                $('#' + method + '-logo').attr('src', 'assets/' + method + '.png');
+                $('#' + method + '-text').css('color', 'white');
+            }
+        });
+
+        $('#' + method + '-logo').on('mouseover', function() {
+            if ($('#' + method + '-text').attr('class') != 'selected') {
+                $('#' + method + '-logo').attr('src', 'assets/' + method + '-yellow.png');
+                $('#' + method + '-text').css('color', yellow);
+            }
+        });
+
+        $('#' + method + '-logo').on('mouseout', function() {
+            if ($('#' + method + '-text').attr('class') != 'selected') {
+                $('#' + method + '-logo').attr('src', 'assets/' + method + '.png');
+                $('#' + method + '-text').css('color', 'white');
+            }
+        });
+    }
+
+    const mulMethods = ['pencil', 'booths', 'extended-booths'];
+    for (let mulMethod of mulMethods) {
+        hoverMulMethod(mulMethod);
+    }
 });
