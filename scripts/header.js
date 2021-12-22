@@ -46,23 +46,36 @@ $(function() {
         function() {
             $('#logo-img').attr('src', 'assets/logo-yellow.png');
             $('#title-text').html('BINARY &nbsp;MULTIPLICAT<span class = "code">10</span>N');
-            $('.code').css('font-size', '18px');
+            $('.code').css('font-size', '20px');
         }, 6 * timer
     )
 
     setTimeout(
         function() {
             $('#logo-img').attr('src', 'assets/logo.png');
-           
             $('#title-text').html('BINARY &nbsp;MULTIPLICATION');
+
+            $('.hidden').css('visibility', 'visible');
         }, 9 * timer
     )
 
     $('#logo-img').on('mouseover', function() {
         $('#logo-img').attr('src', 'assets/logo-yellow.png');
+        $('#title-text').css('color', 'rgb(240, 240, 119)');
     });
 
     $('#logo-img').on('mouseout', function() {
         $('#logo-img').attr('src', 'assets/logo.png');
+        $('#title-text').css('color', 'white');
+    });
+
+    $('#title-text').on('mouseover', function() {
+        $('#logo-img').attr('src', 'assets/logo-yellow.png');
+        $('#title-text').css('color', 'rgb(240, 240, 119)');
+    });
+
+    $('#title-text').on('mouseout', function() {
+        $('#logo-img').attr('src', 'assets/logo.png');
+        $('#title-text').css('color', 'white');
     });
 });

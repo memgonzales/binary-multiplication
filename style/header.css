@@ -10,7 +10,7 @@
     flex-grow: 1;
 }
 
-#logo-home {
+.redirect-home {
     text-decoration: none;
 }
 
@@ -20,12 +20,28 @@
     letter-spacing: 2px;
 }
 
-#mul-methods {
-    flex-grow: 30;
+.mul-methods {
+    flex-grow: 5;
+}
+
+.mul-methods > div {
+    text-align: center;
+}
+
+#display-mode {
+    flex-grow: 15;
+}
+
+#display-mode > div {
+    text-align: center;
+}
+
+#padding {
+    flex-grow: 1;
 }
 
 #logo img {
     margin-top: 10px;
     margin-bottom: 7px;
-    height: 50px;
+    height: 40px;
 }
