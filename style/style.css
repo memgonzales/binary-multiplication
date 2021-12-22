@@ -1,3 +1,9 @@
+:root {
+    --yellow-emphasis: rgb(240, 240, 119);
+    --gray-bg: rgb(214, 193, 193);
+    --green-emphasis: rgb(25, 44, 2);
+}
+
 html, body {
     margin: 0px;
     padding: 0px;
@@ -5,12 +11,44 @@ html, body {
 }
 
 body {
-    background-color: rgb(214, 193, 193);
+    background-color: var(--gray-bg);
+}
+
+a {
+    display: inline-block;
 }
 
 .colored {
-    background-color: rgb(25, 44, 2);
+    background-color: var(--green-emphasis);
     color: white;
+}
+
+.code {
+    font-family: 'Courier New', Arial, sans-serif;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.selected {
+    color: var(--yellow-emphasis);
+}
+
+.no-decor {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-decor:hover {
+    color: var(--yellow-emphasis);
+}
+
+.flex-container {
+    display: flex;
+    padding-left: 40px;
+    font-size: 18px;
+    flex-wrap: wrap;
 }
 
 .flex-container > div {
@@ -22,20 +60,4 @@ body {
     height: 100%;
     display: table-cell;
     vertical-align: middle;
-}
-
-.flex-container {
-    display: flex;
-    padding-left: 40px;
-    font-size: 18px;
-}
-
-.code {
-    font-family: 'Courier New', Arial, sans-serif;
-    font-size: 18px;
-    color: rgb(240, 240, 119);
-}
-
-.hidden {
-    visibility: hidden;
 }

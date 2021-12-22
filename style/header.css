@@ -10,12 +10,9 @@
     flex-grow: 1;
 }
 
-.redirect-home {
-    text-decoration: none;
-}
-
 #site-title {
-    flex-grow: 1;
+    flex-grow: 2;
+    margin-left: 5px;
     font-weight: bold;
     letter-spacing: 2px;
 }
@@ -25,7 +22,7 @@
 }
 
 .mul-methods > div {
-    text-align: center;
+    text-align: left;
 }
 
 #display-mode {
@@ -36,12 +33,32 @@
     text-align: center;
 }
 
-#padding {
+.small-padding {
     flex-grow: 1;
 }
 
 #logo img {
     margin-top: 10px;
     margin-bottom: 7px;
-    height: 40px;
+    height: 35px;
+}
+
+#pencil-logo {
+    height: 17px;
+    margin-right: 2px;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+}
+
+#booths-logo {
+    height: 17px;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+}
+
+#extended-booths-logo {
+    height: 20px;
+    margin-right: 2px;
+    vertical-align: bottom;
+    margin-bottom: 2px;
 }
