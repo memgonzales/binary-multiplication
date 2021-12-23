@@ -12,6 +12,5 @@ $(function() {
     }
 
     hoverDropdown('display-mode');
-    expandCollapseDropdown('display-mode');
-    clickDropdown('display-mode');
+    controlDropdown('display-mode');
 });

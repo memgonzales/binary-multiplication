@@ -1,0 +1,19 @@
+#workspace {
+    width: 100%;
+    min-height: calc(100vh - 30px);
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 16px;
+    background-color: white;
+}
+
+#input-numbers {
+    width: 30%;
+    background-color: blue;
+}
+
+#results {
+    width: 70%;
+    background-color: black;
+}

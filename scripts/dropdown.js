@@ -1,17 +1,27 @@
-function expandCollapseDropdown(elem) {
+function controlDropdown(elem) {
+    let isDropdownOpen = false;
+
     $('#' + elem + '-text').on('click', function() {
         $('#' + elem + '-content').css('display', 'block');
+        isDropdownOpen = true;
     });
 
     $('#' + elem + '-dropdown').on('click', function() {
         $('#' + elem + '-content').css('display', 'block');
+        isDropdownOpen = true;
     });
 
-    $('#' + elem + '-dropdown').on('blur', function() {
-        setTimeout(function() {
+    clickDropdown(elem);
+
+    $('html').on('click', function(e) {
+        if (canCloseDropdown(e, elem, isDropdownOpen)) {
             $('#' + elem + '-content').css('display', 'none');
-        }, 50);
+        }
     });
+}
+
+function canCloseDropdown(e, elem, isDropdownOpen) {
+    return !$(e.target).is($('#' + elem + '-option')) && !$(e.target).is($('#' + elem + '-text')) && isDropdownOpen;
 }
 
 function clickDropdown(elem) {
