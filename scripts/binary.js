@@ -1,9 +1,11 @@
+const numberBits = 16;
+
 function toBinaryRaw(number) {
     return (number >>> 0).toString(2);
 }
 
 function toBinary(number) {
-    if (number == -1 * Math.pow(2, 15)) {
+    if (number == -1 * Math.pow(2, numberBits - 1)) {
         return '1000000000000000';
     }
 
@@ -17,10 +19,26 @@ function toBinary(number) {
 }
 
 function toDecimalRaw(number) {
-    const [ decimal ] = new Int16Array([number]);
+    const [ decimal ] = new Int16Array(["0b".concat(number)]);
     return decimal;
 }
 
 function toDecimal(number) {
-    
+    if (number == 1) {
+        return '';
+    } else {
+        return toDecimalRaw(signExtend(number));
+    }
+}
+
+function signExtend(number) {
+    const numRemainingBits = numberBits - number.length;
+
+    let signExtended = number;
+    let msb = number[0];
+    for (let i = 0; i < numRemainingBits; i++) {
+        signExtended = msb.concat(signExtended);
+    }
+
+    return signExtended;
 }
