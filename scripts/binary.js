@@ -1,11 +1,9 @@
-const numberBits = 16;
-
 function toBinaryRaw(number) {
     return (number >>> 0).toString(2);
 }
 
 function toBinary(number) {
-    if (number == -1 * Math.pow(2, numberBits - 1)) {
+    if (number == -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
         return '1000000000000000';
     }
 
@@ -27,12 +25,12 @@ function toDecimal(number) {
     if (number == 1) {
         return '';
     } else {
-        return toDecimalRaw(signExtend(number));
+        return toDecimalRaw(signExtend(number, MAX_NUM_BITS));
     }
 }
 
-function signExtend(number) {
-    const numRemainingBits = numberBits - number.length;
+function signExtend(number, numBits) {
+    const numRemainingBits = numBits - number.length;
 
     let signExtended = number;
     let msb = number[0];

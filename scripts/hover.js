@@ -1,8 +1,3 @@
-const yellow = 'rgb(240, 240, 119)';
-const white = 'white';
-
-const dropdownSelected = false;
-
 function hoverSelectedElem(elem) {
     $('#' + elem + '-text').on('mouseover', function() {
         if ($('#' + elem + '-text').attr('class') != 'selected') {
