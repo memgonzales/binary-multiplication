@@ -8,7 +8,6 @@ function toBinary(number) {
     }
 
     const binary = toBinaryRaw(number);
-
     if (number > 0) {
         return '0'.concat(binary);
     }
@@ -18,7 +17,7 @@ function toBinary(number) {
 }
 
 function toDecimalRaw(number) {
-    const [ decimal ] = new Int16Array([0b1100110010]);
+    const [ decimal ] = new Int16Array([number]);
     return decimal;
 }
 

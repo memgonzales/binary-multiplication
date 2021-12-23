@@ -1,4 +1,4 @@
-const yellow = '--var(yellow-emphasis)';
+const yellow = 'rgb(240, 240, 119)';
 const white = 'white';
 
 const dropdownSelected = false;

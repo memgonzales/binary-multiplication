@@ -1,6 +1,5 @@
 :root {
-    --yellow-emphasis: rgb(240, 240, 119);
-    --gray-bg: rgb(214, 193, 193);
+    --gray-emphasis: rgb(177, 137, 137);
     --green-emphasis: rgb(25, 44, 2);
 }
 
@@ -50,5 +49,5 @@
 }
 
 .input-container {
-    border-left: 2px solid var(--green-emphasis);
+    border-left: 3px solid var(--gray-emphasis);
 }

@@ -1,7 +1,18 @@
 $(function() {
-    $('#multiplicand-dec').on('keyup', function() {
-        $('#multiplicand-bin').val(toBinary($('#multiplicand-dec').val()));
-    });
+    const operands = ['multiplicand', 'multiplier'];
+    const bases = ['dec', 'bin'];
 
-    alert(toDecimalRaw(1001));
+    for (const operand of operands) {
+        for (const base of bases) {
+            focusOperandBorder(operand, base);
+        }
+    }
+
+    $('#multiplicand-dec').on('keyup', function() {
+        if ($('#multiplicand-dec').val().trim().length > 0) {
+            $('#multiplicand-bin').val(toBinary($('#multiplicand-dec').val()));
+        } else {
+            $('#multiplicand-bin').val('');
+        }
+    });
 });
