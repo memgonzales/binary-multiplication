@@ -17,16 +17,16 @@ function toBinary(number) {
 }
 
 function toDecimalRaw(number) {
-    const [ decimal ] = new Int16Array(["0b".concat(number)]);
+    const [decimal] = new Int16Array(["0b".concat(number)]);
     return decimal;
 }
 
 function toDecimal(number) {
-    if (number == 1) {
+    if (number == '1') {
         return '';
-    } else {
-        return toDecimalRaw(signExtend(number, MAX_NUM_BITS));
     }
+
+    return toDecimalRaw(signExtend(number, MAX_NUM_BITS));
 }
 
 function signExtend(number, numBits) {
@@ -34,8 +34,11 @@ function signExtend(number, numBits) {
 
     let signExtended = number;
     let msb = number[0];
-    for (let i = 0; i < numRemainingBits; i++) {
-        signExtended = msb.concat(signExtended);
+
+    if (msb == '1') {
+        for (let i = 0; i < numRemainingBits; i++) {
+            signExtended = msb.concat(signExtended);
+        }
     }
 
     return signExtended;
