@@ -7,12 +7,6 @@ function expandCollapseDropdown(elem) {
         $('#' + elem + '-content').css('display', 'block');
     });
 
-    $('#' + elem + '-text').on('blur', function() {
-        setTimeout(function() {
-            $('#' + elem + '-content').css('display', 'none');
-        }, 50);
-    });
-
     $('#' + elem + '-dropdown').on('blur', function() {
         setTimeout(function() {
             $('#' + elem + '-content').css('display', 'none');

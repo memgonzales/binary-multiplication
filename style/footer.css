@@ -39,10 +39,10 @@ input[type=number] {
 
 #about-logo-div {
     text-align: right;
+    padding-right: 17px;
 }
 
 #about-logo {
-    margin-right: 17px;
     height: 20px;
     vertical-align: bottom;
     margin-bottom: 2px;
