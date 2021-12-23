@@ -16,6 +16,8 @@
         <script src = "scripts/hover.js"></script>
         <script src = "scripts/dropdown.js"></script>
         <script src = "scripts/header.js"></script>
+        <script src = "scripts/binary.js"></script>
+        <script src = "scripts/input.js"></script>
     </head>
 
     <body>
@@ -80,11 +82,43 @@
         
         <div id = "workspace" class = "flex-container">
             <div id = "input-numbers" class = "hidden">
+                <form id = "input-numbers-dec-bin">
+                    <div id = "multiplicand-div">
+                        <span>MULTIPLICAND</span> <br>
+                    </div>
+                    <div class = "input-container">
+                        <p>
+                            <label id = "multiplicand-dec-label">Decimal &nbsp;&nbsp;&nbsp;</label> 
+                            <input type = "number" id = "multiplicand-dec">
+                        </p>
+                        <p>
+                            <label>Binary</label> 
+                            <input type = "number" id = "multiplicand-bin">
+                        </p>
+                    </div>
+                </form>
 
+                <br>
+
+                <form id = "input-numbers-dec-bin">
+                    <div id = "multiplicand-div">
+                        <span>MULTIPLIER</span> <br>
+                    </div>
+                    <div class = "input-container">
+                        <p>
+                            <label id = "multiplier-dec-label">Decimal &nbsp;&nbsp;&nbsp;</label> 
+                            <input type = "number" id = "multiplier-dec">
+                        </p>
+                        <p>
+                            <label id = "multiplier-bin-label">Binary</label> 
+                            <input type = "number" id = "multiplier-bin">
+                        </p>
+                    </div>
+                </form>
             </div>
 
             <div id = "results" class = "hidden">
-
+                
             </div>
         </div>
 

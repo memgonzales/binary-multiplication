@@ -1,3 +1,9 @@
+:root {
+    --yellow-emphasis: rgb(240, 240, 119);
+    --gray-bg: rgb(214, 193, 193);
+    --green-emphasis: rgb(25, 44, 2);
+}
+
 #workspace {
     width: 100%;
     min-height: calc(100vh - 30px);
@@ -5,15 +11,44 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 16px;
-    background-color: white;
+    color: var(--green-emphasis);
 }
 
 #input-numbers {
-    width: 30%;
-    background-color: blue;
+    flex: 1;
+    padding-top: 60px;
+    padding-left: 40px;
+    padding-right: 30px;
 }
 
 #results {
-    width: 70%;
-    background-color: black;
+    flex: 3;
+}
+
+#multiplicand-div {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#input-numbers-dec-bin {
+    display: table;
+}
+
+#input-numbers-dec-bin p {
+    display: table-row;
+}
+
+#input-numbers-dec-bin label {
+    display: table-cell;
+    padding-left: 15px;
+}
+
+#multiplicand-dec-label, #multiplier-dec-label {
+    padding-bottom: 10px;
+}
+
+.input-container {
+    border-left: 2px solid var(--green-emphasis);
 }
