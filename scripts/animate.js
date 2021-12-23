@@ -42,7 +42,6 @@ function animateTitle() {
     setTimeout(function() {
         $('#title-logo').attr('src', 'assets/title.PNG');
         $('#title-text').html('BINARY<span style = "margin-left: 11px;"></span>MULTIPLICATION');
-
         $('.hidden').css('visibility', 'visible');
     }, 9 * timer);
 }

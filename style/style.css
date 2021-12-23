@@ -18,6 +18,10 @@ a {
     display: inline-block;
 }
 
+a:hover {
+    color: var(--yellow-emphasis);
+}
+
 i {
     cursor: pointer;
 }

@@ -2,15 +2,16 @@ $(function() {
     animateTitle();
 
     const mulMethods = ['pencil', 'booths', 'extended-booths'];
-    for (let mulMethod of mulMethods) {
+    for (const mulMethod of mulMethods) {
         hoverSelectedElem(mulMethod);
     }
 
     const elems = ['title', 'about', 'save'];
-    for (let elem of elems) {
+    for (const elem of elems) {
         hoverElem(elem);
     }
 
     hoverDropdown('display-mode');
     expandCollapseDropdown('display-mode');
+    clickDropdown('display-mode');
 });
