@@ -1,14 +1,24 @@
-function controlDropdown(elem) {
-    let isDropdownOpen = false;
+let isDropdownOpen = false;
 
+function controlDropdown(elem) {
     $('#' + elem + '-text').on('click', function() {
-        $('#' + elem + '-content').css('display', 'block');
-        isDropdownOpen = true;
+        if (!isDropdownOpen) {
+            $('#' + elem + '-content').css('display', 'block');
+        } else {
+            $('#' + elem + '-content').css('display', 'none');
+        }
+
+        isDropdownOpen = !isDropdownOpen;
     });
 
     $('#' + elem + '-dropdown').on('click', function() {
-        $('#' + elem + '-content').css('display', 'block');
-        isDropdownOpen = true;
+        if (!isDropdownOpen) {
+            $('#' + elem + '-content').css('display', 'block');
+        } else {
+            $('#' + elem + '-content').css('display', 'none');
+        }
+
+        isDropdownOpen = !isDropdownOpen;
     });
 
     clickDropdown(elem);
@@ -16,12 +26,16 @@ function controlDropdown(elem) {
     $('html').on('click', function(e) {
         if (canCloseDropdown(e, elem, isDropdownOpen)) {
             $('#' + elem + '-content').css('display', 'none');
+            isDropdownOpen = false;
         }
     });
 }
 
 function canCloseDropdown(e, elem, isDropdownOpen) {
-    return !$(e.target).is($('#' + elem + '-option')) && !$(e.target).is($('#' + elem + '-text')) && isDropdownOpen;
+    return !$(e.target).is($('#' + elem + '-option')) && 
+        !$(e.target).is($('#' + elem + '-text')) && 
+        !$(e.target).is($('#' + elem + '-dropdown')) &&
+        isDropdownOpen;
 }
 
 function clickDropdown(elem) {
@@ -32,5 +46,7 @@ function clickDropdown(elem) {
         $('#' + elem + '-content').css('display', 'none');
         $('#' + elem + '-text').text(selectedOption);
         $('#' + elem + '-option').text(currentOption);
+
+        isDropdownOpen = false;
     });
 }
