@@ -1,5 +1,26 @@
 let isDropdownOpen = false;
 
+function hoverDropdown(elem) {    
+    $('#' + elem + '-text').on('mouseover', function() {
+        $('#' + elem + '-dropdown').css('color', yellow);
+        $('#' + elem + '-text').css('color', yellow);
+    });
+
+    $('#' + elem + '-text').on('mouseout', function() {
+        $('#' + elem + '-dropdown').css('color', white);
+        $('#' + elem + '-text').css('color', white);
+    });
+
+    $('#' + elem + '-dropdown').on('mouseover', function() {
+        $('#' + elem + '-dropdown').css('color', yellow);
+        $('#' + elem + '-text').css('color', yellow);    });
+
+    $('#' + elem + '-dropdown').on('mouseout', function() {
+        $('#' + elem + '-dropdown').css('color', white);
+        $('#' + elem + '-text').css('color', white);
+    });
+}
+
 function controlDropdown(elem) {
     $('#' + elem + '-text').on('click', function() {
         if (!isDropdownOpen) {

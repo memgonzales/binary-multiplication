@@ -78,7 +78,7 @@ button:hover {
 }
 
 .selected {
-    color: var(--yellow-emphasis);
+    color: var(--yellow-emphasis) !important;
 }
 
 .no-decor {

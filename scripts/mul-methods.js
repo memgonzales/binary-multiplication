@@ -50,23 +50,15 @@ function hoverElem(elem) {
     });
 }
 
-function hoverDropdown(elem) {    
-    $('#' + elem + '-text').on('mouseover', function() {
-        $('#' + elem + '-dropdown').css('color', yellow);
-        $('#' + elem + '-text').css('color', yellow);
-    });
+function clickMulMethod(elems, clickedElem) {
+    $('#' + clickedElem + '-text').on('click', function() {
+        for (const elem of elems) {
+            $('#' + elem + '-logo').attr('src', 'assets/' + elem + '.png');
+            $('#' + elem + '-text').css('color', white);
+            $('#' + elem + '-text').removeClass('selected');
+        }
 
-    $('#' + elem + '-text').on('mouseout', function() {
-        $('#' + elem + '-dropdown').css('color', white);
-        $('#' + elem + '-text').css('color', white);
-    });
-
-    $('#' + elem + '-dropdown').on('mouseover', function() {
-        $('#' + elem + '-dropdown').css('color', yellow);
-        $('#' + elem + '-text').css('color', yellow);    });
-
-    $('#' + elem + '-dropdown').on('mouseout', function() {
-        $('#' + elem + '-dropdown').css('color', white);
-        $('#' + elem + '-text').css('color', white);
+        $('#' + clickedElem + '-logo').attr('src', 'assets/' + clickedElem + '-yellow.png');
+        $('#' + clickedElem + '-text').addClass('selected');
     });
 }
