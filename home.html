@@ -11,7 +11,9 @@
         <link rel = "stylesheet" href = "style/footer.css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "scripts/animate.js"></script>
         <script src = "scripts/hover.js"></script>
+        <script src = "scripts/dropdown.js"></script>
         <script src = "scripts/header.js"></script>
     </head>
 
@@ -62,8 +64,14 @@
 
             <div id = "display-mode" class = "hidden">
                 <div class = "inner">
-                    <a class = "no-decor"><span id = "display-mode-text">Step by Step</span></a> &nbsp;
-                    <i id = "display-mode-dropdown" class = "fa fa-caret-down"></i>
+                    <div id = "display-mode-container">
+                        <a class = "no-decor"><span id = "display-mode-text" tabindex = "0">Step by Step</span></a> &nbsp;
+                        <i id = "display-mode-dropdown" class = "fa fa-caret-down"></i> &nbsp;
+
+                        <div id = "display-mode-content">
+                            <span>Show All Steps</span>
+                        </div>
+                    </div>
                 </div>    
 
             </div>

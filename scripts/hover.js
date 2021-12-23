@@ -1,6 +1,8 @@
 const yellow = 'rgb(240, 240, 119)';
 const white = 'white';
 
+const dropdownSelected = false;
+
 function hoverSelectedElem(elem) {
     $('#' + elem + '-text').on('mouseover', function() {
         if ($('#' + elem + '-text').attr('class') != 'selected') {
@@ -53,7 +55,7 @@ function hoverElem(elem) {
     });
 }
 
-function hoverDropdown(elem) {
+function hoverDropdown(elem) {    
     $('#' + elem + '-text').on('mouseover', function() {
         $('#' + elem + '-dropdown').css('color', yellow);
         $('#' + elem + '-text').css('color', yellow);
@@ -66,8 +68,7 @@ function hoverDropdown(elem) {
 
     $('#' + elem + '-dropdown').on('mouseover', function() {
         $('#' + elem + '-dropdown').css('color', yellow);
-        $('#' + elem + '-text').css('color', yellow);
-    });
+        $('#' + elem + '-text').css('color', yellow);    });
 
     $('#' + elem + '-dropdown').on('mouseout', function() {
         $('#' + elem + '-dropdown').css('color', white);
