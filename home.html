@@ -14,7 +14,10 @@
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <!-- JS files containing constants and strings -->
         <script src = "scripts/constants.js"></script>
+        <script src = "scripts/colors.js"></script>
+        <script src = "scripts/trivia.js"></script>
 
         <script src = "scripts/animate.js"></script>
         <script src = "scripts/hover.js"></script>
@@ -25,6 +28,8 @@
         <script src = "scripts/focus.js"></script>
         <script src = "scripts/input-util.js"></script>
         <script src = "scripts/input.js"></script>
+
+        <script src = "scripts/extended-booths.js"></script>
     </head>
 
     <body>
@@ -103,11 +108,9 @@
                             <input type = "number" id = "multiplicand-bin">
                         </p>
                     </div>
-                </form>
 
-                <br>
+                    <br>
 
-                <form id = "input-numbers-dec-bin">
                     <div id = "multiplicand-div">
                         <span>Multiplier</span> <br>
                     </div>
@@ -119,6 +122,26 @@
                         <p>
                             <label id = "multiplier-bin-label">Binary</label> 
                             <input type = "number" id = "multiplier-bin">
+                        </p>
+                    </div>
+
+                    <br>
+
+                    <div id = "multiply-div">
+                        <div>
+                            <button id = "multiply" type = "button">MULTIPLY</button>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id = "trivia-div">
+                        <p>
+                            <span id = "trivia-header">Did You Know? </span> 
+                            <span id = "trivia-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Proin in nisl nec metus tristique mattis. Vestibulum ante ipsum primis in faucibus 
+                            </span>
                         </p>
                     </div>
                 </form>
@@ -155,7 +178,6 @@
                     <a class = "no-decor"><span id = "save-text">Export Steps to Text File</span></a>
                 </div>
             </div>
-            
         </div>
     </body>
 </html>

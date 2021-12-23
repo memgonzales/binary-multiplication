@@ -1,0 +1,2 @@
+const pencilTrivia = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nisl nec metus tristique mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;'
+const extendedBoothsTrivia = 'In 2008, an extension of Booth\'s algorithm for multipyling three operands on FPGAs was proposed by Israeli researchers Y. Ben Asher and E. Stein&nbsp; <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/document/4762411" target = "_blank"><i class = "fa fa-external-link no-hover"></i></a>'

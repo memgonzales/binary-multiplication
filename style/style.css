@@ -22,12 +22,20 @@ a:hover {
     color: var(--yellow-emphasis);
 }
 
+a.trivia {
+    color: var(--green-emphasis);
+}
+
 i {
     cursor: pointer;
 }
 
 i:hover {
     color: var(--yellow-emphasis);
+}
+
+.no-hover:hover {
+    color: var(--green-emphasis);
 }
 
 input[type=number] {
@@ -39,6 +47,21 @@ input[type=number] {
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0px;
+}
+
+button {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--green-emphasis);
+    border: 0px;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(16, 26, 3);
 }
 
 .colored {
