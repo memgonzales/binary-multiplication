@@ -8,7 +8,6 @@
     min-height: calc(100vh - 30px);
     padding: 0px;
     margin-left: 30%;                   /* Should be greater than width of #input-numbers */
-    margin-right: 0px;
     margin-top: 20px;
     color: var(--green-emphasis);
 }

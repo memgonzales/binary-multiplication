@@ -74,6 +74,7 @@ function showTrivia(index) {
 
 function showAlgoName(index) { 
     $('#algo-name').text(algoNames[index]);
+    $('#algo-value').text(algoNames[index]);
 }
 
 function showAlgoSteps(index) { 
