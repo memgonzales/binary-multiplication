@@ -11,6 +11,7 @@
         <link rel = "stylesheet" href = "style/header.css">
         <link rel = "stylesheet" href = "style/footer.css">
 
+        <link rel = "stylesheet" href = "style/workspace.css">
         <link rel = "stylesheet" href = "style/input.css">
         <link rel = "stylesheet" href = "style/results.css">
 
@@ -19,7 +20,7 @@
         <!-- JS files containing constants and strings -->
         <script src = "scripts/constants.js"></script>
         <script src = "scripts/colors.js"></script>
-        <script src = "scripts/trivia.js"></script>
+        <script src = "scripts/algo-strings.js"></script>
 
         <!-- JS files related to behaviors in the header (navigation bar) and footer -->
         <script src = "scripts/animate.js"></script>
@@ -33,7 +34,9 @@
         <script src = "scripts/input-util.js"></script>
         <script src = "scripts/input.js"></script>
 
-        <!-- JS files related to behaviors in the implementation of extended Booth's algorithm -->
+        <!-- JS files related to behaviors in the implementation of the multiplication algorithms -->
+        <script src = "scripts/algo.js"></script>
+
         <script src = "scripts/extended-booths-util.js"></script>
         <script src = "scripts/extended-booths.js"></script>
     </head>
@@ -117,7 +120,7 @@
 
                     <br>
 
-                    <div id = "multiplicand-div">
+                    <div id = "multiplier-div">
                         <span>Multiplier</span> <br>
                     </div>
                     <div id = "multiplier-container" class = "input-container">
@@ -154,8 +157,15 @@
             </div>
 
             <div id = "results" class = "hidden">
-                <div id = "algo-header">
+                <div id = "algo-name">
                     Pencil-and-Paper Method
+                </div>
+
+                <div id = "algo-steps">
+                    <p>
+                        1. Lorem ipsum <br>
+                        2. Shoobie doobie
+                    </p>
                 </div>
             </div>
         </div>

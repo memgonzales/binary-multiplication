@@ -1,0 +1,19 @@
+:root {
+    --gray-emphasis: rgb(177, 137, 137);
+    --green-emphasis: rgb(25, 44, 2);
+}
+
+#algo-name {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+#algo-steps {
+    padding-left: 40px;
+}
+
+#algo-steps p {
+    line-height: 1.8;
+}

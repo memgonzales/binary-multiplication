@@ -3,28 +3,7 @@
     --green-emphasis: rgb(25, 44, 2);
 }
 
-#workspace {
-    width: 100%;
-    min-height: calc(100vh - 30px);
-    padding: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 16px;
-    color: var(--green-emphasis);
-}
-
-#input-numbers {
-    flex: 1;
-    padding-top: 60px;
-    padding-left: 40px;
-    padding-right: 30px;
-}
-
-#results {
-    flex: 3;
-}
-
-#multiplicand-div {
+#multiplicand-div, #multiplier-div {
     font-size: 22px;
     font-weight: bold;
     padding-top: 10px;
@@ -81,6 +60,8 @@
 
 #trivia-div {
     font-size: 15px;
+    line-height: 1.5;
+    padding-bottom: 80px;
 }
 
 #trivia-header {
