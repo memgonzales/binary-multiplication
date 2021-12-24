@@ -6,13 +6,13 @@
 #algo-name {
     font-size: 22px;
     font-weight: bold;
-    padding-top: 10px;
+    padding-top: 9px;
     padding-left: 40px;
 }
 
 #algo-steps {
     padding-left: 40px;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     line-height: 1.8;
 }
 
@@ -24,21 +24,25 @@
     margin-left: 60px;
 }
 
-.recoding {
+.procedure {
     border-collapse: collapse;
     margin-top: 15px;
     margin-bottom: 20px;
 }
 
-.recoding tr:nth-child(2) {
+.merged tr:nth-child(2) {
     border-bottom: 1px solid var(--green-emphasis);
 }
 
-.recoding tr:first-child {
+.procedure tr:first-child {
     border-bottom: 1px solid var(--green-emphasis);
 }
 
-.recoding tr td, th {
+.procedure tr:last-child {
+    border-bottom: 1px solid var(--green-emphasis);
+}
+
+.procedure tr td, th {
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;

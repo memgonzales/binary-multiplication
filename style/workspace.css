@@ -9,14 +9,14 @@
     padding: 0px;
     margin-left: 30%;                   /* Should be greater than width of #input-numbers */
     margin-right: 0px;
-    margin-top: 16px;
+    margin-top: 20px;
     color: var(--green-emphasis);
 }
 
 #input-numbers {
     width: 25%;
     height: calc(100% - 126px);
-    padding-top: 16px;
+    padding-top: 20px;
     padding-left: 40px;
     padding-right: 30px;
     position: fixed;

@@ -44,7 +44,7 @@ reduces the number of intermediate summands by half. <br> <br>
 <span class = "indented">2. &nbsp; If the multiplier has an odd number of bits (prior to appending 0), 
 perform sign extension. <br>
 <span class = "indented">3. &nbsp; Perform bit-pair recoding starting at the least significant bit.
-<table class = "indented-2 recoding">
+<table class = "indented-2 procedure merged">
     <tr>
         <th rowspan = "2"><em>b</em><sub>2</sub><em>b</em><sub>1</sub><em>b</em><sub>0</sub></th>  
         <th rowspan = "2">Recoding<sub></sub></th>
@@ -114,6 +114,31 @@ perform sign extension. <br>
 </table>
 <span><b>D. &nbsp; Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier
 is negative.</b></span><br>
-<span class = "indented">1. </span>`
+<table class = "indented-2 procedure">
+    <tr>
+        <th>Multiply by</th>
+        <th>Procedure</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>+1</td>
+        <td>Itself</td>
+    </tr>
+    <tr>
+        <td>-1</td>
+        <td>Two's complement</td>
+    </tr>
+    <tr>
+        <td>+2</td>
+        <td>Left arithmetic shift (append 0 to the least significant bit)</td>
+    </tr>
+    <tr>
+        <td>-2</td>
+        <td>Two's complement, then left arithmetic shift</td>
+    </tr>
+</table>`
 
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
