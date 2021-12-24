@@ -1,3 +1,6 @@
+/* -- ALGORITHM NAMES -- */
+const algoNames = ['Pencil-and-Paper Method', 'Booth\'s Algorithm', 'Extended Booth\'s Algorithm'];
+
 /* --- TRIVIA HEADER --- */
 const pencilTriviaHeader = '. ';
 const boothsTriviaHeader = '. ';
@@ -7,11 +10,10 @@ const triviaHeaders = [pencilTriviaHeader, boothsTriviaHeader, extendedBoothsTri
 
 /* --- TRIVIA --- */
 const pencilTrivia = 
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Proin in nisl nec metus tristique mattis. Vestibulum ante ipsum primis in faucibus orci luctus 
-et ultrices posuere cubilia curae;`
+    ``;
 
-const boothsTrivia = ``;
+const boothsTrivia = 
+    ``;
 
 const extendedBoothsTrivia = 
     `In 2008, an extension of Booth's algorithm for multiplying three operands on FPGAs 
@@ -22,10 +24,12 @@ was proposed by Israeli researchers Yosi Ben Asher and Esti Stein&nbsp;
 const trivia = [pencilTrivia, boothsTrivia, extendedBoothsTrivia];
 
 /* --- ALGORITHM --- */
-const pencilAlgo = ``;
-const boothsAlgo = ``;
+const pencilAlgo = 
+    ``;
+const boothsAlgo = 
+    ``;
 const extendedBoothsAlgo = 
-    `1. Represent the operands in two's complement using the fewest number of bits. <br>
-2. Perform sign extension`
+    `A. Represent the operands in two's complement using the fewest number of bits. <br>
+B. Perform sign extension`
 
 const algo = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];

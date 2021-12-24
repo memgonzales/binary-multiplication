@@ -56,7 +56,7 @@ function hoverElem(elem) {
     });
 }
 
-function clickMulMethodElem(elems, clickedElem) {
+function clickMulMethodUtil(elems, clickedElem) {
     for (const elem of elems) {
         $('#' + elem + '-logo').attr('src', 'assets/' + elem + '.png');
         $('#' + elem + '-text').css('color', white);
@@ -67,12 +67,28 @@ function clickMulMethodElem(elems, clickedElem) {
     $('#' + clickedElem + '-text').addClass('selected');
 }
 
+function showTrivia(index) { 
+    $('#trivia-header').text(triviaHeaders[index]);
+    $('#trivia-body').html(trivia[index]);
+}
+
+function showAlgoName(index) { 
+    $('#algo-name').text(algoNames[index]);
+    $('#algo-name').html(algoNames[index]);
+}
+
 function clickMulMethod(elems, clickedElem) {
+    const index = elems.indexOf(clickedElem);
+
     $('#' + clickedElem + '-text').on('click', function() {
-        clickMulMethodElem(elems, clickedElem);
+        clickMulMethodUtil(elems, clickedElem);
+        showTrivia(index);
+        showAlgoName(index);
     });
 
     $('#' + clickedElem + '-logo').on('click', function() {
-        clickMulMethodElem(elems, clickedElem);
+        clickMulMethodUtil(elems, clickedElem);
+        showTrivia(index);
+        showAlgoName(index);
     });
 }

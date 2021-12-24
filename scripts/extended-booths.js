@@ -1,3 +1,3 @@
 $(function() {
-    showTrivia('extended-booths');
+    
 });
