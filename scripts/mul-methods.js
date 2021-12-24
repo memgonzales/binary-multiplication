@@ -74,8 +74,12 @@ function showTrivia(index) {
 
 function showAlgoName(index) { 
     $('#algo-name').text(algoNames[index]);
-    $('#algo-name').html(algoNames[index]);
 }
+
+function showAlgoSteps(index) { 
+    $('#algo-steps').html(algoSteps[index]);
+}
+
 
 function clickMulMethod(elems, clickedElem) {
     const index = elems.indexOf(clickedElem);
@@ -84,11 +88,13 @@ function clickMulMethod(elems, clickedElem) {
         clickMulMethodUtil(elems, clickedElem);
         showTrivia(index);
         showAlgoName(index);
+        showAlgoSteps(index);
     });
 
     $('#' + clickedElem + '-logo').on('click', function() {
         clickMulMethodUtil(elems, clickedElem);
         showTrivia(index);
         showAlgoName(index);
+        showAlgoSteps(index);
     });
 }

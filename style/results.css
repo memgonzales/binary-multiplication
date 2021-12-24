@@ -12,8 +12,14 @@
 
 #algo-steps {
     padding-left: 40px;
+    padding-bottom: 80px;
+    line-height: 1.8;
 }
 
-#algo-steps p {
-    line-height: 1.8;
+.indented {
+    margin-left: 30px;
+}
+
+.indented-2 {
+    margin-left: 60px;
 }

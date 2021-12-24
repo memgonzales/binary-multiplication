@@ -4,24 +4,29 @@
 }
 
 #workspace {
-    width: 100%;
+    width: 70%;                         /* Calculated as 100% - margin-left */
     min-height: calc(100vh - 30px);
     padding: 0px;
-    margin-left: 0px;
+    margin-left: 30%;                   /* Should be greater than width of #input-numbers */
     margin-right: 0px;
     margin-top: 16px;
     color: var(--green-emphasis);
 }
 
 #input-numbers {
-    flex: 1;
-    padding-top: 60px;
+    width: 25%;
+    padding-top: 16px;
     padding-left: 40px;
     padding-right: 30px;
+    position: fixed;
+    left: 0px;
+    top: 60px;
 }
 
 #results {
-    flex: 3;
+    flex: 2.5;
     padding-top: 60px;
-    padding-right: 30px;
+    padding-right: 40px;
+    font-size: 16px;
+    overflow: scroll;
 }
