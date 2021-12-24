@@ -1,6 +1,6 @@
 :root {
     --yellow-emphasis: rgb(240, 240, 119);
-    --gray-bg: rgb(214, 193, 193);
+    --gray-bg: rgba(233,229,231,255);
     --green-emphasis: rgb(25, 44, 2);
 }
 

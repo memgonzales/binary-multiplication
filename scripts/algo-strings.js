@@ -113,7 +113,9 @@ perform sign extension. <br>
     </tr>
 </table>
 <span><b>D. &nbsp; Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier
-is negative.</b></span><br>
+is negative. <br>
+<span>&nbsp;&nbsp; &nbsp; &nbsp; Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each intermediate
+product.</b></span><br>
 <table class = "indented-2 procedure">
     <tr>
         <th>Multiply by</th>
