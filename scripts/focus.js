@@ -1,9 +1,17 @@
+function focusOperandBorderUtilGreen(operand, base) {
+    $('#' + operand + '-container').css('border-left', '3px solid ' + green);
+}
+
+function focusOperandBorderUtilGray(operand, base) {
+    $('#' + operand + '-container').css('border-left', '3px solid ' + gray);
+}
+
 function focusOperandBorder(operand, base) {
     $('#' + operand + '-' + base).on('focus', function() {
-        $('#' + operand + '-container').css('border-left', '3px solid ' + green);
+        focusOperandBorderUtilGreen(operand, base);
     });
 
     $('#' + operand + '-' + base).on('blur', function() {
-        $('#' + operand + '-container').css('border-left', '3px solid ' + gray);
+        focusOperandBorderUtilGray(operand, base); 
     });
 }

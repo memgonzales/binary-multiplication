@@ -1,45 +1,50 @@
 let isDropdownOpen = false;
 
+function hoverDropdownUtilYellow(elem) {
+    $('#' + elem + '-dropdown').css('color', yellow);
+    $('#' + elem + '-text').css('color', yellow);
+}
+
+function hoverDropdownUtilWhite(elem) {
+    $('#' + elem + '-dropdown').css('color', white);
+    $('#' + elem + '-text').css('color', white);
+}
+
 function hoverDropdown(elem) {    
     $('#' + elem + '-text').on('mouseover', function() {
-        $('#' + elem + '-dropdown').css('color', yellow);
-        $('#' + elem + '-text').css('color', yellow);
+        hoverDropdownUtilYellow(elem);
     });
 
     $('#' + elem + '-text').on('mouseout', function() {
-        $('#' + elem + '-dropdown').css('color', white);
-        $('#' + elem + '-text').css('color', white);
+        hoverDropdownUtilWhite(elem);
     });
 
     $('#' + elem + '-dropdown').on('mouseover', function() {
-        $('#' + elem + '-dropdown').css('color', yellow);
-        $('#' + elem + '-text').css('color', yellow);    });
+        hoverDropdownUtilYellow(elem);
+    });
 
     $('#' + elem + '-dropdown').on('mouseout', function() {
-        $('#' + elem + '-dropdown').css('color', white);
-        $('#' + elem + '-text').css('color', white);
+        hoverDropdownUtilWhite(elem);
     });
+}
+
+function controlDropdownUtil(elem) {
+    if (!isDropdownOpen) {
+        $('#' + elem + '-content').css('display', 'block');
+    } else {
+        $('#' + elem + '-content').css('display', 'none');
+    }
+
+    isDropdownOpen = !isDropdownOpen;
 }
 
 function controlDropdown(elem) {
     $('#' + elem + '-text').on('click', function() {
-        if (!isDropdownOpen) {
-            $('#' + elem + '-content').css('display', 'block');
-        } else {
-            $('#' + elem + '-content').css('display', 'none');
-        }
-
-        isDropdownOpen = !isDropdownOpen;
+        controlDropdownUtil(elem);
     });
 
     $('#' + elem + '-dropdown').on('click', function() {
-        if (!isDropdownOpen) {
-            $('#' + elem + '-content').css('display', 'block');
-        } else {
-            $('#' + elem + '-content').css('display', 'none');
-        }
-
-        isDropdownOpen = !isDropdownOpen;
+        controlDropdownUtil(elem);
     });
 
     clickDropdown(elem);
