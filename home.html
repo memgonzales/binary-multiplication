@@ -10,7 +10,9 @@
         <link rel = "stylesheet" href = "style/style.css">
         <link rel = "stylesheet" href = "style/header.css">
         <link rel = "stylesheet" href = "style/footer.css">
-        <link rel = "stylesheet" href = "style/workspace.css">
+
+        <link rel = "stylesheet" href = "style/input.css">
+        <link rel = "stylesheet" href = "style/results.css">
 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -109,7 +111,7 @@
                         </p>
                         <p>
                             <label>Binary</label> 
-                            <input type = "number" id = "multiplicand-bin">
+                            <input type = "number" id = "multiplicand-bin" pattern = "[0-9]+">
                         </p>
                     </div>
 
@@ -152,7 +154,9 @@
             </div>
 
             <div id = "results" class = "hidden">
-                
+                <div id = "algo-header">
+                    Pencil-and-Paper Method
+                </div>
             </div>
         </div>
 
