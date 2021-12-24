@@ -23,3 +23,23 @@
 .indented-2 {
     margin-left: 60px;
 }
+
+.recoding {
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.recoding tr:nth-child(2) {
+    border-bottom: 1px solid var(--green-emphasis);
+}
+
+.recoding tr:first-child {
+    border-bottom: 1px solid var(--green-emphasis);
+}
+
+.recoding tr td, th {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}

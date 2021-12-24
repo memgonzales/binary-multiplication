@@ -44,15 +44,76 @@ reduces the number of intermediate summands by half. <br> <br>
 <span class = "indented">2. &nbsp; If the multiplier has an odd number of bits (prior to appending 0), 
 perform sign extension. <br>
 <span class = "indented">3. &nbsp; Perform bit-pair recoding starting at the least significant bit.
-<table class = "indented">
+<table class = "indented-2 recoding">
     <tr>
-        <td>b</em><sub>2</sub><em>b</em><sub>1</sub>b</em><sub>0</sub></td>  
+        <th rowspan = "2"><em>b</em><sub>2</sub><em>b</em><sub>1</sub><em>b</em><sub>0</sub></th>  
+        <th rowspan = "2">Recoding<sub></sub></th>
+        <th colspan = "3">Mnemonic<sub></sub></th>
+    </tr>
+    <tr>
         <td>Booth's of <em>b</em><sub>2</sub><em>b</em><sub>1</sub></td>
         <td>Booth's of <em>b</em><sub>1</sub><em>b</em><sub>0</sub></td>
-        <td>Derivation</td>
-        <td>Recoding</td>
+        <td>Derivation<sub></sub></td>
     </tr>
-    
-</table>`
+    <tr>
+        <td><b>000</b></td>
+        <td><b>0</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0 &times; 2 + 0 </td>
+    </tr>
+    <tr>
+        <td><b>001</b></td>
+        <td><b>+1</b></td>
+        <td>0</td>
+        <td>1</td>
+        <td>0 &times; 2 + 1 </td>
+    </tr>
+    <tr>
+        <td><b>010</b></td>
+        <td><b>+1</b></td>
+        <td>1</td>
+        <td>-1</td>
+        <td>1 &times; 2 -1 </td>
+    </tr>
+    <tr>
+        <td><b>011</b></td>
+        <td><b>+2</b></td>
+        <td>1</td>
+        <td>0</td>
+        <td>1 &times; 2 + 0 </td>
+    </tr>
+    <tr>
+        <td><b>100</b></td>
+        <td><b>-2</b></td>
+        <td>-1</td>
+        <td>0</td>
+        <td>-1 &times; 2 + 0 </td>
+    </tr>
+    <tr>
+        <td><b>101</b></td>
+        <td><b>-1</b></td>
+        <td>-1</td>
+        <td>1</td>
+        <td>-1 &times; 2 + 1 </td>
+    </tr>
+    <tr>
+        <td><b>110</b></td>
+        <td><b>-1</b></td>
+        <td>0</td>
+        <td>-1</td>
+        <td>0 &times; 2 - 1 </td>
+    </tr>
+    <tr>
+        <td><b>111</b></td>
+        <td><b>0</b></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0 &times; 2 + 0 </td>
+    </tr>
+</table>
+<span><b>D. &nbsp; Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier
+is negative.</b></span><br>
+<span class = "indented">1. </span>`
 
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];

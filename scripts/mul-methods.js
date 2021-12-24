@@ -80,7 +80,6 @@ function showAlgoSteps(index) {
     $('#algo-steps').html(algoSteps[index]);
 }
 
-
 function clickMulMethod(elems, clickedElem) {
     const index = elems.indexOf(clickedElem);
 
