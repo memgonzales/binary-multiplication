@@ -158,11 +158,30 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     incrementStepNumber();
 }
 
+function extendedBoothsDisplayStepD() {
+    const contents = $('#algo-steps').html();
+    $('#algo-steps').html(`${contents}${extendedBoothsStepD}${extendedBoothsStepDShowTable}${extendedBoothsStepDTableProvision}`);
+
+    incrementStepNumber();
+}
+
 function showExtendedBoothsRecoding() {
     if ($('#extended-booths-step-c-table-provision').html() == '') {
         $('#extended-booths-step-c-table-provision').html(`${extendedBoothsStepCTable}`);
+        $('#show-hide-extended-booths-recoding').text('hide');
     } else {
         $('#extended-booths-step-c-table-provision').html('');
+        $('#show-hide-extended-booths-recoding').text('show');
+    }
+}
+
+function showExtendedBoothsOperations() {
+    if ($('#extended-booths-step-d-table-provision').html() == '') {
+        $('#extended-booths-step-d-table-provision').html(`${extendedBoothsStepDTable}`);
+        $('#show-hide-extended-booths-operations').text('hide');
+    } else {
+        $('#extended-booths-step-d-table-provision').html('');
+        $('#show-hide-extended-booths-operations').text('show');
     }
 }
 
@@ -194,9 +213,11 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin) {
                 extendedBoothsDisplayStepC3();
             } else if (stepNumber <= 6 + numDigitsRecoding) {
                 extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
+            } else if (stepNumber == 7 + numDigitsRecoding) {
+                extendedBoothsDisplayStepD();
             }
 
-            window.scrollTo(0,document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
         }
     });
 }

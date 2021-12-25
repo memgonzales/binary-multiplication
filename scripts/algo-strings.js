@@ -78,8 +78,8 @@ const extendedBoothsStepC =
 const extendedBoothsStepCShowTable = 
     `<br><span class = "indented">
         &nbsp;&nbsp;&nbsp; &nbsp; 
-        Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0,document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
-        to show/hide the recoding table.
+        Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        to <span id = "show-hide-extended-booths-recoding">show</span> the recoding table.
     </span>`;
 
 const extendedBoothsStepCTableProvision = 
@@ -162,6 +162,16 @@ const extendedBoothsStepD =
             &nbsp;&nbsp; &nbsp; &nbsp; Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
             intermediate product.</b>
         </span><br>`;
+
+const extendedBoothsStepDShowTable = 
+        `<span>
+            &nbsp;&nbsp; &nbsp; &nbsp; 
+            Click <a onclick = "showExtendedBoothsOperations(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+            to <span id = "show-hide-extended-booths-operations">show</span> the multiplication guide.
+        </span>`;
+
+const extendedBoothsStepDTableProvision = 
+        `<span id = "extended-booths-step-d-table-provision"></span>`;
 
 const extendedBoothsStepDTable = 
     `<table class = "indented-2 procedure">
