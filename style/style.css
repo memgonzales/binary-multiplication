@@ -28,6 +28,12 @@ a.trivia {
     color: var(--green-emphasis);
 }
 
+a.with-underline {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--green-emphasis) !important;
+}
+
 i {
     cursor: pointer;
 }

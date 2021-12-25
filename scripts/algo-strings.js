@@ -76,9 +76,13 @@ const extendedBoothsStepC =
     ${extendedBoothsStepC3}`;
 
 const extendedBoothsStepCShowTable = 
-    `<span class = "indented-2"><br>
-        &nbsp;&nbsp; &nbsp; &nbsp; Click <a class = "with-underline no-hover">here</a> to open the bit-pair recoding table.
+    `<br><span class = "indented">
+        &nbsp;&nbsp;&nbsp; &nbsp; Click <a class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        to show/hide the recoding table.
     </span>`;
+
+const extendedBoothsStepCTableProvision = 
+    `<span id = "extended-booths-step-c-table-provision"></span>`;
 
 const extendedBoothsStepCTable =
     `<table class = "indented-2 procedure merged">
