@@ -4,12 +4,17 @@ function toBinaryRaw(number) {
 
 function toBinary(number) {
     if (number == -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
-        return '1000000000000000';
+        let minBinary = '1';
+        for (let i = 0; i < MAX_NUM_BITS - 1; i++) {
+            minBinary = `${minBinary}0`
+        }
+
+        return minBinary;
     }
 
     const binary = toBinaryRaw(number);
     if (number > 0) {
-        return '0'.concat(binary);
+        return `0${binary}`;
     }
 
     const invBinary = toBinaryRaw(-1 * number);
@@ -17,7 +22,7 @@ function toBinary(number) {
 }
 
 function toDecimalRaw(number) {
-    const [decimal] = new Int16Array(["0b".concat(number)]);
+    const [decimal] = new Int16Array([`0b${number}`]);
     return decimal;
 }
 
@@ -37,7 +42,7 @@ function signExtend(number, numBits) {
 
     if (msb == '1') {
         for (let i = 0; i < numRemainingBits; i++) {
-            signExtended = msb.concat(signExtended);
+            signExtended = `${msb}${signExtended}`;
         }
     }
 
