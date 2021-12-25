@@ -210,10 +210,19 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
         summands.push(multiply(multiplicandDec, parseInt(extendedBoothsArray[i]), 2 * multiplicand.length - i));
     }
 
-    console.log(summands);
+    const addlRow = 
+        `<tr>
+            <th class = "no-bold"></th>
+            <td class>${summands[displayNumber - 1]}</td>
+        </tr>`;
 
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${template}`);
+    if (displayNumber == 0) {
+        const contents = $('#algo-steps').html();
+        $('#algo-steps').html(`${contents}${template}`);
+    } else {
+        const contents = $('#extended-booths-pencil-table').html();
+        $('#extended-booths-pencil-table').html(`${contents}${addlRow}`);
+    }
 
     incrementStepNumber();
 }
@@ -229,7 +238,7 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
     }
 
     const numDigitsRecoding = Math.floor(multiplierForRecoding.length / 2);
-    
+
     $('#next-step').on('click', function() {
         if (checkMulMethod(algoNames[2]) ) {
             const stepNumber = parseInt($('#step-number-value').text());
@@ -250,7 +259,8 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
             } else if (stepNumber == 7 + numDigitsRecoding) {
                 extendedBoothsDisplayStepD();
             } else {
-                extendedBoothsPencil(stepNumber - 8, multiplicand, multiplicandDec, extendedBoothsRecoding);
+                alert(stepNumber - 8 - numDigitsRecoding);
+                extendedBoothsPencil(stepNumber - 8 - numDigitsRecoding, multiplicand, multiplicandDec, extendedBoothsRecoding);
             }
 
             window.scrollTo(0, document.body.scrollHeight);
@@ -259,7 +269,6 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 }
 
 function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
-    alert(multiply(2, 1, 5));
     extendedBoothsInit(multiplicandBin, multiplierBin);
     extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
 }
