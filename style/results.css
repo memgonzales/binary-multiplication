@@ -3,10 +3,6 @@
     --green-emphasis: rgb(25, 44, 2);
 }
 
-#algo-value {
-    display: none;
-}
-
 #algo-name {
     font-size: 22px;
     font-weight: bold;

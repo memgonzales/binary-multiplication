@@ -40,11 +40,18 @@ function signExtend(number, numBits) {
     let signExtended = number;
     let msb = number[0];
 
-    if (msb == '1') {
-        for (let i = 0; i < numRemainingBits; i++) {
-            signExtended = `${msb}${signExtended}`;
-        }
+    for (let i = 0; i < numRemainingBits; i++) {
+        signExtended = `${msb}${signExtended}`;
     }
 
     return signExtended;
+}
+
+function equalizeBits(multiplicandBin, multiplierBin) {
+    const numBitsMultiplicand = multiplicandBin.length;
+    const numBitsMultiplier = multiplierBin.length;
+
+    const numBits = Math.max(numBitsMultiplicand, numBitsMultiplier);
+    
+    return [signExtend(multiplicandBin, numBits), signExtend(multiplierBin, numBits)];
 }

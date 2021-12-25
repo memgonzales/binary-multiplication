@@ -113,3 +113,7 @@ button:hover {
     margin-bottom: -20px;
     display: none;
 }
+
+.tracking-only {
+    display: none !important;
+}

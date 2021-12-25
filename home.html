@@ -171,7 +171,7 @@
         
         <div id = "workspace" class = "flex-container">
             <div id = "results" class = "hidden">
-                <div id = "algo-value">
+                <div id = "algo-value" class = "tracking-only">
                     Pencil-and-Paper Method
                 </div>
 
@@ -201,11 +201,13 @@
 
             <div id = "playback-control" class = "hidden">
                 <div class = "inner">
-                    <i class = "fa fa-step-backward" class = "play-control"></i>&nbsp;&nbsp;
+                    <i id = "prev-step" class = "fa fa-step-backward" class = "play-control"></i>&nbsp;&nbsp;
                     Step <input id = "step-number" type = "number" value = "1"> of <span id = "total-steps">30</span>
-                    &nbsp;&nbsp;<i class = "fa fa-step-forward" class = "play-control"></i>
-                </div>    
+                    &nbsp;&nbsp;<i id = "next-step" class = "fa fa-step-forward" class = "play-control"></i>
+                </div>                
             </div>
+
+            <div id = "step-number-value" class = "tracking-only">1</div>
 
             <div id = "save" class = "hidden">
                 <div class = "inner">
