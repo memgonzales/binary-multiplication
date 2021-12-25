@@ -14,6 +14,8 @@ function checkMulMethod(mulMethod) {
 
 function demo() {
     $('#multiply').on('click', function() {
+        $('#next-step').prop('onclick', null).off('click');
+
         const multiplicandBin = $('#multiplicand-bin').val();
         const multiplierBin = $('#multiplier-bin').val();
         const multiplicandDec = $('#multiplicand-dec').val();

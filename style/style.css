@@ -2,6 +2,8 @@
     --yellow-emphasis: rgb(240, 240, 119);
     --gray-bg: rgba(233,229,231,255);
     --green-emphasis: rgb(25, 44, 2);
+    --red-emphasis: rgb(230, 31, 31);
+    --green-hover: rgb(16, 26, 3);
 }
 
 html, body {
@@ -61,7 +63,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: rgb(16, 26, 3);
+    background-color: var(--green-hover);
 }
 
 .colored {
@@ -105,7 +107,7 @@ button:hover {
 }
 
 .error {
-    color: rgb(230, 31, 31);
+    color: var(--red-emphasis);
     font-weight: bold;
     font-size: 12px;
     margin-top: 10px;
@@ -116,4 +118,8 @@ button:hover {
 
 .tracking-only {
     display: none !important;
+}
+
+.no-bold {
+    font-weight: normal !important;
 }

@@ -1,6 +1,7 @@
 :root {
     --gray-emphasis: rgb(177, 137, 137);
     --green-emphasis: rgb(25, 44, 2);
+    --red-emphasis: rgb(230, 31, 31);
 }
 
 #algo-name {
@@ -22,6 +23,10 @@
 
 .indented-2 {
     margin-left: 60px;
+}
+
+.indented-3 {
+    margin-left: 90px;
 }
 
 .procedure {
@@ -51,7 +56,6 @@
 .demo-box {
     border-left: 3px solid var(--green-emphasis);
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .demo-box-table tr td {
@@ -60,4 +64,9 @@
 
 .demo-box-table tr th {
     text-align: left;
+}
+
+.emphasized {
+    color: var(--red-emphasis);
+    text-decoration: underline;
 }

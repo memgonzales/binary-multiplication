@@ -51,17 +51,34 @@ const extendedBoothsStepA =
 const extendedBoothsStepB =
     `<b>B. &nbsp; If necessary, perform sign extension to make the number of bits of the operands equal.</b> <br>`;
 
+const extendedBoothsStepC0 = 
+    `<b>C. &nbsp; Convert the multiplier to its extended Booth's equivalent.</b><br>`;
+
+const extendedBoothsStepC1 = 
+    `<span class = "indented">
+        1. &nbsp; Append 0 to the least significant bit.
+    </span><br>`;
+
+const extendedBoothsStepC2 = 
+    `<span class = "indented">
+        2. &nbsp; If the multiplier has an odd number of bits (prior to appending 0), perform sign extension.
+    </span><br>`;
+
+const extendedBoothsStepC3 = 
+    `<span class = "indented">
+        3. &nbsp; Perform bit-pair recoding starting at the least significant bit.
+    </span>`;
+
 const extendedBoothsStepC = 
-    `<b>C. &nbsp; Convert the multiplier to its extended Booth's equivalent.</b><br>
-        <span class = "indented">
-            1. &nbsp; Append 0 to the least significant bit.
-        </span><br>
-        <span class = "indented">
-            2. &nbsp; If the multiplier has an odd number of bits (prior to appending 0), perform sign extension.
-        </span> <br>
-        <span class = "indented">
-            3. &nbsp; Perform bit-pair recoding starting at the least significant bit.
-        </span>`;
+    `${extendedBoothsStepC0}
+    ${extendedBoothsStepC1}
+    ${extendedBoothsStepC2}
+    ${extendedBoothsStepC3}`;
+
+const extendedBoothsStepCShowTable = 
+    `<span class = "indented-2"><br>
+        &nbsp;&nbsp; &nbsp; &nbsp; Click <a class = "with-underline no-hover">here</a> to open the bit-pair recoding table.
+    </span>`;
 
 const extendedBoothsStepCTable =
     `<table class = "indented-2 procedure merged">
