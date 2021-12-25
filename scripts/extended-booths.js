@@ -121,13 +121,11 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 }
 
 function showExtendedBoothsRecoding() {
-    $('#show-extended-booths-recording').on('click', function() {
-        if ($('#extended-booths-step-c-table-provision').html() == '') {
-            $('#extended-booths-step-c-table-provision').html(`${extendedBoothsStepCTable}`);
-        } else {
-            $('#extended-booths-step-c-table-provision').html('');
-        }
-    });
+    if ($('#extended-booths-step-c-table-provision').html() == '') {
+        $('#extended-booths-step-c-table-provision').html(`${extendedBoothsStepCTable}`);
+    } else {
+        $('#extended-booths-step-c-table-provision').html('');
+    }
 }
 
 function extendedBoothsSteps(multiplicandBin, multiplierBin) {
@@ -140,7 +138,7 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin) {
     }
 
     const numDigitsRecoding = Math.floor(multiplierForRecoding.length / 2);
-
+    
     $('#next-step').on('click', function() {
         if (checkMulMethod(algoNames[2]) ) {
             const stepNumber = parseInt($('#step-number-value').text());
@@ -160,7 +158,6 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin) {
                 extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
             }
 
-            showExtendedBoothsRecoding();
             window.scrollTo(0,document.body.scrollHeight);
         }
     });

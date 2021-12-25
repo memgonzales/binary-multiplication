@@ -77,7 +77,8 @@ const extendedBoothsStepC =
 
 const extendedBoothsStepCShowTable = 
     `<br><span class = "indented">
-        &nbsp;&nbsp;&nbsp; &nbsp; Click <a class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        &nbsp;&nbsp;&nbsp; &nbsp; 
+        Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0,document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
         to show/hide the recoding table.
     </span>`;
 
