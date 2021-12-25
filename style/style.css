@@ -103,3 +103,13 @@ button:hover {
     display: table-cell;
     vertical-align: middle;
 }
+
+.error {
+    color: rgb(230, 31, 31);
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 18px;
+    margin-bottom: -20px;
+    display: none;
+}

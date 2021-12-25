@@ -10,6 +10,7 @@
     margin-left: 30%;                   /* Should be greater than width of #input-numbers */
     margin-top: 20px;
     color: var(--green-emphasis);
+    font-size: 16px;
 }
 
 #input-numbers {
@@ -22,6 +23,7 @@
     top: 59px;
     left: 0px;
     overflow-y: auto;
+    font-size: 16px;
 }
 
 #results {
