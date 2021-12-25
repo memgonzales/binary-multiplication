@@ -18,7 +18,7 @@ function toBinary(number) {
     }
 
     const invBinary = toBinaryRaw(-1 * number);
-    return binary.substring(binary.length - invBinary.length - 1, binary.length);
+    return binary.substring(binary.length - invBinary.length - 1);
 }
 
 function toDecimalRaw(number) {

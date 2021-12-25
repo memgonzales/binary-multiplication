@@ -1,3 +1,17 @@
+function initStepNumber() {
+    $('#step-number-value').text(1);
+    $('#step-number').val(1);
+}
+
+function incrementStepNumber() {
+    $('#step-number-value').text(parseInt($('#step-number-value').text()) + 1);
+    $('#step-number').val($('#step-number-value').text());
+}
+
+function checkMulMethod(mulMethod) {
+    return $('#algo-value').text() == mulMethod;
+}
+
 function demo() {
     $('#multiply').on('click', function() {
         const multiplicandBin = $('#multiplicand-bin').val();
@@ -8,24 +22,16 @@ function demo() {
         $('#algo-name').hide();
         $('#algo-steps').html('');
 
+        initStepNumber();
+
         switch($('#algo-value').text()) {
-            case 'Pencil-and-Paper Method':
+            case algoNames[0]:      /* Pencil-and-Paper Method */
                 break;
-            case 'Booth\'s Algorithm':
+            case algoNames[1]:      /* Booth's Algorithm */
                 break;
-            case 'Extended Booth\'s Algorithm': 
+            case algoNames[2]:      /* Extended Booth's Algorithm */
                 extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
                 break;
         }
     });
-}
-
-function initStepNumber() {
-    $('#step-number-value').text(1);
-    $('#step-number').val(1);
-}
-
-function incrementStepNumber() {
-    $('#step-number-value').text(parseInt($('#step-number-value').text()) + 1);
-    $('#step-number').val($('#step-number-value').text());
 }
