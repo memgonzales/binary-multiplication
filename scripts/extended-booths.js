@@ -111,10 +111,48 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     recodeMap.set('111', '0');
 
     let extendedBooths = ``;
-    for (let i = multiplierForRecoding.length - 1; i >= 2; i--) {
+    let splitMultipliers = [];
+
+    for (let i = multiplierForRecoding.length - 1; i >= 2; i -= 2) {
         const recode = 
-            recodeMap.get(`${multiplierForRecoding[i - 2]}${multiplierForRecoding[i - 1]}${multiplierForRecoding[i]}`);
-        extendedBooths = `${recode}${extendedBooths}`;
+            recodeMap.get(`${multiplierForRecoding.substring(i - 2, i + 1)}`);
+
+        extendedBooths = `${recode} ${extendedBooths}`;
+
+        const substr1 = `${multiplierForRecoding.substring(0, i - 2)}`;
+        const substr2 = `${multiplierForRecoding.substring(i - 2, i + 1)}`;
+        const substr3 = `${multiplierForRecoding.substring(i + 1)}`;
+
+        splitMultipliers.push(`${substr1}<b class = "emphasized">${substr2}</b>${substr3}`);
+    }
+
+    let extendedBoothsArray = extendedBooths.trim().split(' ').reverse();
+    for (let i = 1; i < extendedBoothsArray.length; i++) {
+        extendedBoothsArray[i] = `${extendedBoothsArray[i]} ${extendedBoothsArray[i - 1]}`;
+    }
+
+    const templateNoDiv = 
+        `<table class = "demo-box-table">
+            <tr>
+                <th>Modified Multiplier</th>
+                <td>${splitMultipliers[recodeNumber]}</td>
+            </tr>
+            <tr>
+                <th>Extended Booth's</th>
+                <td>${extendedBoothsArray[recodeNumber]}</td>
+            </tr>
+        </table>`;
+
+    const template = 
+        `<div id = "extended-booths-demo-box-recoding" class = "indented-3 demo-box">
+            ${templateNoDiv}
+        </div><br>`;
+
+    if (recodeNumber == 0) {
+        const contents = $('#algo-steps').html();
+        $('#algo-steps').html(`${contents}${template}`);
+    } else {
+        $('#extended-booths-demo-box-recoding').html(templateNoDiv);
     }
 
     incrementStepNumber();
