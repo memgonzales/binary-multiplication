@@ -129,3 +129,11 @@ button:hover {
 .no-bold {
     font-weight: normal !important;
 }
+
+.right-align {
+    text-align: right !important;
+}
+
+.bottom-border {
+    border-bottom: 1px solid var(--green-emphasis);
+}

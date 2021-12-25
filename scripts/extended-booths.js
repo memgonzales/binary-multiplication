@@ -156,6 +156,9 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     }
 
     incrementStepNumber();
+    window.scrollTo(0, document.body.scrollHeight);
+
+    return extendedBoothsArray[extendedBoothsArray.length - 1];
 }
 
 function extendedBoothsDisplayStepD() {
@@ -185,9 +188,40 @@ function showExtendedBoothsOperations() {
     }
 }
 
-function extendedBoothsSteps(multiplicandBin, multiplierBin) {
+function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, extendedBoothsRecoding) {
+    const template = 
+        `<div class = "indented-2 demo-box">
+            <table id = "extended-booths-pencil-table" class = "demo-box-table pencil-table">
+                <tr>
+                    <th></th>
+                    <td class = "right-align">${multiplicand}</td>
+                </tr>
+                <tr class = "bottom-border">
+                    <th class = "no-bold">&times;</th>
+                    <td class = "right-align">${extendedBoothsRecoding}</td>
+                </tr>
+            </table>
+        </div><br>`;
+
+    let summands = [];
+    const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
+
+    for (let i = 0; i < extendedBoothsArray.length; i++) {
+        summands.push(multiply(multiplicandDec, parseInt(extendedBoothsArray[i]), 2 * multiplicand.length - i));
+    }
+
+    console.log(summands);
+
+    const contents = $('#algo-steps').html();
+    $('#algo-steps').html(`${contents}${template}`);
+
+    incrementStepNumber();
+}
+
+function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
     const [multiplicand, multiplier] = equalizeBits(multiplicandBin, multiplierBin);
     const multiplierZeroAppended = `${multiplier}0`;
+    let extendedBoothsRecoding = '';
 
     let multiplierForRecoding = multiplierZeroAppended;
     if (multiplier.length % 2 != 0) {
@@ -212,9 +246,11 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin) {
             } else if (stepNumber == 6) {
                 extendedBoothsDisplayStepC3();
             } else if (stepNumber <= 6 + numDigitsRecoding) {
-                extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
+                extendedBoothsRecoding = extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
             } else if (stepNumber == 7 + numDigitsRecoding) {
                 extendedBoothsDisplayStepD();
+            } else {
+                extendedBoothsPencil(stepNumber - 8, multiplicand, multiplicandDec, extendedBoothsRecoding);
             }
 
             window.scrollTo(0, document.body.scrollHeight);
@@ -223,6 +259,7 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin) {
 }
 
 function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
+    alert(multiply(2, 1, 5));
     extendedBoothsInit(multiplicandBin, multiplierBin);
-    extendedBoothsSteps(multiplicandBin, multiplierBin);
+    extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
 }

@@ -58,6 +58,10 @@
     margin-top: 20px;
 }
 
+.demo-box-table {
+    border-collapse: collapse !important;
+}
+
 .demo-box-table tr td {
     text-align: left;
 }
@@ -69,4 +73,8 @@
 .emphasized {
     color: var(--red-emphasis);
     text-decoration: underline;
+}
+
+.pencil-table {
+    margin-left: 20px;
 }

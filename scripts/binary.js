@@ -47,6 +47,18 @@ function signExtend(number, numBits) {
     return signExtended;
 }
 
+function truncate(number, numBits) {
+    return number.substring(number.length - numBits);
+}
+
+function expressInNumBits(number, numBits) {
+    if (number.length > numBits) {
+        return truncate(number, numBits);
+    }
+
+    return signExtend(number, numBits);
+}
+
 function equalizeBits(multiplicandBin, multiplierBin) {
     const numBitsMultiplicand = multiplicandBin.length;
     const numBitsMultiplier = multiplierBin.length;
@@ -54,4 +66,8 @@ function equalizeBits(multiplicandBin, multiplierBin) {
     const numBits = Math.max(numBitsMultiplicand, numBitsMultiplier);
     
     return [signExtend(multiplicandBin, numBits), signExtend(multiplierBin, numBits)];
+}
+
+function multiply(multiplicandDec, multiplierDec, numBits) {
+    return expressInNumBits(toBinary(multiplicandDec * multiplierDec), numBits);
 }
