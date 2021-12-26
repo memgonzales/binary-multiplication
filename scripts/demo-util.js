@@ -28,6 +28,45 @@ function checkMulMethod(mulMethod) {
     return $('#algo-value').text() == mulMethod;
 }
 
+function emphasizeProduct(multiplicandBin, multiplierDec, product) {
+    let formattedProduct = product;
+    let numBits = multiplicandBin.length;
+
+    switch(multiplierDec) {
+        case 0:
+        case -1:
+        case 1:
+            formattedProduct = `${product.substring(0, product.length - numBits)}<b class = "emphasized no-underline">${product.substring(product.length - numBits)}</b>`;
+            break;
+        case -2:
+        case 2:
+            formattedProduct = `${product.substring(0, product.length - numBits - 1)}<b class = "emphasized no-underline">${product.substring(product.length - numBits - 1)}</b>`;
+            break;
+    }
+
+    return formattedProduct
+}
+
+function hideCarryOver() {
+    $('.carry-over b').css('display', 'none');
+    $('.carry-over span').css('display', 'none');
+}
+
+function formatProductDisplay(product) {
+    let productDisplay = [];
+    let productArray = [];
+
+    productDisplay.push(`<b class = "emphasized no-underline">${product[product.length - 1]}</b>`);
+    productArray.push(product[product.length - 1]);
+
+    for (let i = 1; i < product.length; i++) {
+        productDisplay.push(`<b class = "emphasized no-underline">${product[product.length - i - 1]}</b>${productArray[i - 1]}`);
+        productArray.push(`${product[product.length - i - 1]}${productArray[i - 1]}`);
+    }
+
+    return productDisplay;
+}
+
 /**
  * Starts the demonstration (simulation) when the multiply button is clicked.
  */

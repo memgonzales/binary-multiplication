@@ -2,6 +2,12 @@
  * File containing the utility functions for the demonstration (simulation) of the extended Booth's algorithm.
  */
 
+ const productRow =
+    `<tr>
+        <th id = "extended-booths-product-carry-over" class = "no-bold right-align carry-over blurred"></th>
+        <td id = "extended-booths-product" class = "right-align"></td>
+    </tr>`;
+
 function extendedBoothsInit(multiplicandBin, multiplierBin) {
     $('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 
@@ -208,7 +214,7 @@ function showExtendedBoothsOperations() {
     }
 }
 
-function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, extendedBoothsRecoding) {
+function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, multiplierDec, extendedBoothsRecoding) {
     let summands = [];
     let summandsFormatted = [];
     let extendedBoothsDisplay = [];
@@ -254,6 +260,9 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
     const numBitsProduct = 2 * multiplicand.length;
     const numSummands = extendedBoothsArray.length;
 
+    const product = multiply(multiplicandDec, multiplierDec, numBitsProduct);
+    const productDisplay = formatProductDisplay(product);
+
     if (displayNumber == 0) {
         const contents = $('#algo-steps').html();
         $('#algo-steps').html(`${contents}${template}`);
@@ -281,6 +290,13 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
             $('#step-d-extended-booths-display').html(`${extendedBoothsRecoding}`);
             $(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
             $('.carry-over b').css('display', 'block');
+
+            const contents = $('#extended-booths-pencil-table').html();
+            $('#extended-booths-pencil-table').html(`${contents}${productRow}`);
+
+        } else if (displayNumber == extendedBoothsArray.length + numBitsProduct) {
+            $('#extended-booths-product-carry-over').text('shoob');
+
         }
 
         $('#extended-booths-carry-over').text('SHOOB');
@@ -295,7 +311,29 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
                 $(`#extended-booths-summands-${i}`).html(summandFormatted);
             }
         }
+
+        $('#extended-booths-product').html(`${productDisplay[displayNumber - extendedBoothsArray.length - 1]}`);
     }
+
+    incrementStepNumber();
+
+    return product;
+}
+
+function extendedBoothsVerify(multiplicandDec, multiplierDec, product, numSummands) {
+    const contents = $('#algo-steps').html();
+    const productDec = multiplicandDec * multiplierDec;
+    const doubleCheck = 
+        `${multiplicandDec}<sub>10</sub> &times; ${multiplierDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; ${productDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; <span class = "final-answer">&nbsp;&nbsp;${product}<sub>2</sub>&nbsp;&nbsp; </span><br><br>`;
+
+    $('#algo-steps').html(`${contents}${verify} &nbsp;&nbsp; ${doubleCheck}`);
+    hideCarryOver();
+
+    for (let i = 0; i < numSummands; i++) {
+        $(`#extended-booths-summands-${i} b`).addClass('remove-emphasis');
+    }
+
+    $('#extended-booths-product b').addClass('remove-emphasis');
 
     incrementStepNumber();
 }
@@ -304,6 +342,7 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
     const [multiplicand, multiplier] = equalizeBits(multiplicandBin, multiplierBin);
     const multiplierZeroAppended = `${multiplier}0`;
     let extendedBoothsRecoding = '';
+    let product = '';
 
     let multiplierForRecoding = multiplierZeroAppended;
     if (multiplier.length % 2 != 0) {
@@ -331,8 +370,11 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
                 extendedBoothsRecoding = extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
             } else if (stepNumber == 7 + numDigitsRecoding) {
                 extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding);
-            } else {
-                extendedBoothsPencil(stepNumber - 8 - numDigitsRecoding, multiplicand, multiplicandDec, extendedBoothsRecoding);
+            } else if (stepNumber <= 8 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
+                product = extendedBoothsPencil(stepNumber - 8 - numDigitsRecoding, 
+                    multiplicand, multiplicandDec, multiplierDec, extendedBoothsRecoding);
+            } else if (stepNumber == 9 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
+                extendedBoothsVerify(multiplicandDec, multiplierDec, product, numDigitsRecoding);
             }
 
             window.scrollTo(0, document.body.scrollHeight);

@@ -84,7 +84,12 @@
 }
 
 .blurred {
-    color: var(--gray-emphasis);
+    color: var(--gray-emphasis) !important;
+}
+
+.remove-emphasis {
+    font-weight: normal !important;
+    color: var(--green-lighter) !important;
 }
 
 .carry-over {
@@ -96,4 +101,11 @@
 
 .carry-over b {
     display: none;
+}
+
+.final-answer {
+    display: inline-block; 
+    border: 1px solid var(--green-emphasis); 
+    color: white; 
+    background-color: var(--green-emphasis); 
 }

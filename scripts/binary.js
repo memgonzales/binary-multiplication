@@ -170,22 +170,3 @@ function equalizeBits(number1, number2) {
 function multiply(multiplicandDec, multiplierDec, numBits) {
     return expressInNumBits(toBinary(multiplicandDec * multiplierDec), numBits);
 }
-
-function emphasizeProduct(multiplicandBin, multiplierDec, product) {
-    let formattedProduct = product;
-    let numBits = multiplicandBin.length;
-
-    switch(multiplierDec) {
-        case 0:
-        case -1:
-        case 1:
-            formattedProduct = `${product.substring(0, product.length - numBits)}<b class = "emphasized no-underline summands">${product.substring(product.length - numBits)}</b>`;
-            break;
-        case -2:
-        case 2:
-            formattedProduct = `${product.substring(0, product.length - numBits - 1)}<b class = "emphasized no-underline summands">${product.substring(product.length - numBits - 1)}</b>`;
-            break;
-    }
-
-    return formattedProduct
-}

@@ -224,3 +224,6 @@ const extendedBoothsAlgo =
     ${extendedBoothsStepDTable}`;
 
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
+
+const verify =
+    `<b><u>Verify</u>:</b>`;
