@@ -179,11 +179,11 @@ function emphasizeProduct(multiplicandBin, multiplierDec, product) {
         case 0:
         case -1:
         case 1:
-            formattedProduct = `${product.substring(0, product.length - numBits)}<b class = "emphasized no-underline">${product.substring(product.length - numBits)}</b>`;
+            formattedProduct = `${product.substring(0, product.length - numBits)}<b class = "emphasized no-underline summands">${product.substring(product.length - numBits)}</b>`;
             break;
         case -2:
         case 2:
-            formattedProduct = `${product.substring(0, product.length - numBits - 1)}<b class = "emphasized no-underline">${product.substring(product.length - numBits - 1)}</b>`;
+            formattedProduct = `${product.substring(0, product.length - numBits - 1)}<b class = "emphasized no-underline summands">${product.substring(product.length - numBits - 1)}</b>`;
             break;
     }
 

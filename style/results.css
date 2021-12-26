@@ -52,6 +52,7 @@
 .demo-box {
     border-left: 3px solid var(--green-emphasis);
     margin-top: 20px;
+    color: var(--green-lighter);
 }
 
 .demo-box-blurred {
@@ -84,4 +85,15 @@
 
 .blurred {
     color: var(--gray-emphasis);
+}
+
+.carry-over {
+    letter-spacing: normal !important;
+    padding-left: 30px;
+    color: var(--red-emphasis);
+    
+}
+
+.carry-over b {
+    display: none;
 }

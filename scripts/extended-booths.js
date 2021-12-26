@@ -210,13 +210,14 @@ function showExtendedBoothsOperations() {
 
 function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, extendedBoothsRecoding) {
     let summands = [];
+    let summandsFormatted = [];
     let extendedBoothsDisplay = [];
     const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
 
     for (let i = 0; i < extendedBoothsArray.length; i++) {
         const multiplier = parseInt(extendedBoothsArray[i]);
         summands.push(multiply(multiplicandDec, multiplier, 2 * (multiplicand.length - i)));
-        summands[i] = emphasizeProduct(multiplicand, multiplier, summands[i]);
+        summandsFormatted.push(emphasizeProduct(multiplicand, multiplier, summands[i]));
 
         extendedBoothsDisplay.push(extendedBoothsRecoding.trim().split(' ').reverse());
         const formatted = `<b class = "emphasized no-underline">${extendedBoothsArray[i]}</b>`;
@@ -231,28 +232,56 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
             <tr>
                 <th></th>
                 <td id = "step-d-extended-booths-multiplicand" class = "right-align">${multiplicand}</td>
+                <td class = "carry-over">
+                    <b>Carry-over:</b>
+                </td>
             </tr>
             <tr class = "bottom-border">
                 <th class = "no-bold">&times;</th>
                 <td id = "step-d-extended-booths-display" class = "right-align">${extendedBoothsRecoding}</td>
+                <td class = "carry-over">
+                    <span id = "extended-booths-carry-over"></span>
+                </td>
             </tr>
         </table>
     </div><br>`;
 
-    const addlRow = 
+    let addlRow = 
         `<tr>
             <th class = "no-bold"></th>
-            <td class>${summands[displayNumber - 1]}</td>
+            <td id = "extended-booths-summands-${displayNumber - 1}">${summandsFormatted[displayNumber - 1]}</td>
         </tr>`;
 
     if (displayNumber == 0) {
         const contents = $('#algo-steps').html();
         $('#algo-steps').html(`${contents}${template}`);
-    } else {
+
+    } else if (displayNumber <= extendedBoothsArray.length) {
         const contents = $('#extended-booths-pencil-table').html();
+
+        if (displayNumber == extendedBoothsArray.length) {
+            addlRow =
+                `<tr class = "summands bottom-border">
+                    <th class = "no-bold">+</th>
+                    <td id = "extended-booths-summands-${displayNumber - 1}">${summandsFormatted[displayNumber - 1]}</td>
+                </tr>`;
+        }
+
         $('#extended-booths-pencil-table').html(`${contents}${addlRow}`);
+
         $('#step-d-extended-booths-multiplicand').html(`<b class = "emphasized no-underline">${multiplicand}</b>`);
         $('#step-d-extended-booths-display').html(`${extendedBoothsDisplay[displayNumber - 1]}`);
+        $(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
+
+    } else if (displayNumber <= extendedBoothsArray.length + 2 * multiplicand.length) {
+        if (displayNumber == extendedBoothsArray.length + 1) {
+            $('#step-d-extended-booths-multiplicand').html(`${multiplicand}`);
+            $('#step-d-extended-booths-display').html(`${extendedBoothsRecoding}`);
+            $(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
+            $('.carry-over b').css('display', 'block');
+        }
+
+        $('#extended-booths-carry-over').text('SHOOB');
     }
 
     incrementStepNumber();
