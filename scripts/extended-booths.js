@@ -393,22 +393,26 @@ function extendedBoothsTotalSteps(multiplicandBin, multiplierBin) {
 
 function extendedBoothsRewind(multiplicandBin, multiplierBin) {
     $('#prev-step').on('click', function() {
-        const previousStep = parseInt($('#step-number-value').text()) - 2;
+        extendedBoothsGoTo(parseInt($('#step-number-value').text()) - 2, multiplicandBin, multiplierBin);
+    });
+}
 
-        extendedBoothsInit(multiplicandBin, multiplierBin);
-        initStepNumber();
-        extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
-
-        for (let i = 0; i < previousStep; i++) {
-            $('#next-step').trigger('click');
+function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
+    $('#step-number').on('keyup', function(e) {
+        if (e.code == 'Enter') {
+            extendedBoothsGoTo(parseInt($('#step-number').val() - 1), multiplicandBin, multiplierBin);
         }
     });
 }
 
-function extendedBoothsGoToStep() {
-    $('#step-number').on('keyup', function() {
-        
-    });
+function extendedBoothsGoTo(previousStep, multiplicandBin, multiplierBin) {
+    extendedBoothsInit(multiplicandBin, multiplierBin);
+    initStepNumber();
+    extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
+
+    for (let i = 0; i < previousStep; i++) {
+        $('#next-step').trigger('click');
+    }
 }
 
 function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
