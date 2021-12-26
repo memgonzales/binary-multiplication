@@ -1,0 +1,10 @@
+/* RGB definitions of the colors */
+
+:root {
+    --gray-emphasis: rgb(177, 137, 137);
+    --green-emphasis: rgb(25, 44, 2);
+    --yellow-emphasis: rgb(240, 240, 119);
+    --gray-bg: rgba(233,229,231,255);
+    --red-emphasis: rgb(230, 31, 31);
+    --green-hover: rgb(16, 26, 3);
+}

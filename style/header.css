@@ -1,5 +1,7 @@
 /* Style sheet for the header/navigation bar (top section) */
 
+@import './colors.css';
+
 #header {
     position: fixed;
     left: 0px;

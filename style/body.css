@@ -1,9 +1,6 @@
 /* General style sheet for the input (left section) and results area (right section) */
 
-:root {
-    --gray-emphasis: rgb(177, 137, 137);
-    --green-emphasis: rgb(25, 44, 2);
-}
+@import './colors.css';
 
 #workspace {
     width: 70%;                         /* Calculated as 100% - margin-left */

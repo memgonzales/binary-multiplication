@@ -1,12 +1,6 @@
 /* General style sheet for the entire website */
 
-:root {
-    --yellow-emphasis: rgb(240, 240, 119);
-    --gray-bg: rgba(233,229,231,255);
-    --green-emphasis: rgb(25, 44, 2);
-    --red-emphasis: rgb(230, 31, 31);
-    --green-hover: rgb(16, 26, 3);
-}
+@import './colors.css';
 
 html, body {
     margin: 0px;
@@ -145,4 +139,8 @@ button:hover {
 
 .bottom-border {
     border-bottom: 1px solid var(--green-emphasis);
+}
+
+.blurred {
+    color: var(--gray-emphasis);
 }

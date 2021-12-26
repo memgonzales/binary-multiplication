@@ -1,10 +1,6 @@
 /* Style sheet for the results area (right section) */
 
-:root {
-    --gray-emphasis: rgb(177, 137, 137);
-    --green-emphasis: rgb(25, 44, 2);
-    --red-emphasis: rgb(230, 31, 31);
-}
+@import './colors.css';
 
 #algo-name {
     font-size: 22px;
@@ -55,6 +51,11 @@
 
 .demo-box {
     border-left: 3px solid var(--green-emphasis);
+    margin-top: 20px;
+}
+
+.demo-box-blurred {
+    border-left: 3px solid var(--gray-emphasis);
     margin-top: 20px;
 }
 

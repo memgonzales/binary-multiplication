@@ -75,20 +75,31 @@ function extendedBoothsDisplayStepC2() {
 }
 
 function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
-    let multiplierFormatted = `${multiplierForRecoding} &nbsp;&nbsp;&nbsp; (no need for sign extension)`;
-    if (multiplier.length % 2 != 0) {
-        multiplierFormatted = 
-            `<b class = "emphasized">${multiplierForRecoding.substr(0, 1)}</b>${multiplierForRecoding.substr(1)}`;
-    }
+    let multiplierFormatted = 
+        `<span class = "blurred">${multiplierForRecoding} &nbsp;&nbsp;&nbsp; (no need for sign extension)</span>`;
 
-    const template = 
-        `<div class = "indented-3 demo-box">
+    let template = 
+        `<div class = "indented-3 demo-box-blurred">
             <table class = "demo-box-table">
                 <tr>
                     <th class = "no-bold">${multiplierFormatted}</th>
                 </tr>
             </table>
         </div><br>`;
+
+    if (multiplier.length % 2 != 0) {
+        multiplierFormatted = 
+            `<b class = "emphasized">${multiplierForRecoding.substr(0, 1)}</b>${multiplierForRecoding.substr(1)}`;
+
+        template = 
+            `<div class = "indented-3 demo-box">
+                <table class = "demo-box-table">
+                    <tr>
+                        <th class = "no-bold">${multiplierFormatted}</th>
+                    </tr>
+                </table>
+            </div><br>`;
+    }
 
     const contents = $('#algo-steps').html();
     $('#algo-steps').html(`${contents}${template}`);
@@ -131,7 +142,9 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     }
 
     let extendedBoothsArray = extendedBooths.trim().split(' ').reverse();
+    let extendedBoothsDisplay = extendedBooths.trim().split(' ').reverse();
     for (let i = 1; i < extendedBoothsArray.length; i++) {
+        extendedBoothsDisplay[i] = `<b class = "emphasized">${extendedBoothsArray[i]}</b> ${extendedBoothsArray[i - 1]}`;
         extendedBoothsArray[i] = `${extendedBoothsArray[i]} ${extendedBoothsArray[i - 1]}`;
     }
 
@@ -143,7 +156,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
             </tr>
             <tr>
                 <th>Extended Booth's</th>
-                <td>${extendedBoothsArray[recodeNumber]}</td>
+                <td>${extendedBoothsDisplay[recodeNumber]}</td>
             </tr>
         </table>`;
 

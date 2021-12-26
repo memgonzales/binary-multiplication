@@ -1,5 +1,7 @@
 /* Style sheet for the footer (bottom section) */
 
+@import './colors.css';
+
 #footer {
     position: fixed;
     left: 0px;

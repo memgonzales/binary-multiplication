@@ -1,9 +1,6 @@
 /* Style sheet for the input area (left section) */
 
-:root {
-    --gray-emphasis: rgb(177, 137, 137);
-    --green-emphasis: rgb(25, 44, 2);
-}
+@import './colors.css';
 
 /* Input fields and related elements */
 #multiplicand-div, #multiplier-div {
