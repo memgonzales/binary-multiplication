@@ -74,6 +74,7 @@ function demo() {
     $('#multiply').on('click', function() {
         /* Unbind the jQuery click callback of the playback controls. */
         $('#next-step').prop('onclick', null).off('click');
+        $('#prev-step').prop('onclick', null).off('click');
 
         /* Clear the results area. */
         $('#algo-name').hide();

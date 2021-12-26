@@ -108,4 +108,7 @@
     border: 1px solid var(--green-emphasis); 
     color: white; 
     background-color: var(--green-emphasis); 
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

@@ -149,6 +149,8 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 
     let extendedBoothsArray = extendedBooths.trim().split(' ').reverse();
     let extendedBoothsDisplay = extendedBooths.trim().split(' ').reverse();
+
+    extendedBoothsDisplay[0] = `<b class = "emphasized">${extendedBoothsArray[0]}</b>`;
     for (let i = 1; i < extendedBoothsArray.length; i++) {
         extendedBoothsDisplay[i] = `<b class = "emphasized">${extendedBoothsArray[i]}</b> ${extendedBoothsArray[i - 1]}`;
         extendedBoothsArray[i] = `${extendedBoothsArray[i]} ${extendedBoothsArray[i - 1]}`;
@@ -242,7 +244,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, mult
                     </td>
                 </tr>
                 <tr class = "bottom-border">
-                    <th class = "no-bold">&times;</th>
+                    <th class = "no-bold right-align">&times;</th>
                     <td id = "step-d-extended-booths-display" class = "right-align">${extendedBoothsRecoding}</td>
                     <td class = "carry-over">
                         <span id = "extended-booths-carry-over"></span>
@@ -273,7 +275,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, mult
         if (displayNumber == numSummands) {
             addlRow =
                 `<tr class = "summands bottom-border">
-                    <th class = "no-bold">+</th>
+                    <th class = "no-bold right-align">+</th>
                     <td id = "extended-booths-summands-${displayNumber - 1}">${summandsFormatted[displayNumber - 1]}</td>
                 </tr>`;
         }
@@ -324,7 +326,7 @@ function extendedBoothsVerify(multiplicandDec, multiplierDec, product, numSumman
     const contents = $('#algo-steps').html();
     const productDec = multiplicandDec * multiplierDec;
     const doubleCheck = 
-        `${multiplicandDec}<sub>10</sub> &times; ${multiplierDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; ${productDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; <span class = "final-answer">&nbsp;&nbsp;${product}<sub>2</sub>&nbsp;&nbsp; </span><br><br>`;
+        `${multiplicandDec}<sub>10</sub>&nbsp; &times; &nbsp;${multiplierDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; ${productDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; <span class = "final-answer">${product}<sub>2</sub></span><br>`;
 
     $('#algo-steps').html(`${contents}${verify} &nbsp;&nbsp; ${doubleCheck}`);
     hideCarryOver();
@@ -382,7 +384,37 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
     });
 }
 
+function extendedBoothsTotalSteps(multiplicandBin, multiplierBin) {
+    const numBits = Math.max(multiplicandBin.length, multiplierBin.length);
+    const numDigitsRecoding = Math.ceil(numBits / 2);
+
+    $('#total-steps').text(10 + 2 * numDigitsRecoding + 2 * numBits);
+}
+
+function extendedBoothsRewind(multiplicandBin, multiplierBin) {
+    $('#prev-step').on('click', function() {
+        const previousStep = parseInt($('#step-number-value').text()) - 2;
+
+        extendedBoothsInit(multiplicandBin, multiplierBin);
+        initStepNumber();
+        extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
+
+        for (let i = 0; i < previousStep; i++) {
+            $('#next-step').trigger('click');
+        }
+    });
+}
+
+function extendedBoothsGoToStep() {
+    $('#step-number').on('keyup', function() {
+        
+    });
+}
+
 function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
     extendedBoothsInit(multiplicandBin, multiplierBin);
     extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
+    extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
+    extendedBoothsRewind(multiplicandBin, multiplierBin);
+    extendedBoothsGoToStep(multiplicandBin, multiplierBin);
 }
