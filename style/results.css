@@ -1,3 +1,5 @@
+/* Style sheet for the results area (right section) */
+
 :root {
     --gray-emphasis: rgb(177, 137, 137);
     --green-emphasis: rgb(25, 44, 2);
@@ -17,6 +19,7 @@
     line-height: 1.8;
 }
 
+/* Indentations */
 .indented {
     margin-left: 30px;
 }
@@ -29,17 +32,14 @@
     margin-left: 90px;
 }
 
+/* Tables */
 .procedure {
     border-collapse: collapse;
     margin-top: 15px;
     margin-bottom: 20px;
 }
 
-.merged tr:nth-child(2) {
-    border-bottom: 1px solid var(--green-emphasis);
-}
-
-.procedure tr:first-child {
+.merged tr:nth-child(2), .procedure tr:first-child, .procedure tr:last-child {
     border-bottom: 1px solid var(--green-emphasis);
 }
 
@@ -70,12 +70,13 @@
     text-align: left;
 }
 
-.emphasized {
-    color: var(--red-emphasis);
-    text-decoration: underline;
-}
-
 .pencil-table {
     margin-left: 20px;
     letter-spacing: 5px;
+}
+
+/* Special classes */
+.emphasized {
+    color: var(--red-emphasis);
+    text-decoration: underline;
 }

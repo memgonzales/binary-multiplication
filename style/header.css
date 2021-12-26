@@ -1,3 +1,5 @@
+/* Style sheet for the header/navigation bar (top section) */
+
 #header {
     position: fixed;
     left: 0px;
@@ -6,8 +8,15 @@
     width: 100%;
 }
 
+/* Logo and website title */
 #logo {
     flex-grow: 1;
+}
+
+#logo img {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    height: 35px;
 }
 
 #title {
@@ -17,6 +26,7 @@
     letter-spacing: 2px;
 }
 
+/* Multiplication methods */
 .mul-methods {
     flex-grow: 5;
 }
@@ -25,6 +35,28 @@
     text-align: left;
 }
 
+#pencil-logo {
+    height: 17px;
+    margin-right: 2px;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+}
+
+#booths-logo {
+    height: 18px;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+    margin-right: -3px;
+}
+
+#extended-booths-logo {
+    height: 20px;
+    margin-right: 2px;
+    vertical-align: bottom;
+    margin-bottom: 2px;
+}
+
+/* Display mode */
 #display-mode {
     flex-grow: 15;
     position: relative;
@@ -53,33 +85,7 @@
     height: 100%;
 }
 
+/* Special classes */
 .small-padding {
     flex-grow: 1;
-}
-
-#logo img {
-    margin-top: 10px;
-    margin-bottom: 7px;
-    height: 35px;
-}
-
-#pencil-logo {
-    height: 17px;
-    margin-right: 2px;
-    vertical-align: bottom;
-    margin-bottom: 4px;
-}
-
-#booths-logo {
-    height: 18px;
-    vertical-align: bottom;
-    margin-bottom: 4px;
-    margin-right: -3px;
-}
-
-#extended-booths-logo {
-    height: 20px;
-    margin-right: 2px;
-    vertical-align: bottom;
-    margin-bottom: 2px;
 }

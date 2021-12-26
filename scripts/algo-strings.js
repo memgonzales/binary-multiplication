@@ -1,12 +1,19 @@
-/* -- ALGORITHM NAMES -- */
+/**
+ * This file contains the strings used in the website.
+ */
+
+/* --- ALGORITHM NAMES --- */
 const algoNames = ['Pencil-and-Paper Method', 'Booth\'s Algorithm', 'Extended Booth\'s Algorithm'];
 
+
 /* --- TRIVIA HEADER --- */
+/* End with a period (or any other terminal punctuation mark), followed by a space. */
 const pencilTriviaHeader = '. ';
 const boothsTriviaHeader = '. ';
 const extendedBoothsTriviaHeader = 'Triple Treat. ';
 
 const triviaHeaders = [pencilTriviaHeader, boothsTriviaHeader, extendedBoothsTriviaHeader];
+
 
 /* --- TRIVIA --- */
 const pencilTrivia = 
@@ -23,10 +30,16 @@ const extendedBoothsTrivia =
 
 const trivia = [pencilTrivia, boothsTrivia, extendedBoothsTrivia];
 
+
+/* --- PENCIL-AND-PAPER ALGORITHM --- */
 const pencilAlgo = 
     ``;
+
+
+/* --- BOOTH'S ALGORITHM --- */
 const boothsAlgo = 
     ``;
+
 
 /* --- EXTENDED BOOTH'S ALGORITHM --- */
 const extendedBoothsIntro = 

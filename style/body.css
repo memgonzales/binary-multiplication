@@ -1,3 +1,5 @@
+/* General style sheet for the input (left section) and results area (right section) */
+
 :root {
     --gray-emphasis: rgb(177, 137, 137);
     --green-emphasis: rgb(25, 44, 2);

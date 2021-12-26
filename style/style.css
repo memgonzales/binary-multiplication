@@ -1,3 +1,5 @@
+/* General style sheet for the entire website */
+
 :root {
     --yellow-emphasis: rgb(240, 240, 119);
     --gray-bg: rgba(233,229,231,255);
@@ -16,6 +18,7 @@ body {
     background-color: var(--gray-bg);
 }
 
+/* Anchor elements */
 a {
     display: inline-block;
 }
@@ -34,6 +37,16 @@ a.with-underline {
     color: var(--green-emphasis) !important;
 }
 
+.no-decor {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-hover:hover {
+    color: var(--green-emphasis);
+}
+
+/* Icons */
 i {
     cursor: pointer;
 }
@@ -42,11 +55,12 @@ i:hover {
     color: var(--yellow-emphasis);
 }
 
-.no-hover:hover {
-    color: var(--green-emphasis);
+.selected {
+    color: var(--yellow-emphasis) !important;
 }
 
-input[type=number] {
+/* Input fields */
+input[type = number] {
     -moz-appearance: textfield;
     font-size: 16px;
     font-family: 'Open Sans';
@@ -57,6 +71,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin: 0px;
 }
 
+/* Buttons */
 button {
     font-size: 16px;
     font-family: 'Open Sans';
@@ -72,28 +87,7 @@ button:hover {
     background-color: var(--green-hover);
 }
 
-.colored {
-    background-color: var(--green-emphasis);
-    color: white;
-}
-
-.code {
-    font-family: 'Courier New', Arial, sans-serif;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.selected {
-    color: var(--yellow-emphasis) !important;
-}
-
-.no-decor {
-    text-decoration: none;
-    cursor: pointer;
-}
-
+/* Divisions */
 .flex-container {
     display: flex;
     padding-left: 40px;
@@ -124,6 +118,21 @@ button:hover {
 
 .tracking-only {
     display: none !important;
+}
+
+/* Header and footer */
+.colored {
+    background-color: var(--green-emphasis);
+    color: white;
+}
+
+/* Special classes */
+.code {
+    font-family: 'Courier New', Arial, sans-serif;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .no-bold {

@@ -1,3 +1,5 @@
+/* Style sheet for the footer (bottom section) */
+
 #footer {
     position: fixed;
     left: 0px;
@@ -7,27 +9,7 @@
     height: 50px;
 }
 
-.play-control {
-    font-size: 22px;
-}
-
-#save {
-    flex-grow: 1;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-#save-logo {
-    height: 17px;
-    vertical-align: bottom;
-    margin-bottom: 2px;
-    margin-right: 3px;
-}
-
-#playback-control {
-    flex-grow: 7;
-}
-
+/* About */
 #about {
     flex-grow: 1;
     margin-right: 40px;
@@ -44,11 +26,31 @@
     margin-bottom: 2px;
 }
 
+/* Playback control */
+.play-control {
+    font-size: 22px;
+}
+
 #playback-control {
+    flex-grow: 7;
     text-align: center;
 }
 
 #step-number {
     width: 30px;
     text-align: center;
+}
+
+/* Save to Text File */
+#save {
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#save-logo {
+    height: 17px;
+    vertical-align: bottom;
+    margin-bottom: 2px;
+    margin-right: 3px;
 }

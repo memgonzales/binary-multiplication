@@ -4,6 +4,7 @@
     <head>
         <title>Binary Multiplication</title>
 
+        <!-- STYLE SHEETS -->
         <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Open Sans">
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -11,13 +12,15 @@
         <link rel = "stylesheet" href = "style/header.css">
         <link rel = "stylesheet" href = "style/footer.css">
 
-        <link rel = "stylesheet" href = "style/workspace.css">
+        <link rel = "stylesheet" href = "style/body.css">
         <link rel = "stylesheet" href = "style/input.css">
         <link rel = "stylesheet" href = "style/results.css">
 
+        <!-- SCRIPTS -->
+        <!-- The order of inclusion of the scripts matters. -->
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- JS files containing constants and strings -->
+        <!-- JS files containing constants and strings. Should be included before all other scripts -->
         <script src = "scripts/constants.js"></script>
         <script src = "scripts/colors.js"></script>
         <script src = "scripts/algo-strings.js"></script>
@@ -43,6 +46,7 @@
     </head>
 
     <body>
+        <!-- HEADER/NAVIGATION BAR (TOP SECTION) -->
         <div id = "header" class = "colored flex-container">
             <div id = "logo">
                 <a class = "no-decor" href = "home.html"><img id = "title-logo" src = "assets/title.PNG"></a>
@@ -102,6 +106,7 @@
             </div>
         </div>
 
+        <!-- INPUT AREA (LEFT SECTION) -->
         <div id = "input-numbers" class = "hidden">
             <form id = "input-numbers-dec-bin">
                 <div id = "multiplicand-div">
@@ -168,6 +173,7 @@
             </form>
         </div>
         
+        <!-- RESULTS AREA (RIGHT SECTION) -->
         <div id = "workspace" class = "flex-container">
             <div id = "results" class = "hidden">
                 <div id = "algo-value" class = "tracking-only">
@@ -188,6 +194,7 @@
             </div>
         </div>
 
+        <!-- FOOTER (BOTTOM SECTION) -->
         <div id = "footer" class = "colored flex-container">
             <div id = "about" class = "hidden">
                 <div id = "about-logo-div" class = "inner">
