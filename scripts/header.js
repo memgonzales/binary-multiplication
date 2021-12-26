@@ -1,3 +1,7 @@
+/**
+ * File containing the function calls for the behaviors in the header.
+ */
+
 $(function() {
     animateTitle();
 

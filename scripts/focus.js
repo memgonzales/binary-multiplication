@@ -1,17 +1,29 @@
-function focusOperandBorderUtilGreen(operand, base) {
-    $('#' + operand + '-container').css('border-left', '3px solid ' + green);
+/**
+ * File containing the utility functions for focusing on an input field.
+ */
+
+/**
+ * Changes the color of the vertical highlight of the division enclosing the input field
+ * 
+ * @param {string} operand Operand associated with the input field gaining focus.
+ */
+function focusOperandBorderUtil(operand, color) {
+    $('#' + operand + '-container').css('border-left', '3px solid ' + color);
 }
 
-function focusOperandBorderUtilGray(operand, base) {
-    $('#' + operand + '-container').css('border-left', '3px solid ' + gray);
-}
-
+/**
+ * Changes the color of the vertical highlight of the division enclosing the input field depending on whether
+ * it receives or loses focus.
+ * 
+ * @param {string} operand Operand associated with the input field gaining focus.
+ * @param {string} base Number base associated with the input field gaining focus.
+ */
 function focusOperandBorder(operand, base) {
     $('#' + operand + '-' + base).on('focus', function() {
-        focusOperandBorderUtilGreen(operand, base);
+        focusOperandBorderUtil(operand, green);
     });
 
     $('#' + operand + '-' + base).on('blur', function() {
-        focusOperandBorderUtilGray(operand, base); 
+        focusOperandBorderUtil(operand, gray); 
     });
 }

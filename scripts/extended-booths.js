@@ -1,3 +1,7 @@
+/** 
+ * File containing the utility functions for the demonstration (simulation) of the extended Booth's algorithm.
+ */
+
 function extendedBoothsInit(multiplicandBin, multiplierBin) {
     $('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 
@@ -207,7 +211,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
     const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
 
     for (let i = 0; i < extendedBoothsArray.length; i++) {
-        summands.push(multiply(multiplicandDec, parseInt(extendedBoothsArray[i]), 2 * multiplicand.length - i));
+        summands.push(multiply(multiplicandDec, parseInt(extendedBoothsArray[i]), 2 * (multiplicand.length - i)));
     }
 
     const addlRow = 
@@ -259,7 +263,6 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
             } else if (stepNumber == 7 + numDigitsRecoding) {
                 extendedBoothsDisplayStepD();
             } else {
-                alert(stepNumber - 8 - numDigitsRecoding);
                 extendedBoothsPencil(stepNumber - 8 - numDigitsRecoding, multiplicand, multiplicandDec, extendedBoothsRecoding);
             }
 

@@ -1,3 +1,11 @@
+/**
+ * File containing the function for animating the logo and title at website startup.
+ */
+
+/**
+ * Animates the logo and title. In particular, this method changes the color of the logo and the title,
+ * as well as sets the title to random (hardcoded) binary strings.
+ */
 function animateTitle() {
     const timer = 125;
 

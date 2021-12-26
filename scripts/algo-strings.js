@@ -1,5 +1,5 @@
 /**
- * This file contains the strings used in the website.
+ * File containing the strings (literal constants) used in the website.
  */
 
 /* --- ALGORITHM NAMES --- */
