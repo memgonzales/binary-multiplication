@@ -212,6 +212,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
     let summands = [];
     let summandsFormatted = [];
     let extendedBoothsDisplay = [];
+
     const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
 
     for (let i = 0; i < extendedBoothsArray.length; i++) {
@@ -220,31 +221,29 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
         summandsFormatted.push(emphasizeProduct(multiplicand, multiplier, summands[i]));
 
         extendedBoothsDisplay.push(extendedBoothsRecoding.trim().split(' ').reverse());
-        const formatted = `<b class = "emphasized no-underline">${extendedBoothsArray[i]}</b>`;
-        extendedBoothsDisplay[i][i] = formatted;
-
+        extendedBoothsDisplay[i][i] = `<b class = "emphasized no-underline">${extendedBoothsArray[i]}</b>`;
         extendedBoothsDisplay[i] = extendedBoothsDisplay[i].reverse().join(' ');
     }
 
     const template = 
-    `<div class = "indented-2 demo-box">
-        <table id = "extended-booths-pencil-table" class = "demo-box-table pencil-table">
-            <tr>
-                <th></th>
-                <td id = "step-d-extended-booths-multiplicand" class = "right-align">${multiplicand}</td>
-                <td class = "carry-over">
-                    <b>Carry-over:</b>
-                </td>
-            </tr>
-            <tr class = "bottom-border">
-                <th class = "no-bold">&times;</th>
-                <td id = "step-d-extended-booths-display" class = "right-align">${extendedBoothsRecoding}</td>
-                <td class = "carry-over">
-                    <span id = "extended-booths-carry-over"></span>
-                </td>
-            </tr>
-        </table>
-    </div><br>`;
+        `<div class = "indented-2 demo-box">
+            <table id = "extended-booths-pencil-table" class = "demo-box-table pencil-table">
+                <tr>
+                    <th></th>
+                    <td id = "step-d-extended-booths-multiplicand" class = "right-align">${multiplicand}</td>
+                    <td class = "carry-over">
+                        <b>Carry-over:</b>
+                    </td>
+                </tr>
+                <tr class = "bottom-border">
+                    <th class = "no-bold">&times;</th>
+                    <td id = "step-d-extended-booths-display" class = "right-align">${extendedBoothsRecoding}</td>
+                    <td class = "carry-over">
+                        <span id = "extended-booths-carry-over"></span>
+                    </td>
+                </tr>
+            </table>
+        </div><br>`;
 
     let addlRow = 
         `<tr>
@@ -252,14 +251,17 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
             <td id = "extended-booths-summands-${displayNumber - 1}">${summandsFormatted[displayNumber - 1]}</td>
         </tr>`;
 
+    const numBitsProduct = 2 * multiplicand.length;
+    const numSummands = extendedBoothsArray.length;
+
     if (displayNumber == 0) {
         const contents = $('#algo-steps').html();
         $('#algo-steps').html(`${contents}${template}`);
 
-    } else if (displayNumber <= extendedBoothsArray.length) {
+    } else if (displayNumber <= numSummands) {
         const contents = $('#extended-booths-pencil-table').html();
 
-        if (displayNumber == extendedBoothsArray.length) {
+        if (displayNumber == numSummands) {
             addlRow =
                 `<tr class = "summands bottom-border">
                     <th class = "no-bold">+</th>
@@ -273,7 +275,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
         $('#step-d-extended-booths-display').html(`${extendedBoothsDisplay[displayNumber - 1]}`);
         $(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
 
-    } else if (displayNumber <= extendedBoothsArray.length + 2 * multiplicand.length) {
+    } else if (displayNumber <= extendedBoothsArray.length + numBitsProduct) {
         if (displayNumber == extendedBoothsArray.length + 1) {
             $('#step-d-extended-booths-multiplicand').html(`${multiplicand}`);
             $('#step-d-extended-booths-display').html(`${extendedBoothsRecoding}`);
@@ -282,6 +284,17 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
         }
 
         $('#extended-booths-carry-over').text('SHOOB');
+
+        const index = numBitsProduct - (displayNumber - extendedBoothsArray.length);
+        for (let i = 0; i < numSummands; i++) {
+            const summand = $(`#extended-booths-summands-${i}`).text();
+            if (index < summand.length) {
+                const summandFormatted = 
+                    `${summand.substring(0, index)}<b class = "emphasized no-underline">${summand[index]}</b>${summand.substring(index + 1)}`;
+
+                $(`#extended-booths-summands-${i}`).html(summandFormatted);
+            }
+        }
     }
 
     incrementStepNumber();
