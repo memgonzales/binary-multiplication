@@ -152,11 +152,11 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
         `<table class = "demo-box-table">
             <tr>
                 <th>Modified Multiplier</th>
-                <td>${splitMultipliers[recodeNumber]}</td>
+                <td id = "modified-multiplier">${splitMultipliers[recodeNumber]}</td>
             </tr>
             <tr>
                 <th>Extended Booth's</th>
-                <td>${extendedBoothsDisplay[recodeNumber]}</td>
+                <td id = "extended-booths-display">${extendedBoothsDisplay[recodeNumber]}</td>
             </tr>
         </table>`;
 
@@ -178,9 +178,12 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     return extendedBoothsArray[extendedBoothsArray.length - 1];
 }
 
-function extendedBoothsDisplayStepD() {
+function extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding) {
     const contents = $('#algo-steps').html();
     $('#algo-steps').html(`${contents}${extendedBoothsStepD}${extendedBoothsStepDShowTable}${extendedBoothsStepDTableProvision}`);
+
+    $('#modified-multiplier').text(multiplierForRecoding);
+    $('#extended-booths-display').text(extendedBoothsRecoding);
 
     incrementStepNumber();
 }
@@ -206,26 +209,35 @@ function showExtendedBoothsOperations() {
 }
 
 function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, extendedBoothsRecoding) {
-    const template = 
-        `<div class = "indented-2 demo-box">
-            <table id = "extended-booths-pencil-table" class = "demo-box-table pencil-table">
-                <tr>
-                    <th></th>
-                    <td class = "right-align">${multiplicand}</td>
-                </tr>
-                <tr class = "bottom-border">
-                    <th class = "no-bold">&times;</th>
-                    <td class = "right-align">${extendedBoothsRecoding}</td>
-                </tr>
-            </table>
-        </div><br>`;
-
     let summands = [];
+    let extendedBoothsDisplay = [];
     const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
 
     for (let i = 0; i < extendedBoothsArray.length; i++) {
-        summands.push(multiply(multiplicandDec, parseInt(extendedBoothsArray[i]), 2 * (multiplicand.length - i)));
+        const multiplier = parseInt(extendedBoothsArray[i]);
+        summands.push(multiply(multiplicandDec, multiplier, 2 * (multiplicand.length - i)));
+        summands[i] = emphasizeProduct(multiplicand, multiplier, summands[i]);
+
+        extendedBoothsDisplay.push(extendedBoothsRecoding.trim().split(' ').reverse());
+        const formatted = `<b class = "emphasized no-underline">${extendedBoothsArray[i]}</b>`;
+        extendedBoothsDisplay[i][i] = formatted;
+
+        extendedBoothsDisplay[i] = extendedBoothsDisplay[i].reverse().join(' ');
     }
+
+    const template = 
+    `<div class = "indented-2 demo-box">
+        <table id = "extended-booths-pencil-table" class = "demo-box-table pencil-table">
+            <tr>
+                <th></th>
+                <td id = "step-d-extended-booths-multiplicand" class = "right-align">${multiplicand}</td>
+            </tr>
+            <tr class = "bottom-border">
+                <th class = "no-bold">&times;</th>
+                <td id = "step-d-extended-booths-display" class = "right-align">${extendedBoothsRecoding}</td>
+            </tr>
+        </table>
+    </div><br>`;
 
     const addlRow = 
         `<tr>
@@ -239,6 +251,8 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, exte
     } else {
         const contents = $('#extended-booths-pencil-table').html();
         $('#extended-booths-pencil-table').html(`${contents}${addlRow}`);
+        $('#step-d-extended-booths-multiplicand').html(`<b class = "emphasized no-underline">${multiplicand}</b>`);
+        $('#step-d-extended-booths-display').html(`${extendedBoothsDisplay[displayNumber - 1]}`);
     }
 
     incrementStepNumber();
@@ -274,7 +288,7 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
             } else if (stepNumber <= 6 + numDigitsRecoding) {
                 extendedBoothsRecoding = extendedBoothsRecode(stepNumber - 7, multiplierForRecoding);
             } else if (stepNumber == 7 + numDigitsRecoding) {
-                extendedBoothsDisplayStepD();
+                extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding);
             } else {
                 extendedBoothsPencil(stepNumber - 8 - numDigitsRecoding, multiplicand, multiplicandDec, extendedBoothsRecoding);
             }

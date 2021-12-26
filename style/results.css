@@ -81,3 +81,7 @@
     color: var(--red-emphasis);
     text-decoration: underline;
 }
+
+.blurred {
+    color: var(--gray-emphasis);
+}
