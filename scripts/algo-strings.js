@@ -49,8 +49,8 @@ const extendedBoothsIntro =
     and given a streamlined proof by L.P. Rubinfield in 1975 
     <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/document/1672707" target = "_blank">
     <i class = "fa fa-external-link no-hover"></i></a>, 
-    this technique, which is also known as <b>bit-pair recoding</b>,
-    reduces the number of intermediate summands by half. <br> <br>`;
+    this technique, which is also known as <b>modified Booth's algorithm</b>, <b>radix-4 Booth's algorithm</b>, or 
+    <b>bit-pair recoding</b>, reduces the number of intermediate summands by half. <br> <br>`;
 
 const extendedBoothsStepA =
     `<b>A. &nbsp; Represent the operands in two's complement.</b> <br>
