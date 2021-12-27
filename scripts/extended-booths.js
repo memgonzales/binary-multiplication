@@ -2,25 +2,83 @@
  * File containing the utility functions for the demonstration (simulation) of the extended Booth's algorithm.
  */
 
+/**
+ * Row where the product is displayed (final steps of pencil-and-paper demonstration/simulation).
+ */
  const productRow =
     `<tr>
         <th id = "extended-booths-product-carry-over" class = "no-bold right-align carry-over blurred"></th>
         <td id = "extended-booths-product" class = "right-align"></td>
     </tr>`;
 
+/**
+ * Bit-pair recoding table.
+ */
+const recodeMap = new Map();
+
+/**
+ * Initializes the results area at the start of the demonstration (simulation) and displays steps A and B.
+ * 
+ * Note that the initialization of the step number is handled in the demo() method in demo-util.js.
+ * 
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {string} multiplierBin Binary multiplier.
+ */
 function extendedBoothsInit(multiplicandBin, multiplierBin) {
     $('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
-
-    const totalSteps = Math.max(multiplicandBin.length, multiplierBin.length);
-    $('#total-steps').text(totalSteps);
 }
 
+function extendedBoothsInitRecodeMap() {
+    recodeMap.set('000', '0');
+    recodeMap.set('001', '+1');
+    recodeMap.set('010', '+1');
+    recodeMap.set('011', '+2');
+    recodeMap.set('100', '-2');
+    recodeMap.set('101', '-1');
+    recodeMap.set('110', '-1');
+    recodeMap.set('111', '0');
+}
+
+/**
+ * Initializes the total number of steps.
+ * 
+ * Note that the initialization of the step number is handled in the demo() method in demo-util.js.
+ * 
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {string} multiplierBin Binary multiplier.
+ */
+function extendedBoothsTotalSteps(multiplicandBin, multiplierBin) {
+    const numBits = Math.max(multiplicandBin.length, multiplierBin.length);
+
+    /* 
+     * Extended Booth's results in the number of intermediate summands reduced by half. 
+     *
+     * For example,
+     * - Multiplier: 10101 --> [after appending zero] 10101(0) --> [after sign extension] 110101(0) --> 3 summands
+     * - Multiplier: 1010 --> [after appending zero] 1010(0) --> [after sign extension] 11010(0) --> 2 summands
+     */
+    const numDigitsRecoding = Math.ceil(numBits / 2);
+
+    /* Should be one more than the conditional in the method extendedBoothsSteps() */
+    $('#total-steps').text(10 + 2 * numDigitsRecoding + 2 * numBits);
+}
+
+/**
+ * Displays the multiplicand and multiplier after their number of bits have been equalized, corresponding
+ * to step B.
+ * 
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {string} multiplierBin Binary multiplier.
+ * @param {string} multiplicand Multiplicand after number of bits has been equalized.
+ * @param {string} multiplier Multiplier after number of bits has been equalized.
+ */
 function extendedBoothsDisplayEqualizedBits(multiplicandBin, multiplierBin, multiplicand, multiplier) {
     const bitDifference = Math.abs(multiplicandBin.length - multiplierBin.length);
 
     let multiplicandFormatted = multiplicand;
     let multiplierFormatted = multiplier;
 
+    /* If the multiplier has more bits, highlight the sign extension of the multiplicand, and vice versa. */
     if (multiplicandBin.length < multiplierBin.length) {
         multiplicandFormatted = `<b class = "emphasized">${multiplicand.substring(0, bitDifference)}</b>${multiplicand.substring(bitDifference)}`;
     } else {
@@ -41,20 +99,28 @@ function extendedBoothsDisplayEqualizedBits(multiplicandBin, multiplierBin, mult
             </table>
         </div><br>`;
 
+    /* Append the template. */
     const contents = $('#algo-steps').html();
     $('#algo-steps').html(`${contents}${template}`);
 
     incrementStepNumber();
 }
 
+/**
+ * Displays the first substep of step C.
+ */
 function extendedBoothsDisplayStepC01() {
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${extendedBoothsStepC0}${extendedBoothsStepC1}`);
-
+    appendTemplate(`${extendedBoothsStepC0}${extendedBoothsStepC1}`);
     incrementStepNumber();
 }
 
+/**
+ * Displays the multiplier after appending zero to its least significant bit.
+ * 
+ * @param {string} multiplierZeroAppended Multiplier after appending zero to its least significant bit.
+ */
 function extendedBoothsAppendZero(multiplierZeroAppended) {
+    /* Highlight the appended zero. */
     const multiplierFormatted = 
         `${multiplierZeroAppended.substring(0, multiplierZeroAppended.length - 1)}<b class = "emphasized">0</b>`;
 
@@ -67,25 +133,42 @@ function extendedBoothsAppendZero(multiplierZeroAppended) {
             </table>
         </div><br>`;
 
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${template}`);
-
+    appendTemplate(template);
     incrementStepNumber();
 }
 
+/**
+ * Displays the second substep of step C.
+ */
 function extendedBoothsDisplayStepC2() {
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${extendedBoothsStepC2}`);
-
+    appendTemplate(`${extendedBoothsStepC2}`);
     incrementStepNumber();
 }
 
+/**
+ * Displays the multiplier after appending zero to its least significant bit and performing sign extension
+ * if its number of bits prior to appending zero is odd.
+ * 
+ * @param {string} multiplier 
+ * @param {string} multiplierForRecoding Multiplier after appending zero to its least significant bit
+ * and performing sign extension depending on its number of bits.
+ */
 function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
+    /* Assume that no sign extension is needed (that is, the multiplier has an even number of bits). */
     let multiplierFormatted = 
         `<span class = "blurred">${multiplierForRecoding} &nbsp;&nbsp;&nbsp; (no need for sign extension)</span>`;
+    let div = `<div class = "indented-3 demo-box-blurred">`;
 
-    let template = 
-        `<div class = "indented-3 demo-box-blurred">
+    /* If the multiplier has an odd number of bits, sign extension is performed. */
+    if (multiplier.length % 2 != 0) {
+        multiplierFormatted = 
+            `<b class = "emphasized">${multiplierForRecoding.substring(0, 1)}</b>${multiplierForRecoding.substring(1)}`;
+        
+        div = `<div class = "indented-3 demo-box">`;
+    }
+
+    const template = 
+        `${div}
             <table class = "demo-box-table">
                 <tr>
                     <th class = "no-bold">${multiplierFormatted}</th>
@@ -93,44 +176,19 @@ function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
             </table>
         </div><br>`;
 
-    if (multiplier.length % 2 != 0) {
-        multiplierFormatted = 
-            `<b class = "emphasized">${multiplierForRecoding.substr(0, 1)}</b>${multiplierForRecoding.substr(1)}`;
-
-        template = 
-            `<div class = "indented-3 demo-box">
-                <table class = "demo-box-table">
-                    <tr>
-                        <th class = "no-bold">${multiplierFormatted}</th>
-                    </tr>
-                </table>
-            </div><br>`;
-    }
-
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${template}`);
-
+    appendTemplate(template);
     incrementStepNumber();
 }
 
+/**
+ * Displays the third substep of step C.
+ */
 function extendedBoothsDisplayStepC3() {
-    const contents = $('#algo-steps').html();
-    $('#algo-steps').html(`${contents}${extendedBoothsStepC3}${extendedBoothsStepCShowTable}${extendedBoothsStepCTableProvision}`);
-
+    appendTemplate(`${extendedBoothsStepC3}${extendedBoothsStepCShowTable}${extendedBoothsStepCTableProvision}`);
     incrementStepNumber();
 }
 
 function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
-    const recodeMap = new Map();
-    recodeMap.set('000', '0');
-    recodeMap.set('001', '+1');
-    recodeMap.set('010', '+1');
-    recodeMap.set('011', '+2');
-    recodeMap.set('100', '-2');
-    recodeMap.set('101', '-1');
-    recodeMap.set('110', '-1');
-    recodeMap.set('111', '0');
-
     let extendedBooths = ``;
     let splitMultipliers = [];
 
@@ -174,8 +232,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
         </div><br>`;
 
     if (recodeNumber == 0) {
-        const contents = $('#algo-steps').html();
-        $('#algo-steps').html(`${contents}${template}`);
+        appendTemplate(template);
     } else {
         $('#extended-booths-demo-box-recoding').html(templateNoDiv);
     }
@@ -186,6 +243,9 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
     return extendedBoothsArray[extendedBoothsArray.length - 1];
 }
 
+/**
+ * Displays step D.
+ */
 function extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding) {
     const contents = $('#algo-steps').html();
     $('#algo-steps').html(`${contents}${extendedBoothsStepD}${extendedBoothsStepDShowTable}${extendedBoothsStepDTableProvision}`);
@@ -266,8 +326,7 @@ function extendedBoothsPencil(displayNumber, multiplicand, multiplicandDec, mult
     const productDisplay = formatProductDisplay(product);
 
     if (displayNumber == 0) {
-        const contents = $('#algo-steps').html();
-        $('#algo-steps').html(`${contents}${template}`);
+        appendTemplate(template);
 
     } else if (displayNumber <= numSummands) {
         const contents = $('#extended-booths-pencil-table').html();
@@ -384,13 +443,6 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
     });
 }
 
-function extendedBoothsTotalSteps(multiplicandBin, multiplierBin) {
-    const numBits = Math.max(multiplicandBin.length, multiplierBin.length);
-    const numDigitsRecoding = Math.ceil(numBits / 2);
-
-    $('#total-steps').text(10 + 2 * numDigitsRecoding + 2 * numBits);
-}
-
 function extendedBoothsRewind(multiplicandBin, multiplierBin) {
     $('#prev-step').on('click', function() {
         extendedBoothsGoTo(parseInt($('#step-number-value').text()) - 2, multiplicandBin, multiplierBin);
@@ -415,10 +467,19 @@ function extendedBoothsGoTo(previousStep, multiplicandBin, multiplierBin) {
     }
 }
 
+/**
+ * Handles the demonstration (simulation) of the extended Booth's algorithm.
+ * 
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {string} multiplierBin Binary multiplier.
+ * @param {number} multiplicandDec Decimal multiplicand.
+ * @param {number} multiplierDec Decimal multiplier.
+ */
 function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
     extendedBoothsInit(multiplicandBin, multiplierBin);
-    extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
+    extendedBoothsInitRecodeMap();
     extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
+    extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
     extendedBoothsRewind(multiplicandBin, multiplierBin);
     extendedBoothsGoToStep(multiplicandBin, multiplierBin);
 }

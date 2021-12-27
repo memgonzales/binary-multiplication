@@ -4,6 +4,9 @@
 
 /**
  * Initializes the step number.
+ * 
+ * Note that the initialization of the total number of steps is deferred to the script files of the respective 
+ * multiplication methods since it is algorithm-dependent.
  */
 function initStepNumber() {
     $('#step-number-value').text(1);
@@ -97,11 +100,26 @@ function formatProductDisplay(product) {
 }
 
 /**
+ * Appends the template string to the existing display.
+ * 
+ * @param {string} template Template string containing the formatted display.
+ */
+function appendTemplate(template) {
+    const contents = $('#algo-steps').html();
+    $('#algo-steps').html(`${contents}${template}`);
+}
+
+/**
  * Starts the demonstration (simulation) when the multiply button is clicked.
  */
 function demo() {
     $('#multiply').on('click', function() {
-        /* Unbind the jQuery click callback of the playback controls. */
+        /*
+         * Unbind the jQuery click callback of the playback controls. 
+
+         * Failure to unbind will result in the click callback being triggered multiple times (even with just
+         * a single click) when the user presses the multiply button again without refreshing the page.
+         */
         $('#next-step').prop('onclick', null).off('click');
         $('#prev-step').prop('onclick', null).off('click');
 
