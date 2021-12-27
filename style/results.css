@@ -1,7 +1,5 @@
 /* Style sheet for the results area (right section) */
 
-@import './colors.css';
-
 #algo-name {
     font-size: 22px;
     font-weight: bold;

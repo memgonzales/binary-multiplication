@@ -3,7 +3,7 @@
  */
 
 /* --- ALGORITHM NAMES --- */
-const algoNames = ['Pencil-and-Paper Method', 'Booth\'s Algorithm', 'Extended Booth\'s Algorithm'];
+const algoNames = [`Pencil-and-Paper Method`, `Booth's Algorithm`, `Extended Booth's Algorithm`];
 
 
 /* --- TRIVIA HEADER --- */
@@ -225,5 +225,7 @@ const extendedBoothsAlgo =
 
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
 
+
+/* Verification step at the end of every multiplication algorithm demonstration (simulation) */
 const verify =
     `<b><u>Verify</u>:</b>`;

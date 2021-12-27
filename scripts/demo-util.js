@@ -28,6 +28,20 @@ function checkMulMethod(mulMethod) {
     return $('#algo-value').text() == mulMethod;
 }
 
+/**
+ * Highlights the non-sign-extended portion of the product (that is, the least significant bits excluding the
+ * sign extension). 
+ * 
+ * For example, if the product is 0000101, 0101 is highlighted.
+ * 
+ * Precondition: 
+ * - The multiplier is 0, -1, 1, 2, or -2.
+ * 
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {number} multiplierDec Decimal multiplier.
+ * @param {string} product Binary product.
+ * @returns Product with the non-sign-extended portion highlighted.
+ */
 function emphasizeProduct(multiplicandBin, multiplierDec, product) {
     let formattedProduct = product;
     let numBits = multiplicandBin.length;
@@ -42,20 +56,35 @@ function emphasizeProduct(multiplicandBin, multiplierDec, product) {
         case 2:
             formattedProduct = `${product.substring(0, product.length - numBits - 1)}<b class = "emphasized no-underline">${product.substring(product.length - numBits - 1)}</b>`;
             break;
+        default:            /* Should not cascade here */
+            break;
     }
 
     return formattedProduct
 }
 
+/**
+ * Hides the carry-over in pencil-and-paper simulation.
+ */
 function hideCarryOver() {
     $('.carry-over b').css('display', 'none');
     $('.carry-over span').css('display', 'none');
 }
 
+/**
+ * Constructs an array with each element corresponding to the product with one bit highlighted.
+ * 
+ * For example, if the product is 001, the returned array is [00*1*, 0*0*1, *0*01], with the bit enclosed
+ * in asterisks referring to the highlighted bit.
+ * 
+ * @param {string} product Binary product.
+ * @returns Array with each element corresponding to the product with one bit highlighted.
+ */
 function formatProductDisplay(product) {
-    let productDisplay = [];
-    let productArray = [];
+    let productDisplay = [];        /* With highlighted bits */
+    let productArray = [];          /* Without highlighted bits */
 
+    /* Isolate the first element (corresponding to the least significant bit of the product). */
     productDisplay.push(`<b class = "emphasized no-underline">${product[product.length - 1]}</b>`);
     productArray.push(product[product.length - 1]);
 
@@ -94,6 +123,8 @@ function demo() {
                 break;
             case algoNames[2]:      /* Extended Booth's Algorithm */
                 extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
+                break;
+            default:                /* Should not cascade here */
                 break;
         }
     });

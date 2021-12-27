@@ -1,6 +1,7 @@
 /**
  * File containing the colors used in the website.
- * The RGB values should match the specifications in :root of the style sheets.
+ * 
+ * The RGB values should match the specifications in colors.css.
  */
 
 const green = 'rgb(25, 44, 2)';

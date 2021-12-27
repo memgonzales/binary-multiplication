@@ -1,5 +1,8 @@
 /** 
  * File containing the utility functions for binary number operations.
+ * 
+ * The methods here are purely mathematical in nature. For methods related to formatting binary numbers
+ * and strings, refer to demo-util.js.
  */
 
 /**
@@ -74,8 +77,8 @@ function toDecimalRaw(number) {
  * 
  * Precondition:
  * - The binary number should have less than or equal to 16 bits.
- * - The number is captured as a string to isolate the special case and differentiate it from other
- *   equivalents of the number 1.
+ * - The number is captured as a string to isolate the special case (binary number '1') and differentiate it 
+ *   from other equivalents of the number 1 (e.g., binary number '01').
  * 
  * @param {string} number Binary number to be converted to its signed decimal equivalent.
  * @returns Decimal equivalent of the binary number, or empty string if the binary number is 1.
@@ -162,7 +165,7 @@ function equalizeBits(number1, number2) {
 /**
  * Multiplies two decimal numbers and expresses the result as a binary number in the specified number of bits.
  * 
- * @param {string} multiplicandDec Decimal multiplicand.
+ * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {number} numBits Number of bits of the product.
  * @returns Product of the two decimal numbers expressed as a binary number in the specified number of bits.

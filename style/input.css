@@ -1,7 +1,5 @@
 /* Style sheet for the input area (left section) */
 
-@import './colors.css';
-
 /* Input fields and related elements */
 #multiplicand-div, #multiplier-div {
     font-size: 22px;
