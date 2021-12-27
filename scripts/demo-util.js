@@ -100,13 +100,25 @@ function formatProductDisplay(product) {
 }
 
 /**
- * Appends the template string to the existing display.
+ * Appends a template string to the existing demonstration (simulation) display.
  * 
- * @param {string} template Template string containing the formatted display.
+ * @param {string} template Template string containing the formatted display to be appended.
  */
 function appendTemplate(template) {
     const contents = $('#algo-steps').html();
     $('#algo-steps').html(`${contents}${template}`);
+}
+
+/**
+ * Appends a row to an existing table given the template string corresponding to the row and the ID
+ * corresponding to the table.
+ * 
+ * @param {string} table ID corresponding to the existing table
+ * @param {string} addlRow Template string corresponding to the row to be appended.
+ */
+function appendRow(table, addlRow) {
+    const contents = $('#' + table).html();
+    $('#' + table).html(`${contents}${addlRow}`);
 }
 
 /**
@@ -117,7 +129,7 @@ function demo() {
         /*
          * Unbind the jQuery click callback of the playback controls. 
 
-         * Failure to unbind will result in the click callback being triggered multiple times (even with just
+         * Failure to unbind will result in the repeated triggering of the click event (even with only
          * a single click) when the user presses the multiply button again without refreshing the page.
          */
         $('#next-step').prop('onclick', null).off('click');
