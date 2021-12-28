@@ -82,6 +82,14 @@ button:hover {
 }
 
 /* Divisions */
+div {
+    user-select: none;              /* Prevent div from being selected when children are clicked. */
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+} 
+
 .flex-container {
     display: flex;
     padding-left: 40px;
