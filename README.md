@@ -47,3 +47,18 @@ Library/Toolkit | Version | Description | License
 The website was refactored into a [PHP](https://www.php.net/) project for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
 
 ## Authors
+- <b>Lander Peter E. Cua</b> <br/>
+  lander_peter_cua@dlsu.edu.ph <br/>
+  
+- <b>Jacob Bryan B. Gaba</b> <br/>
+  jacob_bryan_gaba@dlsu.edu.ph <br/>
+  
+- <b>Mark Edward M. Gonzales</b> <br/>
+  mark_gonzales@dlsu.edu.ph <br/>
+  gonzales.markedward@gmail.com <br/>
+  
+- <b>Hylene Jules G. Lee</b> <br/>
+  hylene_jules_lee@dlsu.edu.ph <br/>
+  lee.hylene@gmail.com
+  
+Assets (images) are properties of their respective owners. Attribution is found in the file [INSERT FILE HERE] and displayed publicly on the [INSERT PAGE HERE].
