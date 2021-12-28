@@ -10,6 +10,7 @@ html, body {
 
 body {
     background-color: var(--gray-bg);
+    color: var(--green-emphasis);
 }
 
 /* Anchor elements */
