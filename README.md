@@ -59,4 +59,4 @@ The website was refactored into a [PHP](https://www.php.net/) project for faster
   hylene_jules_lee@dlsu.edu.ph <br/>
   lee.hylene@gmail.com
   
-Assets (images) are properties of their respective owners. Attribution is found in the file [INSERT FILE HERE] and displayed publicly on the [INSERT PAGE HERE].
+Assets (images) are properties of their respective owners. Attribution is found in the file [`credits.txt`](https://github.com/memgonzales/binary-multiplication/blob/master/credits.txt) and displayed publicly on the [INSERT PAGE HERE].
