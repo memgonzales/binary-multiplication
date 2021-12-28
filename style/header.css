@@ -71,10 +71,10 @@
 #display-mode-content {
     position: absolute;
     width: 170px;
-    margin-top: 16px;
+    margin-top: 0px;
     background-color: var(--green-emphasis);
-    z-index: 1;
-    padding-top: 8px;
+    z-index: 1;              
+    padding-top: 20px;
     padding-bottom: 13px;
     text-align: center;
     display: none;

@@ -88,6 +88,7 @@ button:hover {
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
+    z-index: 100;
 } 
 
 .flex-container {

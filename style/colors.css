@@ -5,7 +5,7 @@
     --green-emphasis: rgb(25, 44, 2);
     --green-lighter: rgb(73, 95, 52);
     --yellow-emphasis: rgb(240, 240, 119);
-    --gray-bg: rgba(233,229,231,255);
-    --red-emphasis: rgb(255, 0, 0);
+    --gray-bg: #fafafa;
+    --red-emphasis: rgb(255, 38, 0);
     --green-hover: rgb(16, 26, 3);
 }
