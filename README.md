@@ -15,6 +15,7 @@ This website is a major course output in a computer organization and architectur
 ## Project Structure
 
 ## Running the Website
+This project is written in PHP and 
 
 ### Running on the Web
 Open the following website: [INSERT LINK HERE]
@@ -32,6 +33,17 @@ Open the following website: [INSERT LINK HERE]
 2. Open [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html). 
    - There is no need to install any additional software or dependency. However, internet connection is required to load fonts, libraries, and toolkits from their respective content delivery networks (CDNs).
 
+3. [INSERT PORTION ON USER MANUAL]
+
 ## Built Using
+This project uses **JavaScript** to carry out all the operations and computations on the client-side. Additional libraries and toolkits are enumerated in the following table:
+
+Library/Toolkit | Version | Description | License
+-- | -- | -- | --
+[jQuery](https://jquery.com/) | 3.5.1 | Fast, small, and feature-rich JavaScript library for HTML document traversal and manipulation, event handling, and animation | MIT License
+[Font Awesome](https://fontawesome.com/) | 4.7.0 | Front-end toolkit featuring vector icons and social logos | CC BY 4.0 License (Icons)<br>SIL OFL 1.1 License (Fonts)<br>MIT License (Code)
+[Google Fonts](https://fonts.google.com/) | - | Font embedding service library featuring free and open-source fonts | Apache License 2.0
+
+The website was refactored into a [PHP](https://www.php.net/) project for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
 
 ## Authors
