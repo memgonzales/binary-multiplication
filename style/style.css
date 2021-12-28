@@ -82,7 +82,7 @@ button:hover {
 }
 
 /* Divisions */
-div {
+#header, #footer {
     user-select: none;              /* Prevent div from being selected when children are clicked. */
     -moz-user-select: none;
     -khtml-user-select: none;
