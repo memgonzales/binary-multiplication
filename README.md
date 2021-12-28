@@ -15,8 +15,6 @@ This website is a major course output in a computer organization and architectur
 ## Project Structure
 
 ## Running the Website
-This project is written in PHP and 
-
 ### Running on the Web
 Open the following website: [INSERT LINK HERE]
 
