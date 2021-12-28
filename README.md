@@ -13,6 +13,21 @@ This website is a major course output in a computer organization and architectur
 ***The deployed website can be accessed through this link: [INSERT LINK HERE]***
 
 ## Project Structure
+This project consists of the following folders:
+
+Folder | Description
+-- | --
+[`assets`](https://github.com/memgonzales/binary-multiplication/tree/master/assets) | Contains the image files
+[`scripts`](https://github.com/memgonzales/binary-multiplication/tree/master/scripts) | Contains the JavaScript files
+[`style`](https://github.com/memgonzales/binary-multiplication/tree/master/style) | Contains the CSS style sheets
+
+It also includes the following files:
+
+File | Description
+-- | --
+[`composer.json`](https://github.com/memgonzales/binary-multiplication/blob/master/composer.json) | Contains the list of dependencies of the PHP project
+[`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html) | Home (main) page of the website
+[`index.php`](https://github.com/memgonzales/binary-multiplication/blob/master/index.php) | Entry point of the PHP project
 
 ## Running the Website
 ### Running on the Web
@@ -59,4 +74,4 @@ The website was refactored into a [PHP](https://www.php.net/) project for faster
   hylene_jules_lee@dlsu.edu.ph <br/>
   lee.hylene@gmail.com
   
-Assets (images) are properties of their respective owners. Attribution is found in the file [INSERT FILE HERE] and displayed publicly on the [INSERT PAGE HERE].
+Assets (images) are properties of their respective owners. Attribution is found in the file [`credits.txt`](https://github.com/memgonzales/binary-multiplication/blob/master/credits.txt) and displayed publicly on the [INSERT PAGE HERE].
