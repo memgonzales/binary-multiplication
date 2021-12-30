@@ -181,7 +181,8 @@ function demo() {
 				);
 				break;
 			default:
-				/* Should not cascade here */ break;
+				/* Should not cascade here */
+				break;
 		}
 	});
 }
