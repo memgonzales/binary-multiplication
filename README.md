@@ -57,6 +57,8 @@ Library/Toolkit | Version | Description | License
 [Font Awesome](https://fontawesome.com/) | 4.7.0 | Front-end toolkit featuring vector icons and social logos | CC BY 4.0 License (Icons)<br>SIL OFL 1.1 License (Fonts)<br>MIT License (Code)
 [Google Fonts](https://fonts.google.com/) | - | Font embedding service library featuring free and open-source fonts | Apache License 2.0
 
+Source code formatting was done using the opinionated code formatter [Prettier](https://prettier.io/).
+
 The website was refactored into a [PHP](https://www.php.net/) project for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
 
 ## Authors
