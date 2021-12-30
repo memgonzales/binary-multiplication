@@ -27,6 +27,9 @@ function extendedBoothsInit(multiplicandBin, multiplierBin) {
 	$('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 }
 
+/**
+ * Populates the bit-pair recoding table.
+ */
 function extendedBoothsInitRecodeMap() {
 	recodeMap.set('000', '0');
 	recodeMap.set('001', '+1');
