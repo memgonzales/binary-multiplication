@@ -1,91 +1,91 @@
 /* Style sheet for the header/navigation bar (top section) */
 
 #header {
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    width: 100%;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	width: 100%;
 }
 
 /* Logo and website title */
 #logo {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 #logo img {
-    margin-top: 10px;
-    margin-bottom: 7px;
-    height: 35px;
+	margin-top: 10px;
+	margin-bottom: 7px;
+	height: 35px;
 }
 
 #title {
-    flex-grow: 2;
-    margin-left: 5px;
-    font-weight: bold;
-    letter-spacing: 2px;
+	flex-grow: 2;
+	margin-left: 5px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
 /* Multiplication methods */
 .mul-methods {
-    flex-grow: 5;
+	flex-grow: 5;
 }
 
 .mul-methods > div {
-    text-align: left;
+	text-align: left;
 }
 
 #pencil-logo {
-    height: 17px;
-    margin-right: 2px;
-    vertical-align: bottom;
-    margin-bottom: 4px;
+	height: 17px;
+	margin-right: 2px;
+	vertical-align: bottom;
+	margin-bottom: 4px;
 }
 
 #booths-logo {
-    height: 18px;
-    vertical-align: bottom;
-    margin-bottom: 4px;
-    margin-right: -3px;
+	height: 18px;
+	vertical-align: bottom;
+	margin-bottom: 4px;
+	margin-right: -3px;
 }
 
 #extended-booths-logo {
-    height: 20px;
-    margin-right: 2px;
-    vertical-align: bottom;
-    margin-bottom: 2px;
+	height: 20px;
+	margin-right: 2px;
+	vertical-align: bottom;
+	margin-bottom: 2px;
 }
 
 /* Display mode */
 #display-mode {
-    flex-grow: 15;
-    position: relative;
+	flex-grow: 15;
+	position: relative;
 }
 
 #display-mode-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 170px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 170px;
 }
 
 #display-mode-content {
-    position: absolute;
-    width: 170px;
-    margin-top: 0px;
-    background-color: var(--green-emphasis);
-    z-index: 1;              
-    padding-top: 20px;
-    padding-bottom: 13px;
-    text-align: center;
-    display: none;
+	position: absolute;
+	width: 170px;
+	margin-top: 0px;
+	background-color: var(--green-bg);
+	z-index: 1;
+	padding-top: 20px;
+	padding-bottom: 13px;
+	text-align: center;
+	display: none;
 }
 
 #display-mode > div {
-    text-align: right;
-    height: 100%;
+	text-align: right;
+	height: 100%;
 }
 
 /* Special classes */
 .small-padding {
-    flex-grow: 1;
+	flex-grow: 1;
 }

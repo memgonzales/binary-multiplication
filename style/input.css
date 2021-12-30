@@ -1,69 +1,74 @@
 /* Style sheet for the input area (left section) */
 
 /* Input fields and related elements */
-#multiplicand-div, #multiplier-div {
-    font-size: 22px;
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 20px;
+#multiplicand-div,
+#multiplier-div {
+	font-size: 22px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 
 .input-container {
-    border-left: 3px solid var(--gray-emphasis);
-    width: 100% !important;
-    padding: 0px;
-    display: table;
+	border-left: 4px solid var(--gray-emphasis);
+	width: 100% !important;
+	padding: 0px;
+	display: table;
 }
 
 .input-container p {
-    display: table-row; 
-    padding: 0px; 
-    width: 100%;
+	display: table-row;
+	padding: 0px;
+	width: 100%;
 }
 
 #input-numbers-dec-bin {
-    display: table;
+	display: table;
 }
 
 #input-numbers-dec-bin p {
-    display: table-row;
+	display: table-row;
 }
 
 #input-numbers-dec-bin label {
-    display: table-cell;
-    padding-left: 15px;
+	display: table-cell;
+	padding-left: 15px;
 }
 
-#multiplicand-dec-label, #multiplier-dec-label {
-    padding-bottom: 10px;
+#multiplicand-dec-label,
+#multiplier-dec-label {
+	padding-bottom: 10px;
 }
 
-#multiplicand-dec, #multiplicand-bin, #multiplier-dec, #multiplier-bin {
-    width: calc(100% - 12px);
+#multiplicand-dec,
+#multiplicand-bin,
+#multiplier-dec,
+#multiplier-bin {
+	width: calc(100% - 12px);
 }
 
 /* Multiply button and related elements */
 #multiply-div {
-    width: 100%;
-    margin-top: 20px;
-    display: table;
+	width: 100%;
+	margin-top: 20px;
+	display: table;
 }
 
 #multiply-div div {
-    display: table-caption;
+	display: table-caption;
 }
 
 #multiply {
-    width: 100%;    
+	width: 100%;
 }
 
 /* Trivia */
 #trivia-div {
-    font-size: 15px;
-    line-height: 1.5;
-    padding-bottom: 30px;
+	font-size: 15px;
+	line-height: 1.5;
+	padding-bottom: 30px;
 }
 
 #trivia-header {
-    font-weight: bold;
+	font-weight: bold;
 }

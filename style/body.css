@@ -1,32 +1,32 @@
 /* General style sheet for the input (left section) and results area (right section) */
 
 #workspace {
-    width: 70%;                         /* Calculated as 100% - margin-left */
-    min-height: calc(100vh - 30px);
-    padding: 0px;
-    margin-left: 30%;                   /* Should be greater than width of #input-numbers */
-    margin-top: 20px;
-    color: var(--green-emphasis);
-    font-size: 16px;
+	width: 70%; /* Calculated as 100% - margin-left */
+	min-height: calc(100vh - 30px);
+	padding: 0px;
+	margin-left: 30%; /* Should be greater than width of #input-numbers */
+	margin-top: 20px;
+	color: var(--green-emphasis);
+	font-size: 16px;
 }
 
 #input-numbers {
-    width: 25%;
-    height: calc(100% - 126px);
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 30px;
-    position: fixed;
-    top: 59px;
-    left: 0px;
-    overflow-y: auto;
-    font-size: 16px;
-    background-color: var(--gray-bg);
+	width: 25%;
+	height: calc(100% - 126px);
+	padding-top: 20px;
+	padding-left: 40px;
+	padding-right: 30px;
+	position: fixed;
+	top: 59px;
+	left: 0px;
+	overflow-y: auto;
+	font-size: 16px;
+	background-color: var(--gray-bg);
 }
 
 #results {
-    flex: 2.5;
-    padding-top: 60px;
-    padding-right: 40px;
-    font-size: 16px;
+	flex: 2.5;
+	padding-top: 60px;
+	padding-right: 40px;
+	font-size: 16px;
 }

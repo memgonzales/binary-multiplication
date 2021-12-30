@@ -2,155 +2,158 @@
 
 @import './colors.css';
 
-html, body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', Arial, sans-serif;
+html,
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', Arial, sans-serif;
 }
 
 body {
-    background-color: var(--gray-bg);
-    color: var(--green-emphasis);
+	background-color: var(--gray-bg);
+	color: var(--green-emphasis);
 }
 
 /* Anchor elements */
 a {
-    display: inline-block;
+	display: inline-block;
 }
 
 a:hover {
-    color: var(--yellow-emphasis);
+	color: var(--yellow-emphasis);
 }
 
 a.trivia {
-    color: var(--green-emphasis);
+	color: var(--green-emphasis);
 }
 
 a.with-underline {
-    text-decoration: underline;
-    cursor: pointer;
-    color: var(--green-emphasis) !important;
+	text-decoration: underline;
+	cursor: pointer;
+	color: var(--green-emphasis) !important;
 }
 
 .no-decor {
-    text-decoration: none;
-    cursor: pointer;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .no-hover:hover {
-    color: var(--green-emphasis);
+	color: var(--green-emphasis);
 }
 
 /* Icons */
 i {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 i:hover {
-    color: var(--yellow-emphasis);
+	color: var(--yellow-emphasis);
 }
 
 .selected {
-    color: var(--yellow-emphasis) !important;
+	color: var(--yellow-emphasis) !important;
 }
 
 /* Input fields */
-input[type = number] {
-    -moz-appearance: textfield;
-    font-size: 16px;
-    font-family: 'Open Sans';
+input[type='number'] {
+	-moz-appearance: textfield;
+	font-size: 16px;
+	font-family: 'Open Sans';
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0px;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0px;
 }
 
 /* Buttons */
 button {
-    font-size: 16px;
-    font-family: 'Open Sans';
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: var(--green-emphasis);
-    border: 0px;
-    color: white;
+	font-size: 16px;
+	font-family: 'Open Sans';
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--green-emphasis);
+	border: 0px;
+	color: white;
 }
 
 button:hover {
-    cursor: pointer;
-    background-color: var(--green-hover);
+	cursor: pointer;
+	background-color: var(--green-hover);
 }
 
 /* Divisions */
-#header, #footer {
-    user-select: none;              /* Prevent div from being selected when children are clicked. */
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
-    z-index: 100;
-} 
+#header,
+#footer {
+	user-select: none; /* Prevent div from being selected when children are clicked. */
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	z-index: 100;
+}
 
 .flex-container {
-    display: flex;
-    padding-left: 40px;
-    font-size: 18px;
-    flex-wrap: wrap;
+	display: flex;
+	padding-left: 40px;
+	font-size: 18px;
+	flex-wrap: wrap;
 }
 
 .flex-container > div {
-    text-align: left;
-    display: table;
+	text-align: left;
+	display: table;
 }
 
 .inner {
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .error {
-    color: var(--red-emphasis);
-    font-weight: bold;
-    font-size: 12px;
-    margin-top: 10px;
-    margin-left: 18px;
-    margin-bottom: -20px;
-    display: none;
+	color: var(--red-emphasis);
+	font-weight: bold;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 18px;
+	margin-bottom: -20px;
+	display: none;
 }
 
 .tracking-only {
-    display: none !important;
+	display: none !important;
 }
 
 /* Header and footer */
 .colored {
-    background-color: var(--green-emphasis);
-    color: white;
+	background-color: var(--green-bg);
+	color: white;
 }
 
 /* Special classes */
 .code {
-    font-family: 'Courier New', Arial, sans-serif;
+	font-family: 'Courier New', Arial, sans-serif;
 }
 
 .hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .no-bold {
-    font-weight: normal !important;
+	font-weight: normal !important;
 }
 
 .right-align {
-    text-align: right !important;
+	text-align: right !important;
 }
 
 .bottom-border {
-    border-bottom: 1px solid var(--green-emphasis);
+	border-bottom: 1px solid var(--green-emphasis);
 }
 
 .no-underline {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
