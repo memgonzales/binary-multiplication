@@ -7,7 +7,7 @@ All media files are properties of their respective owners, and attribution is pr
 
 Unless otherwise credited, the icons are taken from the [Font Awesome](https://fontawesome.com/) toolkit.
 
-Images were also taken from:
+Images and icons were also downloaded from:
 
 -   https://cdn.pixabay.com/photo/2019/04/08/20/26/pencil-4112898_1280.png
 -   https://cdn-icons-png.flaticon.com/512/724/724933.png
