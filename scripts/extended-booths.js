@@ -494,18 +494,21 @@ function extendedBoothsPencil(
 			numBitsProduct - (displayNumber - extendedBoothsArray.length);
 		for (let i = 0; i < numSummands; i++) {
 			const summand = $(`#extended-booths-summands-${i}`).text();
+			let summandFormatted = '';
 
 			/* Prevent negative indexes. */
 			if (index < summand.length) {
-				const summandFormatted = `${summand.substring(
+				summandFormatted = `<span class = "blurred">${summand.substring(
 					0,
 					index
-				)}<b class = "emphasized no-underline">${
+				)}</span><b class = "emphasized no-underline">${
 					summand[index]
 				}</b>${summand.substring(index + 1)}`;
-
-				$(`#extended-booths-summands-${i}`).html(summandFormatted);
+			} else {
+				summandFormatted = `<span class = "blurred">${summand}</span>`;
 			}
+
+			$(`#extended-booths-summands-${i}`).html(summandFormatted);
 		}
 
 		/* Highlight the bit in the product that corresponds to the sum of the bit column. */
