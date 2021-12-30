@@ -74,7 +74,7 @@ button {
 	font-family: 'Open Sans';
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: var(--green-emphasis);
+	background-color: var(--green-bg);
 	border: 0px;
 	color: white;
 }
