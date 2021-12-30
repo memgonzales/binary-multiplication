@@ -49,7 +49,7 @@ Open the following website: [INSERT LINK HERE]
         git clone https://github.com/memgonzales/binary-multiplication
         ```
 
-    - If git is not installed, click the green <code>Code</code> button near the top right of the repository and choose <code>Download ZIP</code>. Once the zipped folder has been downloaded, extract its contents.
+    - If git is not installed, click the green `Code` button near the top right of the repository and choose [`Download ZIP`](https://github.com/memgonzales/binary-multiplication/archive/refs/heads/master.zip). Once the zipped folder has been downloaded, extract its contents.
 
 2. Open [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html).
 
