@@ -45,7 +45,7 @@
 #multiplicand-bin,
 #multiplier-dec,
 #multiplier-bin {
-	width: calc(100% - 12px);
+	width: calc(100% - 15px);
 }
 
 /* Multiply button and related elements */
