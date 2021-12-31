@@ -237,7 +237,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 		const substr3 = `${multiplierForRecoding.substring(i + 1)}`;
 
 		splitMultipliers.push(
-			`${substr1}<b class = "emphasized">${substr2}</b>${substr3}`
+			`<span class = "blurred">${substr1}</span><b class = "emphasized">${substr2}</b>${substr3}`
 		);
 	}
 
