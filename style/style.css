@@ -133,6 +133,23 @@ button:hover {
 	color: white;
 }
 
+/* Horizontal spacing */
+.tab-18 {
+	padding-left: 18px;
+}
+
+.tab-13 {
+	padding-left: 13px;
+}
+
+.tab-27 {
+	padding-left: 27px;
+}
+
+.tab-29 {
+	padding-left: 29px;
+}
+
 /* Special classes */
 .code {
 	font-family: 'Courier New', Arial, sans-serif;
