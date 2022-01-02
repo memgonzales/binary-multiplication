@@ -1,5 +1,9 @@
 /**
  * File containing the utility functions for the demonstration (simulation) of the extended Booth's algorithm.
+ *
+ * For horizontal spacing, use the .tab-n (where n is a natural number) classes found in style.css,
+ * as seen in the strings related to the extended Booth's algorithm. Avoid using consecutive &nbsp;
+ * since these clutter the text included when the user performs a selection.
  */
 
 /**
@@ -171,7 +175,7 @@ function extendedBoothsDisplayStepC2() {
  */
 function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
 	/* Assume that no sign extension is needed (that is, the multiplier has an even number of bits). */
-	let multiplierFormatted = `<span class = "blurred">${multiplierForRecoding} &nbsp;&nbsp;&nbsp; (no need for sign extension)</span>`;
+	let multiplierFormatted = `<span class = "blurred">${multiplierForRecoding} <span class = "tab-27"></span>(no need for sign extension)</span>`;
 	let div = `<div class = "indented-3 demo-box-blurred">`;
 
 	/* If the multiplier has an odd number of bits, sign extension is performed. */
@@ -553,9 +557,9 @@ function extendedBoothsVerify(
 	numSummands
 ) {
 	const productDec = multiplicandDec * multiplierDec;
-	const doubleCheck = `${multiplicandDec}<sub>10</sub>&nbsp; &times; &nbsp;${multiplierDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; ${productDec}<sub>10</sub> &nbsp;&nbsp;=&nbsp;&nbsp; <span class = "final-answer">${product}<sub>2</sub></span><br>`;
+	const doubleCheck = `${multiplicandDec}<sub>10</sub><span class = "tab-9"></span>&times;<span class = "tab-9"></span>${multiplierDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span>${productDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span><span class = "final-answer">${product}<sub>2</sub></span><br>`;
 
-	appendTemplate(`${verify} &nbsp;&nbsp; ${doubleCheck}`);
+	appendTemplate(`${verify}<span class = "tab-13"></span>${doubleCheck}`);
 
 	/* Hide the carry-over and remove the highlights from the previous step. */
 	hideCarryOver();
