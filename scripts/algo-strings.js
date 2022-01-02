@@ -212,4 +212,4 @@ const extendedBoothsAlgo = `${extendedBoothsIntro}
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
 
 /* Verification step at the end of every multiplication algorithm demonstration (simulation) */
-const verify = `<b><u>Verify</u>:</b>`;
+const verify = `<b><u>Verification</u>:</b>`;
