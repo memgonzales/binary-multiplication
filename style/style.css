@@ -182,3 +182,12 @@ button:hover {
 .no-underline {
 	text-decoration: none !important;
 }
+
+.not-clickable {
+	cursor: default !important;
+}
+
+.material-icons {
+	vertical-align: middle;
+	margin-top: -5px;
+}

@@ -83,8 +83,7 @@ const extendedBoothsStepC = `${extendedBoothsStepC0}
     ${extendedBoothsStepC3}`;
 
 const extendedBoothsStepCShowTable = `<br><span class = "indented">
-        <span class="tab-27"></span>
-        Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        <span class="tab-27"></span>Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
         to <span id = "show-hide-extended-booths-recoding">show</span> the recoding table.
     </span>`;
 
@@ -166,9 +165,8 @@ const extendedBoothsStepD = `<b>D.<span class="tab-13"></span>Multiply using pen
             intermediate product.</b>
         </span><br>`;
 
-const extendedBoothsStepDShowTable = `<span>
-        <span class="tab-29"></span>
-            Click <a onclick = "showExtendedBoothsOperations(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+const extendedBoothsStepDShowTable = `<span style = "margin-top: 10px;">
+        <span class="tab-29"></span>Click <a onclick = "showExtendedBoothsOperations(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
             to <span id = "show-hide-extended-booths-operations">show</span> the multiplication guide.
         </span>`;
 
@@ -212,4 +210,4 @@ const extendedBoothsAlgo = `${extendedBoothsIntro}
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
 
 /* Verification step at the end of every multiplication algorithm demonstration (simulation) */
-const verify = `<b><u>Verification</u>:</b>`;
+const verify = `<span class = "material-icons">check_circle_outline</span><span class = "tab-13"></span><b><u>Verification</u>:</b>`;
