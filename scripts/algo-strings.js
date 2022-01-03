@@ -158,7 +158,7 @@ const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
         </tr>
     </table>`;
 
-const extendedBoothsStepD = `<b id = "scroll-extended-booths-operations">D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
+const extendedBoothsStepD = `<b>D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
         is negative. <br>
         <span>
         <span class="tab-29"></span> Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
