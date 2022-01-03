@@ -5,7 +5,7 @@ All media files are properties of their respective owners, and attribution is pr
 
 ## Image and Icon Sources
 
-Unless otherwise credited, the icons are taken from the [Font Awesome](https://fontawesome.com/) toolkit.
+Unless otherwise credited, the icons are taken from the [Font Awesome](https://fontawesome.com/) toolkit and [Material Design](https://developers.google.com/fonts/docs/material_icons) library.
 
 Images and icons were also downloaded from:
 
