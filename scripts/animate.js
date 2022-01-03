@@ -55,5 +55,7 @@ function animateTitle() {
 			'BINARY<span style = "margin-left: 11px;"></span>MULTIPLICATION'
 		);
 		$('.hidden').css('visibility', 'visible');
+
+		$('#step-number-value').hide();
 	}, 9 * timer);
 }
