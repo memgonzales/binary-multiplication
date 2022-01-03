@@ -1,4 +1,9 @@
 # Binary Multiplication
+![badge][badge-html5]
+![badge][badge-js]
+![badge][badge-jquery]
+![badge][badge-php]
+![badge][badge-heroku]
 
 This project is an interactive website for demonstrating or simulating **signed binary multiplication** via three methods:
 
@@ -86,3 +91,9 @@ The website was refactored into a [PHP](https://www.php.net/) project for faster
     lee.hylene@gmail.com
 
 Assets (images) are properties of their respective owners. Attribution is found in the [credits](https://github.com/memgonzales/binary-multiplication/blob/master/CREDITS.md) file and displayed publicly on the [INSERT PAGE HERE].
+
+[badge-html5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white
+[badge-js]: https://img.shields.io/badge/javascript-%23323330.svg?style=flate&logo=javascript&logoColor=%23F7DF1E
+[badge-jquery]: https://img.shields.io/badge/jquery-%230769AD.svg?style=flat&logo=jquery&logoColor=white
+[badge-php]: https://img.shields.io/badge/PHP-777BB4?style=flate&logo=php&logoColor=white
+[badge-heroku]: https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white
