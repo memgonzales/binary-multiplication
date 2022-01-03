@@ -83,7 +83,7 @@ const extendedBoothsStepC = `${extendedBoothsStepC0}
     ${extendedBoothsStepC3}`;
 
 const extendedBoothsStepCShowTable = `<br><span class = "indented">
-        <span class="tab-27"></span>Click <a onclick = "showExtendedBoothsRecoding(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        <span class="tab-27"></span>Click <a onclick = "showExtendedBoothsRecoding(); scrollToExtendedBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
         to <span id = "show-hide-extended-booths-recoding">show</span> the recoding table.
     </span>`;
 
@@ -158,7 +158,7 @@ const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
         </tr>
     </table>`;
 
-const extendedBoothsStepD = `<b>D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
+const extendedBoothsStepD = `<b id = "scroll-extended-booths-operations">D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
         is negative. <br>
         <span>
         <span class="tab-29"></span> Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
@@ -166,7 +166,7 @@ const extendedBoothsStepD = `<b>D.<span class="tab-13"></span>Multiply using pen
         </span><br>`;
 
 const extendedBoothsStepDShowTable = `<span style = "margin-top: 10px;">
-        <span class="tab-29"></span>Click <a onclick = "showExtendedBoothsOperations(); window.scrollTo(0, document.body.scrollHeight);" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        <span class="tab-29"></span>Click <a onclick = "showExtendedBoothsOperations(); scrollToExtendedBoothsOperations();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
             to <span id = "show-hide-extended-booths-operations">show</span> the multiplication guide.
         </span>`;
 

@@ -175,7 +175,7 @@ function extendedBoothsDisplayStepC2() {
  */
 function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
 	/* Assume that no sign extension is needed (that is, the multiplier has an even number of bits). */
-	let multiplierFormatted = `<span class = "blurred">${multiplierForRecoding} <span class = "tab-27"></span>(no need for sign extension)</span>`;
+	let multiplierFormatted = `<span  id = "scroll-extended-booths-recoding-table" class = "blurred">${multiplierForRecoding} <span class = "tab-27"></span>(no need for sign extension)</span>`;
 	let div = `<div class = "indented-3 demo-box-blurred">`;
 
 	/* If the multiplier has an odd number of bits, sign extension is performed. */
@@ -745,6 +745,18 @@ function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 	for (let i = 0; i < stepNumber; i++) {
 		$('#next-step').trigger('click');
 	}
+}
+
+function scrollToExtendedBoothsRecoding() {
+	$('html, body').animate( {
+		scrollTop: $('#scroll-extended-booths-recoding-table').offset().top
+	});
+}
+
+function scrollToExtendedBoothsOperations() {
+	$('html, body').animate( {
+		scrollTop: $('#scroll-extended-booths-operations').offset().top
+	});
 }
 
 /**
