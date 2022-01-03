@@ -91,13 +91,13 @@ const extendedBoothsStepCTableProvision = `<span id = "extended-booths-step-c-ta
 
 const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
         <tr>
-            <th rowspan = "2"><em>b</em><sub>2</sub><em>b</em><sub>1</sub><em>b</em><sub>0</sub></th>  
+            <th rowspan = "2">b<sub>i+1</sub> b<sub>i</sub> b<sub>i-1</sub></th>  
             <th rowspan = "2">Recoding<sub></sub></th>
             <th colspan = "3">Mnemonic<sub></sub></th>
         </tr>
         <tr>
-            <td>Booth's of <em>b</em><sub>2</sub><em>b</em><sub>1</sub></td>
-            <td>Booth's of <em>b</em><sub>1</sub><em>b</em><sub>0</sub></td>
+            <td>Booth's of b<sub>i+1</sub> b<sub>i</sub></td>
+            <td>Booth's of b<sub>i</sub> b<sub>i-1</sub></td>
             <td>Derivation<sub></sub></td>
         </tr>
         <tr>
@@ -191,11 +191,11 @@ const extendedBoothsStepDTable = `<table class = "indented-2 procedure">
         </tr>
         <tr>
             <td>+2</td>
-            <td>Left arithmetic shift (append 0 to the least significant bit)</td>
+            <td>Arithmetic left shift (append 0 to the least significant bit)</td>
         </tr>
         <tr>
             <td>-2</td>
-            <td>Two's complement, then left arithmetic shift</td>
+            <td>Two's complement, then arithmetic left shift</td>
         </tr>
     </table>`;
 
