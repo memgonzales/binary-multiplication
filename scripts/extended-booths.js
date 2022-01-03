@@ -271,7 +271,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
                 <th>Modified Multiplier</th>
                 <td id = "modified-multiplier">${splitMultipliers[recodeNumber]}</td>
             </tr>
-            <tr>
+            <tr id = "scroll-extended-booths-operations">
                 <th>Extended Booth's</th>
                 <td id = "extended-booths-display">${extendedBoothsDisplay[recodeNumber]}</td>
             </tr>
