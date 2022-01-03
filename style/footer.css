@@ -41,6 +41,10 @@
 	text-align: center;
 }
 
+#step-number-value {
+	visibility: hidden;
+}
+
 /* Save to Text File */
 #save {
 	flex-grow: 1;
