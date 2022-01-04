@@ -145,6 +145,19 @@ function appendRow(table, addlRow) {
 	$('#' + table).html(`${contents}${addlRow}`);
 }
 
+function noPreviousStep() {
+	$('#prev-step').css('visibility', 'hidden');
+	$('#step').hide();
+	$('#description').show();
+}
+
+function withPreviousAndNextStep() {
+	$('#prev-step').css('visibility', 'visible');
+	$('#next-step').css('visibility', 'visible');
+	$('#step').show();
+	$('#description').hide();
+}
+
 function demoUtil() {
 	/*
 	 * Unbind the jQuery click callback of the playback controls. 

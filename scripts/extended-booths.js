@@ -616,8 +616,7 @@ function extendedBoothsSteps(
 	let product = '';
 
 	$('#next-step').on('click', function () {
-		/* Make the previous step button visible. */
-		$('#prev-step').css('visibility', 'visible');
+		withPreviousAndNextStep();
 
 		/* Check if the selected multiplication method is the extended Booth's algorithm. */
 		if (checkMulMethod(algoNames[2])) {
@@ -707,8 +706,7 @@ function extendedBoothsSteps(
  */
 function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 	$('#prev-step').on('click', function () {
-		/* Make the next step button visible. */
-		$('#next-step').css('visibility', 'visible');
+		withPreviousAndNextStep();
 
 		/*
 		 * Subtract 2 since the extendedBoothsSteps() method triggers the displayed step based on the previous
@@ -718,8 +716,7 @@ function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 			initStepNumber(0);
 			extendedBoothsDescription();
 
-			/* Hide the previous step button. */
-			$('#prev-step').css('visibility', 'hidden');
+			noPreviousStep();
 		} else {
 			extendedBoothsGoTo(
 				parseInt($('#step-number-value').text()) - 2,
@@ -740,9 +737,7 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 	/* Trigger the change when the enter key is pressed. */
 	$('#step-number').on('keyup', function (e) {
 		if (e.code == 'Enter') {
-			/* Assume that all buttons have to be visible. */
-			$('#prev-step').css('visibility', 'visible');
-			$('#next-step').css('visibility', 'visible');
+			withPreviousAndNextStep();
 
 			/*
 			 * Subtract 1 since the extendedBoothsSteps() method triggers the displayed step based on the previous
@@ -752,8 +747,7 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 				initStepNumber(0);
 				extendedBoothsDescription();
 
-				/* Hide the previous step button. */
-				$('#prev-step').css('visibility', 'hidden');
+				noPreviousStep();
 			} else {
 				extendedBoothsGoTo(
 					parseInt($('#step-number').val() - 1),
