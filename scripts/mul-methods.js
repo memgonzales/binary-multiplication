@@ -144,6 +144,8 @@ function clickMulMethod(elems, clickedElem) {
 		showTrivia(index);
 		showAlgoName(index);
 		showAlgoSteps(index);
+
+		initStepNumber(0);
 	});
 
 	$('#' + clickedElem + '-logo').on('click', function () {
@@ -151,5 +153,7 @@ function clickMulMethod(elems, clickedElem) {
 		showTrivia(index);
 		showAlgoName(index);
 		showAlgoSteps(index);
+
+		initStepNumber(0);
 	});
 }

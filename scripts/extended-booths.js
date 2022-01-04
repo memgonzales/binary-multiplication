@@ -23,11 +23,8 @@ const recodeMap = new Map();
  * Initializes the results area at the start of the demonstration (simulation) and displays steps A and B.
  *
  * Note that the initialization of the step number is handled in the demo() method in demo-util.js.
- *
- * @param {string} multiplicandBin Binary multiplicand.
- * @param {string} multiplierBin Binary multiplier.
  */
-function extendedBoothsInit(multiplicandBin, multiplierBin) {
+function extendedBoothsInit() {
 	$('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 }
 
@@ -739,7 +736,7 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 	/* Return to the first step, and repeatedly trigger the click (next step) event to change the displayed step. */
 	extendedBoothsInit(multiplicandBin, multiplierBin);
-	initStepNumber();
+	initStepNumber(1);
 	extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
 
 	for (let i = 0; i < stepNumber; i++) {
@@ -748,13 +745,13 @@ function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 }
 
 function scrollToExtendedBoothsRecoding() {
-	$('html, body').animate( {
+	$('html, body').animate({
 		scrollTop: $('#scroll-extended-booths-recoding-table').offset().top
 	});
 }
 
 function scrollToExtendedBoothsOperations() {
-	$('html, body').animate( {
+	$('html, body').animate({
 		scrollTop: $('#scroll-extended-booths-operations').offset().top
 	});
 }

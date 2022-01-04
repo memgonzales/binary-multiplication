@@ -7,10 +7,13 @@
  *
  * Note that the initialization of the total number of steps is deferred to the script files of the respective
  * multiplication methods since it is algorithm-dependent.
+ *
+ * @param {number} number Initial step number (0 if the description of the multiplication algorithm is displayed;
+ * 1, otherwise)
  */
-function initStepNumber() {
-	$('#step-number-value').text(1);
-	$('#step-number').val(1);
+function initStepNumber(number) {
+	$('#step-number-value').text(number);
+	$('#step-number').val(number);
 }
 
 /**
@@ -142,47 +145,63 @@ function appendRow(table, addlRow) {
 	$('#' + table).html(`${contents}${addlRow}`);
 }
 
+function demoUtil() {
+	/*
+	 * Unbind the jQuery click callback of the playback controls. 
+
+	 * Failure to unbind will result in the repeated triggering of the click event (even with only
+	 * a single click) when the user presses the multiply button again without refreshing the page.
+	 */
+	$('#next-step').prop('onclick', null).off('click');
+	$('#prev-step').prop('onclick', null).off('click');
+
+	$('#next-step').on('click', function () {
+		if ($('#step-number-value').text() == 0) {
+			demoUtil();
+		}
+	});
+
+	/* Clear the results area. */
+	$('#algo-name').hide();
+	$('#algo-steps').html('');
+
+	initStepNumber(1);
+
+	const multiplicandBin = $('#multiplicand-bin').val();
+	const multiplierBin = $('#multiplier-bin').val();
+	const multiplicandDec = $('#multiplicand-dec').val();
+	const multiplierDec = $('#multiplier-dec').val();
+
+	/* Store the values in hidden span elements to retain them even if the input fields are modified. */
+	$('#multiplicand-bin-value').text(multiplicandBin);
+	$('#multiplier-bin-value').text(multiplierBin);
+	$('#multiplicand-dec-value').text(multiplicandDec);
+	$('#multiplier-dec-value').text(multiplierDec);
+
+	switch ($('#algo-value').text()) {
+		case algoNames[0] /* Pencil-and-Paper Method */:
+			break;
+		case algoNames[1] /* Booth's Algorithm */:
+			break;
+		case algoNames[2] /* Extended Booth's Algorithm */:
+			extendedBoothsDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
+			break;
+		default:
+			/* Should not cascade here */
+			break;
+	}
+}
+
 /**
  * Starts the demonstration (simulation) when the multiply button is clicked.
  */
 function demo() {
 	$('#multiply').on('click', function () {
-		/*
-         * Unbind the jQuery click callback of the playback controls. 
-
-         * Failure to unbind will result in the repeated triggering of the click event (even with only
-         * a single click) when the user presses the multiply button again without refreshing the page.
-         */
-		$('#next-step').prop('onclick', null).off('click');
-		$('#prev-step').prop('onclick', null).off('click');
-
-		/* Clear the results area. */
-		$('#algo-name').hide();
-		$('#algo-steps').html('');
-
-		initStepNumber();
-
-		const multiplicandBin = $('#multiplicand-bin').val();
-		const multiplierBin = $('#multiplier-bin').val();
-		const multiplicandDec = $('#multiplicand-dec').val();
-		const multiplierDec = $('#multiplier-dec').val();
-
-		switch ($('#algo-value').text()) {
-			case algoNames[0] /* Pencil-and-Paper Method */:
-				break;
-			case algoNames[1] /* Booth's Algorithm */:
-				break;
-			case algoNames[2] /* Extended Booth's Algorithm */:
-				extendedBoothsDemo(
-					multiplicandBin,
-					multiplierBin,
-					multiplicandDec,
-					multiplierDec
-				);
-				break;
-			default:
-				/* Should not cascade here */
-				break;
-		}
+		demoUtil();
 	});
 }
