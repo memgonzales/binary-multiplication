@@ -25,6 +25,7 @@ const recodeMap = new Map();
  * Note that the initialization of the step number is handled in the demo() method in demo-util.js.
  */
 function extendedBoothsInit() {
+	$('#algo-name').hide();
 	$('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 }
 
@@ -717,10 +718,7 @@ function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 		 * value of the step number.
 		 */
 		if ($('#step-number-value').text() == 1) {
-			initStepNumber(0);
-			extendedBoothsDescription();
-
-			noPreviousStep();
+			extendedBoothsGoToStep0();
 		} else {
 			extendedBoothsGoTo(
 				parseInt($('#step-number-value').text()) - 2,
@@ -748,10 +746,7 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 			 * value of the step number.
 			 */
 			if ($('#step-number').val() == 0) {
-				initStepNumber(0);
-				extendedBoothsDescription();
-
-				noPreviousStep();
+				extendedBoothsGoToStep0();
 			} else {
 				extendedBoothsGoTo(
 					parseInt($('#step-number').val() - 1),
@@ -766,6 +761,13 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 			}
 		}
 	});
+}
+
+function extendedBoothsGoToStep0() {
+	initStepNumber(0);
+	extendedBoothsDescription();
+
+	noPreviousStep();
 }
 
 /**

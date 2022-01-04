@@ -130,6 +130,10 @@ function showAlgoSteps(index) {
 	$('#algo-steps').html(algoSteps[index]);
 }
 
+function noInput() {
+	return $('#multiplicand-bin-value').text().trim().length == 0;
+}
+
 /**
  * Changes the display depending on the selected multiplication method.
  *
@@ -145,23 +149,34 @@ function clickMulMethod(elems, clickedElem) {
 		showAlgoName(index);
 		showAlgoSteps(index);
 
-		switch ($('#algo-value').text()) {
-			case algoNames[0] /* Pencil-and-Paper Method */:
-				break;
-			case algoNames[1] /* Booth's Algorithm */:
-				break;
-			case algoNames[2] /* Extended Booth's Algorithm */:
-				extendedBoothsDemo(
-					$('#multiplicand-bin-value').text(),
-					$('#multiplier-bin-value').text(),
-					parseInt($('#multiplicand-dec-value').text()),
-					parseInt($('#multiplier-dec-value').text())
-				);
-				$('#prev-step').trigger('click');
-				break;
-			default:
-				/* Should not cascade here */
-				break;
+		if (noInput()) {
+			noPreviousNextStep();
+		} else {
+			switch ($('#algo-value').text()) {
+				case algoNames[0] /* Pencil-and-Paper Method */:
+					break;
+
+				case algoNames[1] /* Booth's Algorithm */:
+					break;
+
+				case algoNames[2] /* Extended Booth's Algorithm */:
+					extendedBoothsDemo(
+						$('#multiplicand-bin-value').text(),
+						$('#multiplier-bin-value').text(),
+						parseInt($('#multiplicand-dec-value').text()),
+						parseInt($('#multiplier-dec-value').text())
+					);
+
+					/* Start at step 0 (description). */
+					initStepNumber(0);
+					extendedBoothsDescription();
+					noPreviousStep();
+
+					break;
+				default:
+					/* Should not cascade here */
+					break;
+			}
 		}
 	});
 
@@ -171,32 +186,37 @@ function clickMulMethod(elems, clickedElem) {
 		showAlgoName(index);
 		showAlgoSteps(index);
 
-		switch ($('#algo-value').text()) {
-			case algoNames[0] /* Pencil-and-Paper Method */:
-				break;
+		if (noInput()) {
+			noPreviousNextStep();
+		} else {
+			switch ($('#algo-value').text()) {
+				case algoNames[0] /* Pencil-and-Paper Method */:
+					break;
 
-			case algoNames[1] /* Booth's Algorithm */:
-				break;
+				case algoNames[1] /* Booth's Algorithm */:
+					break;
 
-			case algoNames[2] /* Extended Booth's Algorithm */:
-				extendedBoothsDemo(
-					$('#multiplicand-bin-value').text(),
-					$('#multiplier-bin-value').text(),
-					parseInt($('#multiplicand-dec-value').text()),
-					parseInt($('#multiplier-dec-value').text())
-				);
+				case algoNames[2] /* Extended Booth's Algorithm */:
+					extendedBoothsDemo(
+						$('#multiplicand-bin-value').text(),
+						$('#multiplier-bin-value').text(),
+						parseInt($('#multiplicand-dec-value').text()),
+						parseInt($('#multiplier-dec-value').text())
+					);
 
-				/* Start at step 0 (description). */
-				extendedBoothsGoTo(
-					0,
-					$('#multiplicand-bin-value').text(),
-					$('#multiplier-bin-value').text()
-				);
-				break;
+					/* Start at step 0 (description). */
+					extendedBoothsGoTo(
+						0,
+						$('#multiplicand-bin-value').text(),
+						$('#multiplier-bin-value').text()
+					);
 
-			default:
-				/* Should not cascade here */
-				break;
+					break;
+
+				default:
+					/* Should not cascade here */
+					break;
+			}
 		}
 	});
 }

@@ -158,6 +158,20 @@ function noPreviousStep() {
 }
 
 /**
+ * Hides the previous and next step buttons and changes the text on the playback control to display
+ * 'Description' instead of 'Step 0 of x'.
+ *
+ * This method is called when the multiplication methods are selected without the user entering
+ * any input yet.
+ */
+function noPreviousNextStep() {
+	$('#prev-step').css('visibility', 'hidden');
+	$('#next-step').css('visibility', 'hidden');
+	$('#step').hide();
+	$('#description').show();
+}
+
+/**
  * Shows the previous and next step buttons and all the playback controls.
  */
 function withPreviousAndNextStep() {
@@ -185,6 +199,7 @@ function demoUtil() {
 	$('#algo-steps').html('');
 
 	initStepNumber(1);
+	withPreviousAndNextStep();
 
 	const multiplicandBin = $('#multiplicand-bin').val();
 	const multiplierBin = $('#multiplier-bin').val();
@@ -221,8 +236,8 @@ function demoUtil() {
  */
 function demo() {
 	$('#multiply').on('click', function () {
-		/* Make the previous step button visible. */
-		$('#prev-step').css('visibility', 'visible');
+		// /* Make the previous step button visible. */
+		// $('#prev-step').css('visibility', 'visible');
 
 		demoUtil();
 	});
