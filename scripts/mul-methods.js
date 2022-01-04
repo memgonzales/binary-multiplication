@@ -176,6 +176,7 @@ function clickMulMethod(elems, clickedElem) {
 					/* Start at step 0 (description). */
 					initStepNumber(0);
 					extendedBoothsDescription();
+					withPreviousAndNextStep();
 					noPreviousStep();
 
 					break;
@@ -211,11 +212,10 @@ function clickMulMethod(elems, clickedElem) {
 					);
 
 					/* Start at step 0 (description). */
-					extendedBoothsGoTo(
-						0,
-						$('#multiplicand-bin-value').text(),
-						$('#multiplier-bin-value').text()
-					);
+					initStepNumber(0);
+					extendedBoothsDescription();
+					withPreviousAndNextStep();
+					noPreviousStep();
 
 					break;
 
