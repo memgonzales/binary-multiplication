@@ -145,7 +145,24 @@ function clickMulMethod(elems, clickedElem) {
 		showAlgoName(index);
 		showAlgoSteps(index);
 
-		initStepNumber(0);
+		switch ($('#algo-value').text()) {
+			case algoNames[0] /* Pencil-and-Paper Method */:
+				break;
+			case algoNames[1] /* Booth's Algorithm */:
+				break;
+			case algoNames[2] /* Extended Booth's Algorithm */:
+				extendedBoothsDemo(
+					$('#multiplicand-bin-value').text(),
+					$('#multiplier-bin-value').text(),
+					parseInt($('#multiplicand-dec-value').text()),
+					parseInt($('#multiplier-dec-value').text())
+				);
+				$('#prev-step').trigger('click');
+				break;
+			default:
+				/* Should not cascade here */
+				break;
+		}
 	});
 
 	$('#' + clickedElem + '-logo').on('click', function () {
@@ -154,6 +171,23 @@ function clickMulMethod(elems, clickedElem) {
 		showAlgoName(index);
 		showAlgoSteps(index);
 
-		initStepNumber(0);
+		switch ($('#algo-value').text()) {
+			case algoNames[0] /* Pencil-and-Paper Method */:
+				break;
+			case algoNames[1] /* Booth's Algorithm */:
+				break;
+			case algoNames[2] /* Extended Booth's Algorithm */:
+				extendedBoothsDemo(
+					$('#multiplicand-bin-value').text(),
+					$('#multiplier-bin-value').text(),
+					parseInt($('#multiplicand-dec-value').text()),
+					parseInt($('#multiplier-dec-value').text())
+				);
+				$('#prev-button').trigger('click');
+				break;
+			default:
+				/* Should not cascade here */
+				break;
+		}
 	});
 }

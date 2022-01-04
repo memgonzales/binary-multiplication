@@ -155,12 +155,6 @@ function demoUtil() {
 	$('#next-step').prop('onclick', null).off('click');
 	$('#prev-step').prop('onclick', null).off('click');
 
-	$('#next-step').on('click', function () {
-		if ($('#step-number-value').text() == 0) {
-			demoUtil();
-		}
-	});
-
 	/* Clear the results area. */
 	$('#algo-name').hide();
 	$('#algo-steps').html('');

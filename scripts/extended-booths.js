@@ -28,6 +28,13 @@ function extendedBoothsInit() {
 	$('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 }
 
+function extendedBoothsDescription() {
+	/* 2 refers to the index of the extended Booth's algorithm. */
+	showTrivia(2);
+	showAlgoName(2);
+	showAlgoSteps(2);
+}
+
 /**
  * Populates the bit-pair recoding table.
  */
@@ -612,7 +619,10 @@ function extendedBoothsSteps(
 		/* Check if the selected multiplication method is the extended Booth's algorithm. */
 		if (checkMulMethod(algoNames[2])) {
 			const stepNumber = parseInt($('#step-number-value').text());
-			if (stepNumber == 1) {
+			if (stepNumber == 0) {
+				extendedBoothsInit();
+				initStepNumber(1);
+			} else if (stepNumber == 1) {
 				extendedBoothsDisplayEqualizedBits(
 					multiplicandBin,
 					multiplierBin,
@@ -695,11 +705,16 @@ function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 		 * Subtract 2 since the extendedBoothsSteps() method triggers the displayed step based on the previous
 		 * value of the step number.
 		 */
-		extendedBoothsGoTo(
-			parseInt($('#step-number-value').text()) - 2,
-			multiplicandBin,
-			multiplierBin
-		);
+		if ($('#step-number-value').text() == 1) {
+			initStepNumber(0);
+			extendedBoothsDescription();
+		} else {
+			extendedBoothsGoTo(
+				parseInt($('#step-number-value').text()) - 2,
+				multiplicandBin,
+				multiplierBin
+			);
+		}
 	});
 }
 
@@ -735,7 +750,7 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
  */
 function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 	/* Return to the first step, and repeatedly trigger the click (next step) event to change the displayed step. */
-	extendedBoothsInit(multiplicandBin, multiplierBin);
+	extendedBoothsInit();
 	initStepNumber(1);
 	extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
 
@@ -770,7 +785,7 @@ function extendedBoothsDemo(
 	multiplicandDec,
 	multiplierDec
 ) {
-	extendedBoothsInit(multiplicandBin, multiplierBin);
+	extendedBoothsInit();
 	extendedBoothsInitRecodeMap();
 	extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
 	extendedBoothsSteps(
