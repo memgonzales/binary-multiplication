@@ -616,6 +616,9 @@ function extendedBoothsSteps(
 	let product = '';
 
 	$('#next-step').on('click', function () {
+		/* Make the previous step button visible. */
+		$('#prev-step').css('visibility', 'visible');
+
 		/* Check if the selected multiplication method is the extended Booth's algorithm. */
 		if (checkMulMethod(algoNames[2])) {
 			const stepNumber = parseInt($('#step-number-value').text());
@@ -685,6 +688,9 @@ function extendedBoothsSteps(
 					product,
 					numDigitsRecoding
 				);
+
+				/* Hide the next step button. */
+				$('#next-step').css('visibility', 'hidden');
 			}
 
 			/* Scroll to the bottom of the page at every step. */
@@ -701,6 +707,9 @@ function extendedBoothsSteps(
  */
 function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 	$('#prev-step').on('click', function () {
+		/* Make the next step button visible. */
+		$('#next-step').css('visibility', 'visible');
+
 		/*
 		 * Subtract 2 since the extendedBoothsSteps() method triggers the displayed step based on the previous
 		 * value of the step number.
@@ -708,6 +717,9 @@ function extendedBoothsRewind(multiplicandBin, multiplierBin) {
 		if ($('#step-number-value').text() == 1) {
 			initStepNumber(0);
 			extendedBoothsDescription();
+
+			/* Hide the previous step button. */
+			$('#prev-step').css('visibility', 'hidden');
 		} else {
 			extendedBoothsGoTo(
 				parseInt($('#step-number-value').text()) - 2,
@@ -728,15 +740,32 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 	/* Trigger the change when the enter key is pressed. */
 	$('#step-number').on('keyup', function (e) {
 		if (e.code == 'Enter') {
+			/* Assume that all buttons have to be visible. */
+			$('#prev-step').css('visibility', 'visible');
+			$('#next-step').css('visibility', 'visible');
+
 			/*
-			 * Subtract 2 since the extendedBoothsSteps() method triggers the displayed step based on the previous
+			 * Subtract 1 since the extendedBoothsSteps() method triggers the displayed step based on the previous
 			 * value of the step number.
 			 */
-			extendedBoothsGoTo(
-				parseInt($('#step-number').val() - 1),
-				multiplicandBin,
-				multiplierBin
-			);
+			if ($('#step-number').val() == 0) {
+				initStepNumber(0);
+				extendedBoothsDescription();
+
+				/* Hide the previous step button. */
+				$('#prev-step').css('visibility', 'hidden');
+			} else {
+				extendedBoothsGoTo(
+					parseInt($('#step-number').val() - 1),
+					multiplicandBin,
+					multiplierBin
+				);
+
+				if ($('#step-number').val() == $('#total-steps').text()) {
+					/* Hide the next step button. */
+					$('#next-step').css('visibility', 'hidden');
+				}
+			}
 		}
 	});
 }

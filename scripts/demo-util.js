@@ -196,6 +196,9 @@ function demoUtil() {
  */
 function demo() {
 	$('#multiply').on('click', function () {
+		/* Make the previous step button visible. */
+		$('#prev-step').css('visibility', 'visible');
+
 		demoUtil();
 	});
 }
