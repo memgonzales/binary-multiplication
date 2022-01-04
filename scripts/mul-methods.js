@@ -149,6 +149,12 @@ function clickMulMethod(elems, clickedElem) {
 		showAlgoName(index);
 		showAlgoSteps(index);
 
+		/*
+		 * Failure to unbind will result in the repeated triggering of the click event (even with only
+		 * a single click) when the user selects the same method again without refreshing the page.
+		 */
+		unbindClickCallback();
+
 		if (noInput()) {
 			noPreviousNextStep();
 		} else {

@@ -182,17 +182,22 @@ function withPreviousAndNextStep() {
 }
 
 /**
+ * Unbinds the jQuery click callback of the playback controls.
+ */
+function unbindClickCallback() {
+	$('#next-step').prop('onclick', null).off('click');
+	$('#prev-step').prop('onclick', null).off('click');
+}
+
+/**
  * Utility function for starting the demonstration (simulation).
  */
 function demoUtil() {
 	/*
-	 * Unbind the jQuery click callback of the playback controls. 
-
 	 * Failure to unbind will result in the repeated triggering of the click event (even with only
 	 * a single click) when the user presses the multiply button again without refreshing the page.
 	 */
-	$('#next-step').prop('onclick', null).off('click');
-	$('#prev-step').prop('onclick', null).off('click');
+	unbindClickCallback();
 
 	/* Clear the results area. */
 	$('#algo-name').hide();
