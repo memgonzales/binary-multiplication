@@ -28,6 +28,10 @@ function extendedBoothsInit() {
 	$('#algo-steps').html(`${extendedBoothsStepA}<br>${extendedBoothsStepB}`);
 }
 
+/**
+ * Initializes the results area at the start of the demonstration (simulation) and displays
+ * the description of the algorithm.
+ */
 function extendedBoothsDescription() {
 	/* 2 refers to the index of the extended Booth's algorithm. */
 	showTrivia(2);
@@ -782,12 +786,24 @@ function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 	}
 }
 
+/**
+ * Scrolls to the designated area when the visibility of the recoding table is toggled.
+ *
+ * The actual toggling of visibility is controlled in the constant extendedBoothsStepCShowTable, found
+ * in algo-strings.js.
+ */
 function scrollToExtendedBoothsRecoding() {
 	$('html, body').animate({
 		scrollTop: $('#scroll-extended-booths-recoding-table').offset().top
 	});
 }
 
+/**
+ * Scrolls to the designated area when the visibility of the operations table is toggled.
+ *
+ * The actual toggling of visibility is controlled in the constant extendedBoothsStepDShowTable, found
+ * in algo-strings.js.
+ */
 function scrollToExtendedBoothsOperations() {
 	$('html, body').animate({
 		scrollTop: $('#scroll-extended-booths-operations').offset().top

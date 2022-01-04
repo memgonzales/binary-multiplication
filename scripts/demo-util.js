@@ -145,12 +145,21 @@ function appendRow(table, addlRow) {
 	$('#' + table).html(`${contents}${addlRow}`);
 }
 
+/**
+ * Hides the previous step button and changes the text on the playback control to display
+ * 'Description' instead of 'Step 0 of x'.
+ *
+ * This method is called when step 0 (description) is reached.
+ */
 function noPreviousStep() {
 	$('#prev-step').css('visibility', 'hidden');
 	$('#step').hide();
 	$('#description').show();
 }
 
+/**
+ * Shows the previous and next step buttons and all the playback controls.
+ */
 function withPreviousAndNextStep() {
 	$('#prev-step').css('visibility', 'visible');
 	$('#next-step').css('visibility', 'visible');
@@ -158,6 +167,9 @@ function withPreviousAndNextStep() {
 	$('#description').hide();
 }
 
+/**
+ * Utility function for starting the demonstration (simulation).
+ */
 function demoUtil() {
 	/*
 	 * Unbind the jQuery click callback of the playback controls. 
