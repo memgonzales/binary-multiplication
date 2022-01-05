@@ -212,7 +212,6 @@ const extendedBoothsPicture = `<div class = "div-picture">
             <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/document/5392016" target = "_blank">
             <i class = "fa fa-external-link no-hover"></i></a>
         </div>
-        
     </div><br>`;
 
 const extendedBoothsAlgo = `${extendedBoothsIntro}
