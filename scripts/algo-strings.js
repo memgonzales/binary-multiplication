@@ -119,7 +119,7 @@ const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
             <td><b>+1</b></td>
             <td>+1</td>
             <td>-1</td>
-            <td>+1 &times; 2 -1 </td>
+            <td>+1 &times; 2 - 1 </td>
         </tr>
         <tr>
             <td><b>011</b></td>
