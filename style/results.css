@@ -94,6 +94,10 @@ th {
 	height: 225px;
 }
 
+.picture-caption {
+	margin-top: 10px;
+}
+
 /* Special classes */
 .emphasized {
 	color: var(--red-emphasis);

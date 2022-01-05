@@ -204,7 +204,7 @@ const extendedBoothsPicture = `<div class = "div-picture">
         <span class = "tab-13"></span>
         <img src = "assets/ibm-extended-booths-2.jpg" class = "picture">
         <br>
-        <div>
+        <div class = "picture-caption">
             To perform fast multiplication, the <b>IBM System/360 Model 91</b>, released in January 1966 and used
             at the NASA Goddard Space Flight Center back in the late 60s,  employed the extended Booth's algorithm and utilized 
             a tree of carry-save adders. More information on its implementation can be found 
