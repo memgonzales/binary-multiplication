@@ -27,6 +27,10 @@ a.trivia {
 	color: var(--green-emphasis);
 }
 
+a.menu {
+	color: white;
+}
+
 a.with-underline {
 	text-decoration: underline;
 	cursor: pointer;
