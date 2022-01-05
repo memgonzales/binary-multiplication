@@ -84,7 +84,7 @@ function hoverElem(elem) {
  * @param {string} elems List of multiplication methods.
  * @param {string} clickedElem Selected multiplication method.
  */
-function clickMulMethodUtil(elems, clickedElem) {
+function changeColorMulMethod(elems, clickedElem) {
 	/* Remove the yellow color of the elements associated with all the multiplication methods before selection. */
 	for (const elem of elems) {
 		$('#' + elem + '-logo').attr('src', 'assets/' + elem + '.png');
@@ -130,7 +130,15 @@ function showAlgoSteps(index) {
 	$('#algo-steps').html(algoSteps[index]);
 }
 
+/**
+ * Checks if the user has already entered a multiplicand and a multiplier and clicked the
+ * Multiply button.
+ *
+ * @returns `true` if the user has already entered a multiplicand and a multiplier and clicked the
+ * Multiply button; `false`, otherwise.
+ */
 function noInput() {
+	/* The hidden spans are updated in a single method; thus, it suffices to check only one of them. */
 	return $('#multiplicand-bin-value').text().trim().length == 0;
 }
 
@@ -140,89 +148,70 @@ function noInput() {
  * @param {string} elems List of multiplication methods.
  * @param {string} clickedElem Selected multiplication method.
  */
+function clickMulMethodUtil(elems, clickedElem) {
+	const index = elems.indexOf(clickedElem);
+
+	changeColorMulMethod(elems, clickedElem);
+	showTrivia(index);
+	showAlgoName(index);
+	showAlgoSteps(index);
+
+	/* Scroll back to the top. */
+	window.scrollTo(0, 0);
+
+	/*
+	 * Failure to unbind will result in the repeated triggering of the click event (even with only
+	 * a single click) when the user selects the same method again without refreshing the page.
+	 */
+	unbindClickCallback();
+
+	if (noInput()) {
+		noPreviousNextStep();
+	} else {
+		switch ($('#algo-value').text()) {
+			case algoNames[0] /* Pencil-and-Paper Method */:
+				break;
+
+			case algoNames[1] /* Booth's Algorithm */:
+				break;
+
+			case algoNames[2] /* Extended Booth's Algorithm */:
+				extendedBoothsDemo(
+					$('#multiplicand-bin-value').text(),
+					$('#multiplier-bin-value').text(),
+					parseInt($('#multiplicand-dec-value').text()),
+					parseInt($('#multiplier-dec-value').text())
+				);
+
+				/* Start at step 0 (description). */
+				initStepNumber(0);
+				extendedBoothsDescription();
+				withPreviousAndNextStep();
+				noPreviousStep();
+
+				break;
+			default:
+				/* Should not cascade here */
+				break;
+		}
+	}
+}
+
+/**
+ * Changes the display depending on the selected multiplication method when either the name
+ * or the icon of the said method is clicked.
+ *
+ * @param {string} elems List of multiplication methods.
+ * @param {string} clickedElem Selected multiplication method.
+ */
 function clickMulMethod(elems, clickedElem) {
 	const index = elems.indexOf(clickedElem);
 
 	$('#' + clickedElem + '-text').on('click', function () {
 		clickMulMethodUtil(elems, clickedElem);
-		showTrivia(index);
-		showAlgoName(index);
-		showAlgoSteps(index);
-
-		/*
-		 * Failure to unbind will result in the repeated triggering of the click event (even with only
-		 * a single click) when the user selects the same method again without refreshing the page.
-		 */
-		unbindClickCallback();
-
-		if (noInput()) {
-			noPreviousNextStep();
-		} else {
-			switch ($('#algo-value').text()) {
-				case algoNames[0] /* Pencil-and-Paper Method */:
-					break;
-
-				case algoNames[1] /* Booth's Algorithm */:
-					break;
-
-				case algoNames[2] /* Extended Booth's Algorithm */:
-					extendedBoothsDemo(
-						$('#multiplicand-bin-value').text(),
-						$('#multiplier-bin-value').text(),
-						parseInt($('#multiplicand-dec-value').text()),
-						parseInt($('#multiplier-dec-value').text())
-					);
-
-					/* Start at step 0 (description). */
-					initStepNumber(0);
-					extendedBoothsDescription();
-					withPreviousAndNextStep();
-					noPreviousStep();
-
-					break;
-				default:
-					/* Should not cascade here */
-					break;
-			}
-		}
 	});
 
 	$('#' + clickedElem + '-logo').on('click', function () {
 		clickMulMethodUtil(elems, clickedElem);
-		showTrivia(index);
-		showAlgoName(index);
-		showAlgoSteps(index);
-
-		if (noInput()) {
-			noPreviousNextStep();
-		} else {
-			switch ($('#algo-value').text()) {
-				case algoNames[0] /* Pencil-and-Paper Method */:
-					break;
-
-				case algoNames[1] /* Booth's Algorithm */:
-					break;
-
-				case algoNames[2] /* Extended Booth's Algorithm */:
-					extendedBoothsDemo(
-						$('#multiplicand-bin-value').text(),
-						$('#multiplier-bin-value').text(),
-						parseInt($('#multiplicand-dec-value').text()),
-						parseInt($('#multiplier-dec-value').text())
-					);
-
-					/* Start at step 0 (description). */
-					initStepNumber(0);
-					extendedBoothsDescription();
-					withPreviousAndNextStep();
-					noPreviousStep();
-
-					break;
-
-				default:
-					/* Should not cascade here */
-					break;
-			}
-		}
 	});
 }
