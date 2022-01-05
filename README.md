@@ -91,7 +91,7 @@ The website was refactored into a [PHP](https://www.php.net/) application for fa
     hylene_jules_lee@dlsu.edu.ph <br/>
     lee.hylene@gmail.com
 
-Assets (images) are properties of their respective owners. Attribution is found in the [credits](https://github.com/memgonzales/binary-multiplication/blob/master/CREDITS.md) file and displayed publicly on the [INSERT PAGE HERE].
+Assets (images) are properties of their respective owners. Attribution is found in the [credits](https://github.com/memgonzales/binary-multiplication/blob/master/CREDITS.md) file.
 
 [badge-html5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white
 [badge-js]: https://img.shields.io/badge/javascript-%23323330.svg?style=flate&logo=javascript&logoColor=%23F7DF1E
