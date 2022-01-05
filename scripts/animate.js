@@ -9,7 +9,7 @@
 function animateTitle() {
 	const timer = 125;
 
-	$('#title-logo').attr('src', 'assets/title.PNG');
+	$('#title-logo').attr('src', 'assets/title.png');
 	$('#title-text').text('10111010101');
 	$('#title-text').css('color', yellow);
 
@@ -30,7 +30,7 @@ function animateTitle() {
 	}, 3 * timer);
 
 	setTimeout(function () {
-		$('#title-logo').attr('src', 'assets/title.PNG');
+		$('#title-logo').attr('src', 'assets/title.png');
 		$('#title-text').text('100101010011');
 		$('#title-text').css('color', yellow);
 	}, 4 * timer);
@@ -50,7 +50,7 @@ function animateTitle() {
 	}, 6 * timer);
 
 	setTimeout(function () {
-		$('#title-logo').attr('src', 'assets/title.PNG');
+		$('#title-logo').attr('src', 'assets/title.png');
 		$('#title-text').html(
 			'BINARY<span style = "margin-left: 11px;"></span>MULTIPLICATION'
 		);
