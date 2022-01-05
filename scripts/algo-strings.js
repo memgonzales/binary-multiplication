@@ -197,9 +197,9 @@ const extendedBoothsStepDTable = `<table class = "indented-2 procedure">
             <td>-2</td>
             <td>Two's complement, then arithmetic left shift</td>
         </tr>
-    </table><br>`;
+    </table>`;
 
-const extendedBoothsPicture = `<div class = "div-picture">
+const extendedBoothsPicture = `<br><div class = "div-picture">
         <img src = "assets/ibm-extended-booths.jpg" class = "picture">
         <span class = "tab-13"></span>
         <img src = "assets/ibm-extended-booths-2.jpg" class = "picture">

@@ -189,7 +189,7 @@ function extendedBoothsOddSignExtend(multiplier, multiplierForRecoding) {
 
 	/* If the multiplier has an odd number of bits, sign extension is performed. */
 	if (multiplier.length % 2 != 0) {
-		multiplierFormatted = `<b class = "emphasized">${multiplierForRecoding.substring(
+		multiplierFormatted = `<b id = "scroll-extended-booths-recoding-table" class = "emphasized">${multiplierForRecoding.substring(
 			0,
 			1
 		)}</b>${multiplierForRecoding.substring(1)}`;
