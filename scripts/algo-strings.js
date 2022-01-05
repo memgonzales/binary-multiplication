@@ -197,7 +197,23 @@ const extendedBoothsStepDTable = `<table class = "indented-2 procedure">
             <td>-2</td>
             <td>Two's complement, then arithmetic left shift</td>
         </tr>
-    </table>`;
+    </table><br>`;
+
+const extendedBoothsPicture = `<div class = "div-picture">
+        <img src = "assets/ibm-extended-booths.jpg" class = "picture">
+        <span class = "tab-13"></span>
+        <img src = "assets/ibm-extended-booths-2.jpg" class = "picture">
+        <br>
+        <div>
+            To perform fast multiplication, the <b>IBM System/360 Model 91</b>, released in January 1966 and used
+            at the NASA Goddard Space Flight Center,  employed the extended Booth's algorithm and utilized 
+            a tree of carry-save adders. More information on its implementation details can be found 
+            in this 1967 paper by S.F. Anderson, J.G. Earle, R.E. Goldschmidt, and D.M. Powers&nbsp;
+            <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/document/5392016" target = "_blank">
+            <i class = "fa fa-external-link no-hover"></i></a>
+        </div>
+        
+    </div><br>`;
 
 const extendedBoothsAlgo = `${extendedBoothsIntro}
     ${extendedBoothsStepA}
@@ -205,7 +221,8 @@ const extendedBoothsAlgo = `${extendedBoothsIntro}
     ${extendedBoothsStepC}
     ${extendedBoothsStepCTable}
     ${extendedBoothsStepD}
-    ${extendedBoothsStepDTable}`;
+    ${extendedBoothsStepDTable}
+    ${extendedBoothsPicture}`;
 
 const algoSteps = [pencilAlgo, boothsAlgo, extendedBoothsAlgo];
 

@@ -78,6 +78,23 @@ th {
 	letter-spacing: 5px;
 }
 
+/* Division with image */
+.div-picture {
+	margin-bottom: -20px;
+	margin-left: 29px;
+	font-style: italic;
+	font-size: 15px;
+}
+
+.div-picture > div {
+	width: calc(80% + 20px);
+}
+
+.picture {
+	width: 40%;
+	height: 225px;
+}
+
 /* Special classes */
 .emphasized {
 	color: var(--red-emphasis);
