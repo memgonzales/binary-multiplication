@@ -57,6 +57,9 @@ function animateTitle() {
 		$('.hidden').css('visibility', 'visible');
 
 		$('#step-number-value').hide();
-		$('#description').hide();
+		$('#description').show();
+		$('#step').hide();
+		$('#next-step').hide();
+		$('#prev-step').hide();
 	}, 9 * timer);
 }

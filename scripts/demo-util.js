@@ -241,6 +241,8 @@ function demoUtil() {
  */
 function demo() {
 	$('#multiply').on('click', function () {
+		$('#prev-step').show();
+		$('#next-step').show();
 		demoUtil();
 	});
 }
