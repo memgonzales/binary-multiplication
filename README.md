@@ -1,4 +1,5 @@
 # Binary Multiplication
+
 ![badge][badge-html5]
 ![badge][badge-js]
 ![badge][badge-jquery]
@@ -75,7 +76,7 @@ This project uses **JavaScript** to carry out all the operations and computation
 
 The opinionated code formatter [Prettier](https://prettier.io/) was employed to enforce uniformity and consistency of coding style.
 
-The website was refactored into a [PHP](https://www.php.net/) project for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
+The website was refactored into a [PHP](https://www.php.net/) application for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
 
 ## Authors
 
