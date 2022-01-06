@@ -768,6 +768,9 @@ function extendedBoothsGoToStep0() {
 	extendedBoothsDescription();
 
 	noPreviousStep();
+	
+	/* Scroll back to the top. */
+	window.scrollTo(0, 0);
 }
 
 /**
