@@ -74,6 +74,8 @@ This project uses **JavaScript** to carry out all the operations and computation
 | [Google Fonts](https://fonts.google.com/)                                  | -       | Font embedding service library featuring free and open-source fonts                                                          | Apache License 2.0                                                             |
 | [Material Design](https://developers.google.com/fonts/docs/material_icons) | -       | Library for the design system developed by Google for Android, iOS, Flutter, and the web                                     | Apache License 2.0                                                             |
 
+*The descriptions of these technologies are taken from their respective websites.*
+
 The opinionated code formatter [Prettier](https://prettier.io/) was employed to enforce uniformity and consistency of coding style.
 
 The website was refactored into a [PHP](https://www.php.net/) application for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
