@@ -165,7 +165,7 @@ const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
     </table>`;
 
 const extendedBoothsStepD = `<div class = "hanging-indent">
-        <b>D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
+        <b>D.<span class="tab-12"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
         is negative.<br>
         Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
         intermediate product.</b>
