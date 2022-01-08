@@ -54,38 +54,38 @@ const extendedBoothsIntro = `Introduced by O.L. MacSorley in 1961
     <b>bit-pair recoding</b>, reduces the number of intermediate summands by half. <br> <br>`;
 
 const extendedBoothsStepA = `<b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b> <br>
-        <span class = "indented">
+        <div class = "indented">
             1.<span class="tab-13"></span>If the user enters a decimal number, it is represented using the fewest number of bits.
-        </span><br>
-        <span class = "indented">
+        </div>
+        <div class = "indented">
             2.<span class="tab-13"></span>If the user enters a binary number, the number of bits follows the user's input. 
-        </span><br>`;
+        </div>`;
 
 const extendedBoothsStepB = `<b>B.<span class="tab-13"></span>If necessary, perform sign extension to make the number of bits of the operands equal.</b> <br>`;
 
 const extendedBoothsStepC0 = `<b>C.<span class="tab-13"></span>Convert the multiplier to its extended Booth's equivalent.</b><br>`;
 
-const extendedBoothsStepC1 = `<span class = "indented">
+const extendedBoothsStepC1 = `<div class = "indented">
         1.<span class="tab-13"></span>Append 0 to the least significant bit.
-    </span><br>`;
+    </div>`;
 
-const extendedBoothsStepC2 = `<span class = "indented">
+const extendedBoothsStepC2 = `<div class = "indented">
         2.<span class="tab-13"></span>If the multiplier has an odd number of bits (prior to appending 0), perform sign extension.
-    </span><br>`;
+    </div>`;
 
-const extendedBoothsStepC3 = `<span class = "indented">
+const extendedBoothsStepC3 = `<div class = "indented">
         3.<span class="tab-13"></span>Perform bit-pair recoding starting at the least significant bit.
-    </span>`;
+    </div>`;
 
 const extendedBoothsStepC = `${extendedBoothsStepC0}
     ${extendedBoothsStepC1}
     ${extendedBoothsStepC2}
     ${extendedBoothsStepC3}`;
 
-const extendedBoothsStepCShowTable = `<br><span class = "indented">
+const extendedBoothsStepCShowTable = `<div class = "indented">
         <span class="tab-27"></span>Click <a onclick = "showExtendedBoothsRecoding(); scrollToExtendedBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
         to <span id = "show-hide-extended-booths-recoding">show</span> the recoding table.
-    </span>`;
+    </div>`;
 
 const extendedBoothsStepCTableProvision = `<span id = "extended-booths-step-c-table-provision"></span>`;
 
