@@ -14,8 +14,16 @@
 }
 
 /* Indentations */
+.indented-0 {
+	margin-left: 27px;
+}
+
 .indented {
 	margin-left: 30px;
+}
+
+.indented-1 {
+	margin-left: 56.5px;
 }
 
 .indented-2 {
@@ -24,6 +32,10 @@
 
 .indented-3 {
 	margin-left: 90px;
+}
+
+.small-top-space {
+	margin-top: 10px;
 }
 
 /* Tables */

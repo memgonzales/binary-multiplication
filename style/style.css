@@ -131,6 +131,11 @@ button:hover {
 	display: none !important;
 }
 
+.hanging-indent {
+	padding-left: 28px;
+	text-indent: -28px;
+}
+
 /* Header and footer */
 .colored {
 	background-color: var(--green-bg);

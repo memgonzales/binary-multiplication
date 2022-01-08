@@ -53,27 +53,33 @@ const extendedBoothsIntro = `Introduced by O.L. MacSorley in 1961
     this technique, which is also known as <b>modified Booth's algorithm</b>, <b>radix-4 Booth's algorithm</b>, or 
     <b>bit-pair recoding</b>, reduces the number of intermediate summands by half. <br> <br>`;
 
-const extendedBoothsStepA = `<b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b> <br>
-        <div class = "indented">
-            1.<span class="tab-13"></span>If the user enters a decimal number, it is represented using the fewest number of bits.
-        </div>
-        <div class = "indented">
-            2.<span class="tab-13"></span>If the user enters a binary number, the number of bits follows the user's input. 
-        </div>`;
+const extendedBoothsStepA = `<div class = "hanging-indent">
+        <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
+    </div>
+    <div class = "indented hanging-indent">
+        1.<span class="tab-13"></span>If the user enters a decimal number, it is represented using the fewest number of bits.
+    </div>
+    <div class = "indented hanging-indent">
+        2.<span class="tab-13"></span>If the user enters a binary number, the number of bits follows the user's input. 
+    </div>`;
 
-const extendedBoothsStepB = `<b>B.<span class="tab-13"></span>If necessary, perform sign extension to make the number of bits of the operands equal.</b> <br>`;
+const extendedBoothsStepB = `<div class = "hanging-indent">
+        <b>B.<span class="tab-13"></span>If necessary, perform sign extension to make the number of bits of the operands equal.</b>
+    </div>`;
 
-const extendedBoothsStepC0 = `<b>C.<span class="tab-13"></span>Convert the multiplier to its extended Booth's equivalent.</b><br>`;
+const extendedBoothsStepC0 = `<div class = "hanging-indent">
+        <b>C.<span class="tab-13"></span>Convert the multiplier to its extended Booth's equivalent.</b>
+    </div>`;
 
-const extendedBoothsStepC1 = `<div class = "indented">
+const extendedBoothsStepC1 = `<div class = "indented hanging-indent">
         1.<span class="tab-13"></span>Append 0 to the least significant bit.
     </div>`;
 
-const extendedBoothsStepC2 = `<div class = "indented">
+const extendedBoothsStepC2 = `<div class = "indented hanging-indent">
         2.<span class="tab-13"></span>If the multiplier has an odd number of bits (prior to appending 0), perform sign extension.
     </div>`;
 
-const extendedBoothsStepC3 = `<div class = "indented">
+const extendedBoothsStepC3 = `<div class = "indented hanging-indent">
         3.<span class="tab-13"></span>Perform bit-pair recoding starting at the least significant bit.
     </div>`;
 
@@ -82,8 +88,8 @@ const extendedBoothsStepC = `${extendedBoothsStepC0}
     ${extendedBoothsStepC2}
     ${extendedBoothsStepC3}`;
 
-const extendedBoothsStepCShowTable = `<div class = "indented">
-        <span class="tab-27"></span>Click <a onclick = "showExtendedBoothsRecoding(); scrollToExtendedBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+const extendedBoothsStepCShowTable = `<div class = "indented-1">
+        Click <a onclick = "showExtendedBoothsRecoding(); scrollToExtendedBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
         to <span id = "show-hide-extended-booths-recoding">show</span> the recoding table.
     </div>`;
 
@@ -158,17 +164,17 @@ const extendedBoothsStepCTable = `<table class = "indented-2 procedure merged">
         </tr>
     </table>`;
 
-const extendedBoothsStepD = `<b>D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
-        is negative. <br>
-        <span>
-        <span class="tab-29"></span> Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
-            intermediate product.</b>
-        </span><br>`;
+const extendedBoothsStepD = `<div class = "hanging-indent">
+        <b>D.<span class="tab-13"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
+        is negative.<br>
+        Since a bit-pair is equivalent to two bits, skip <u>two</u> bits for each 
+        intermediate product.</b>
+    </div>`;
 
-const extendedBoothsStepDShowTable = `<span style = "margin-top: 10px;">
-        <span class="tab-29"></span>Click <a onclick = "showExtendedBoothsOperations(); scrollToExtendedBoothsOperations();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
-            to <span id = "show-hide-extended-booths-operations">show</span> the multiplication guide.
-        </span>`;
+const extendedBoothsStepDShowTable = `<div class = "indented-0 small-top-space">
+        Click <a onclick = "showExtendedBoothsOperations(); scrollToExtendedBoothsOperations();" class = "with-underline no-decor no-hover" id = "show-extended-booths-recording">here</a> 
+        to <span id = "show-hide-extended-booths-operations">show</span> the multiplication guide.
+    </div>`;
 
 const extendedBoothsStepDTableProvision = `<span id = "extended-booths-step-d-table-provision"></span>`;
 
