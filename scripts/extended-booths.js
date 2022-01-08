@@ -439,7 +439,7 @@ function extendedBoothsPencil(
 	} else if (displayNumber <= numSummands) {
 		/*
 		 * If it is the last intermediate summand:
-		 * - Add a bottom border to the appended row(to separate the summands from the product).
+		 * - Add a bottom border to the appended row (to separate the summands from the product).
 		 * - Include a right-aligned plus sign (first cell of the appended row).
 		 */
 		if (displayNumber == numSummands) {
