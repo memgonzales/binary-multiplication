@@ -134,7 +134,7 @@ function showAlgoSteps(index) {
  * Checks if the user has already entered a multiplicand and a multiplier and clicked the
  * Multiply button.
  *
- * @returns `true` if the user has already entered a multiplicand and a multiplier and clicked the
+ * @returns {boolean} `true` if the user has already entered a multiplicand and a multiplier and clicked the
  * Multiply button; `false`, otherwise.
  */
 function noInput() {

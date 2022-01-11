@@ -13,7 +13,7 @@
  * For example, -6 is converted to 11111111111111111111111111111010.
  *
  * @param {number} number Number to be converted to its 32-bit two's complement.
- * @returns 32-bit two's complement of the given number.
+ * @returns {string} 32-bit two's complement of the given number.
  */
 function toBinaryRaw(number) {
 	/* Perform an arithmetic shift first to force two's complement. */
@@ -27,7 +27,7 @@ function toBinaryRaw(number) {
  * n-bit signed number, that is, -2^n - 1, which is represented as 1 followed by (n-1) zeroes.
  *
  * @param {number} number Number to be converted to its two's complement using the fewest number of bits.
- * @returns Two's complement of the given number using the fewest number of bits.
+ * @returns {string} Two's complement of the given number using the fewest number of bits.
  */
 function toBinary(number) {
 	/* Designate the smallest representable signed number, that is, -2^MAX_NUM_BITS - 1, as a special case. */
@@ -63,7 +63,7 @@ function toBinary(number) {
  * - The binary number should have less than or equal to 16 bits.
  *
  * @param {string} number Binary number to be converted to its signed decimal equivalent.
- * @returns Decimal equivalent of the binary number.
+ * @returns {number} Decimal equivalent of the binary number.
  */
 function toDecimalRaw(number) {
 	const [decimal] = new Int16Array([`0b${number}`]);
@@ -81,7 +81,7 @@ function toDecimalRaw(number) {
  *   from other equivalents of the number 1 (e.g., binary number '01').
  *
  * @param {string} number Binary number to be converted to its signed decimal equivalent.
- * @returns Decimal equivalent of the binary number, or empty string if the binary number is 1.
+ * @returns {number} Decimal equivalent of the binary number, or empty string if the binary number is 1.
  */
 function toDecimal(number) {
 	/* Convert the binary number 1 to an empty string (instead of -1) to reduce ambiguity. */
@@ -100,7 +100,7 @@ function toDecimal(number) {
  *
  * @param {string} number Binary number to be sign extended.
  * @param {number} numBits Number of bits after performing sign extension.
- * @returns Sign-extended equivalent of the given binary number.
+ * @returns {string} Sign-extended equivalent of the given binary number.
  */
 function signExtend(number, numBits) {
 	const numRemainingBits = numBits - number.length;
@@ -123,7 +123,7 @@ function signExtend(number, numBits) {
  *
  * @param {string} number Binary number to be truncated.
  * @param {number} numBits Number of bits after performing truncation.
- * @returns Truncated binary number (with bits at the most significant side discarded).
+ * @returns {string} Truncated binary number (with bits at the most significant side discarded).
  */
 function truncate(number, numBits) {
 	return number.substring(number.length - numBits);
@@ -134,7 +134,7 @@ function truncate(number, numBits) {
  *
  * @param {string} number Binary number to be expressed in the specified number of bits.
  * @param {number} numBits Number of bits after performing either sign extension or truncation.
- * @returns Binary number expressed in the specified number of bits.
+ * @returns {string} Binary number expressed in the specified number of bits.
  */
 function expressInNumBits(number, numBits) {
 	if (number.length > numBits) {
@@ -150,7 +150,7 @@ function expressInNumBits(number, numBits) {
  *
  * @param {string} number1 First binary number.
  * @param {string} number2 Second binary number.
- * @returns Array containing the two binary numbers expressed using an equal number of bits after performing
+ * @returns {array} Array containing the two binary numbers expressed using an equal number of bits after performing
  * sign extension on the number with fewer bits.
  */
 function equalizeBits(number1, number2) {
@@ -168,7 +168,7 @@ function equalizeBits(number1, number2) {
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {number} numBits Number of bits of the product.
- * @returns Product of the two decimal numbers expressed as a binary number in the specified number of bits.
+ * @returns {string} Product of the two decimal numbers expressed as a binary number in the specified number of bits.
  */
 function multiply(multiplicandDec, multiplierDec, numBits) {
 	return expressInNumBits(toBinary(multiplicandDec * multiplierDec), numBits);

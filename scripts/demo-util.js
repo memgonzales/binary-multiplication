@@ -28,7 +28,7 @@ function incrementStepNumber() {
  * Checks whether the selected multiplication method is the same as the specified method.
  *
  * @param {string} mulMethod Multiplication method.
- * @returns `true` if the selected multiplication method is the same as the specified method; `false`, otherwise.
+ * @returns {boolean} `true` if the selected multiplication method is the same as the specified method; `false`, otherwise.
  */
 function checkMulMethod(mulMethod) {
 	return $('#algo-value').text() == mulMethod;
@@ -46,7 +46,7 @@ function checkMulMethod(mulMethod) {
  * @param {string} multiplicandBin Binary multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} product Binary product.
- * @returns Product with the non-sign-extended portion highlighted.
+ * @returns {string} Product with the non-sign-extended portion highlighted.
  */
 function emphasizeProduct(multiplicandBin, multiplierDec, product) {
 	let formattedProduct = product;
@@ -95,7 +95,7 @@ function hideCarryOver() {
  * in asterisks referring to the highlighted bit.
  *
  * @param {string} product Binary product.
- * @returns Array with each element corresponding to the product with one bit highlighted.
+ * @returns {array} Array with each element corresponding to the product with one bit highlighted.
  */
 function formatProductDisplay(product) {
 	let productDisplay = []; /* With highlighted bits */

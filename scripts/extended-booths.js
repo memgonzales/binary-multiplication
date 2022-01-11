@@ -228,7 +228,7 @@ function extendedBoothsDisplayStepC3() {
  * @param {number} recodeNumber Step number relative to the bit-pair recoding.
  * @param {string} multiplierForRecoding Multiplier after appending zero to its least significant bit
  * and performing sign extension depending on its number of bits.
- * @returns Extended Booth's equivalent of the multiplier.
+ * @returns {string} Extended Booth's equivalent of the multiplier.
  */
 function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 	let extendedBooths = ``; /* Extended Booth's equivalent of the multiplier */
@@ -352,7 +352,7 @@ function extendedBoothsDisplayStepD(
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} extendedBoothsRecoding Extended Booth's equivalent of the multiplier.
- * @returns Binary product.
+ * @returns {string} Binary product.
  */
 function extendedBoothsPencil(
 	displayNumber,
@@ -763,6 +763,9 @@ function extendedBoothsGoToStep(multiplicandBin, multiplierBin) {
 	});
 }
 
+/**
+ * Returns to the description of the algorithm (step 0).
+ */
 function extendedBoothsGoToStep0() {
 	initStepNumber(0);
 	extendedBoothsDescription();
