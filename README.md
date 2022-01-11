@@ -34,11 +34,12 @@ This project consists of the following folders:
 
 It also includes the following files:
 
-| File                                                                                              | Description                                          |
-| ------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [`composer.json`](https://github.com/memgonzales/binary-multiplication/blob/master/composer.json) | Contains the list of dependencies of the PHP project |
-| [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html)         | Home (main) page of the website                      |
-| [`index.php`](https://github.com/memgonzales/binary-multiplication/blob/master/index.php)         | Entry point of the PHP project                       |
+| File                                                                                              | Description                                                 |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [`composer.json`](https://github.com/memgonzales/binary-multiplication/blob/master/composer.json) | Contains the list of dependencies of the PHP project        |
+| [`Procfile`](https://github.com/memgonzales/binary-multiplication/blob/master/Procfile)           | Specifies the commands run by the project's dynos on Heroku |
+| [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html)         | Home (main) page of the website                             |
+| [`index.php`](https://github.com/memgonzales/binary-multiplication/blob/master/index.php)         | Entry point of the PHP project                              |
 
 ## Running the Website
 
@@ -75,7 +76,7 @@ This project uses **JavaScript** to carry out all the operations and computation
 | [Google Fonts](https://fonts.google.com/)                                  | -       | Font embedding service library featuring free and open-source fonts                                                          | Apache License 2.0                                                             |
 | [Material Design](https://developers.google.com/fonts/docs/material_icons) | -       | Library for the design system developed by Google for Android, iOS, Flutter, and the web                                     | Apache License 2.0                                                             |
 
-*The descriptions of these technologies are taken from their respective websites.*
+_The descriptions of these technologies are taken from their respective websites._
 
 The opinionated code formatter [Prettier](https://prettier.io/) was employed to enforce uniformity and consistency of coding style.
 
