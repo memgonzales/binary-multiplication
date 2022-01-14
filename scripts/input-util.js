@@ -43,3 +43,14 @@ function binaryToDecimal(operand) {
 		}
 	});
 }
+
+function errorCheckDec(inputField, operandType, value) {
+	const pattern = /^(-|\+)?(\d+)?$/;
+	if (!pattern.test(value)) {
+		$(inputField).val(value.slice(0, -1));
+	}
+
+	if (parseInt(value) > Math.pow(2, MAX_NUM_BITS - 1) - 1) {
+		$('#' + operandType + '-error > p').html(MAX_ERROR);
+	}
+}
