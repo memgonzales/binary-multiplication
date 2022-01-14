@@ -88,6 +88,10 @@ button:hover {
 	background-color: var(--green-hover);
 }
 
+button:disabled {
+	cursor: not-allowed;
+}
+
 /* Divisions */
 #header,
 #footer {
