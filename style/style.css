@@ -60,7 +60,7 @@ i:hover {
 }
 
 /* Input fields */
-input[type='number'] {
+input[type='text'] {
 	-moz-appearance: textfield;
 	font-size: 16px;
 	font-family: 'Open Sans';
@@ -120,11 +120,10 @@ button:hover {
 .error {
 	color: var(--red-emphasis);
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px;
 	margin-top: 10px;
-	margin-left: 18px;
-	margin-bottom: -20px;
-	display: none;
+	margin-left: 21px;
+	margin-bottom: -10px;
 }
 
 .tracking-only {
