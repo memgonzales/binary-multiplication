@@ -52,5 +52,9 @@ function errorCheckDec(inputField, operandType, value) {
 
 	if (parseInt(value) > Math.pow(2, MAX_NUM_BITS - 1) - 1) {
 		$('#' + operandType + '-error > p').html(MAX_ERROR);
+	} else if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
+		$('#' + operandType + '-error > p').html(MIN_ERROR);
+	} else {
+		$('#' + operandType + '-error > p').html('');
 	}
 }
