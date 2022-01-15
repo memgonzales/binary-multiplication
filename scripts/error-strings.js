@@ -1,2 +1,14 @@
-const MAX_ERROR = `Should not exceed 2<sup>15</sup> &ndash; 1 = 32767<br>(largest 16-bit signed integer)`;
-const MIN_ERROR = `Should not be less than &ndash;2<sup>15</sup> = &ndash;32768<br>(smallest 16-bit signed integer)`;
+const MAX_ERROR = `Should not exceed 2<sup>${
+	MAX_NUM_BITS - 1
+}</sup> &ndash; 1 = ${
+	Math.pow(2, MAX_NUM_BITS - 1) - 1
+}<br>(largest ${MAX_NUM_BITS}-bit signed integer)`;
+
+const MIN_ERROR = `Should not be less than &ndash;2<sup>${
+	MAX_NUM_BITS - 1
+}</sup> = &ndash;${Math.pow(
+	2,
+	MAX_NUM_BITS - 1
+)}<br>(smallest ${MAX_NUM_BITS}-bit signed integer)`;
+
+const EXCEED_BITS = `Should not exceed ${MAX_NUM_BITS} bits. Your input currently has`;
