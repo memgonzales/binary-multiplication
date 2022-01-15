@@ -148,7 +148,6 @@ function isValidBin(inputField, operand, value) {
 
 function isValidBinNoDisplay(value) {
 	const pattern = /^[0-1]*$/;
-
 	return (
 		pattern.test(value) && value.length != 0 && value.length <= MAX_NUM_BITS
 	);

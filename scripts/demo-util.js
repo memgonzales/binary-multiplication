@@ -236,13 +236,32 @@ function demoUtil() {
 	}
 }
 
+function handleAmbiguousCases() {
+	if (isAmbiguousCase($('#multiplicand-bin').val())) {
+		const numZeroes = $('#multiplicand-error > p').html('hello');
+	}
+
+	if (isAmbiguousCase($('#multiplier-bin').val())) {
+		$('#multiplier-error > p').html('hi');
+	}
+
+	hideTriviaDiv();
+}
+
 /**
  * Starts the demonstration (simulation) when the multiply button is clicked.
  */
 function demo() {
 	$('#multiply').on('click', function () {
-		$('#prev-step').show();
-		$('#next-step').show();
-		demoUtil();
+		if (
+			!isAmbiguousCase($('#multiplicand-bin').val()) &&
+			!isAmbiguousCase($('#multiplier-bin').val())
+		) {
+			$('#prev-step').show();
+			$('#next-step').show();
+			demoUtil();
+		} else {
+			handleAmbiguousCases();
+		}
 	});
 }

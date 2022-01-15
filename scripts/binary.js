@@ -85,11 +85,16 @@ function toDecimalRaw(number) {
  */
 function toDecimal(number) {
 	/* Convert the binary number 1 to an empty string (instead of -1) to reduce ambiguity. */
-	if (number == '1') {
+	if (isAmbiguousCase(number)) {
 		return '';
 	}
 
 	return toDecimalRaw(signExtend(number, MAX_NUM_BITS));
+}
+
+function isAmbiguousCase(number) {
+	const pattern = /^10*$/;
+	return pattern.test(number);
 }
 
 /**
