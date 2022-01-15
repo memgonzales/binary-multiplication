@@ -34,9 +34,11 @@ function decimalToBinary(operand) {
 function binaryToDecimal(operand) {
 	$('#' + operand + '-bin').on('keyup', function () {
 		if (
-			$('#' + operand + '-bin')
-				.val()
-				.trim().length > 0
+			isValidBin(
+				$('#' + operand + '-bin'),
+				operand,
+				$('#' + operand + '-bin').val()
+			)
 		) {
 			$('#' + operand + '-dec').val(
 				toDecimal($('#' + operand + '-bin').val())
@@ -54,7 +56,14 @@ function isSignOnly(value) {
 function isValidDec(inputField, operand, value) {
 	const pattern = /^(-|\+)?(\d+)?$/;
 	if (!pattern.test(value)) {
-		$(inputField).val(value.slice(0, -1));
+		const slicedVal = value.slice(0, -1);
+
+		if (pattern.test(slicedVal)) {
+			$(inputField).val(slicedVal);
+		} else {
+			$('#' + operand + '-error > p').html(INVALID_DEC);
+		}
+
 		return false;
 	}
 
@@ -80,7 +89,14 @@ function isValidDec(inputField, operand, value) {
 function isValidBin(inputField, operand, value) {
 	const pattern = /^[0-1]*$/;
 	if (!pattern.test(value)) {
-		$(inputField).val(value.slice(0, -1));
+		const slicedVal = value.slice(0, -1);
+
+		if (pattern.test(slicedVal)) {
+			$(inputField).val(slicedVal);
+		} else {
+			$('#' + operand + '-error > p').html(INVALID_BIN);
+		}
+
 		return false;
 	}
 

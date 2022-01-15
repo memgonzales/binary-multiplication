@@ -12,3 +12,6 @@ const MIN_ERROR = `Should not be less than &ndash;2<sup>${
 )}<br>(smallest ${MAX_NUM_BITS}-bit signed integer)`;
 
 const EXCEED_BITS = `Should not exceed ${MAX_NUM_BITS} bits<br>(Your input currently has`;
+
+const INVALID_DEC = `Should be a decimal number`;
+const INVALID_BIN = `Should be a binary number in two's complement`;
