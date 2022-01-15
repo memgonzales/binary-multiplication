@@ -12,7 +12,12 @@ function decimalToBinary(operand) {
 		if (
 			$('#' + operand + '-dec')
 				.val()
-				.trim().length > 0
+				.trim().length > 0 &&
+			isValidDec(
+				$('#' + operand + '-dec'),
+				operand,
+				$('#' + operand + '-dec').val()
+			)
 		) {
 			$('#' + operand + '-bin').val(
 				toBinary($('#' + operand + '-dec').val())
@@ -44,17 +49,23 @@ function binaryToDecimal(operand) {
 	});
 }
 
-function errorCheckDec(inputField, operandType, value) {
+function isValidDec(inputField, operand, value) {
 	const pattern = /^(-|\+)?(\d+)?$/;
 	if (!pattern.test(value)) {
 		$(inputField).val(value.slice(0, -1));
+		return false;
 	}
 
 	if (parseInt(value) > Math.pow(2, MAX_NUM_BITS - 1) - 1) {
-		$('#' + operandType + '-error > p').html(MAX_ERROR);
-	} else if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
-		$('#' + operandType + '-error > p').html(MIN_ERROR);
-	} else {
-		$('#' + operandType + '-error > p').html('');
+		$('#' + operand + '-error > p').html(MAX_ERROR);
+		return false;
 	}
+
+	if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
+		$('#' + operand + '-error > p').html(MIN_ERROR);
+		return false;
+	}
+
+	$('#' + operand + '-error > p').html('');
+	return true;
 }

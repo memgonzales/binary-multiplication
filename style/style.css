@@ -72,26 +72,6 @@ input::-webkit-inner-spin-button {
 	margin: 0px;
 }
 
-/* Buttons */
-button {
-	font-size: 16px;
-	font-family: 'Open Sans';
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: var(--green-bg);
-	border: 0px;
-	color: white;
-}
-
-button:hover {
-	cursor: pointer;
-	background-color: var(--green-hover);
-}
-
-button:disabled {
-	cursor: not-allowed;
-}
-
 /* Divisions */
 #header,
 #footer {
