@@ -162,37 +162,41 @@ function clickMulMethodUtil(elems, clickedElem) {
 	if (noInput()) {
 		noPreviousNextStep();
 	} else {
-		switch ($('#algo-value').text()) {
-			case algoNames[0] /* Pencil-and-Paper Method */:
-				break;
+		demoUtilStartAtDesc();
+	}
+}
 
-			case algoNames[1] /* Booth's Algorithm */:
-				break;
+function demoUtilStartAtDesc() {
+	switch ($('#algo-value').text()) {
+		case algoNames[0] /* Pencil-and-Paper Method */:
+			break;
 
-			case algoNames[2] /* Extended Booth's Algorithm */:
-				extendedBoothsDemo(
-					$('#multiplicand-bin-value').text(),
-					$('#multiplier-bin-value').text(),
-					parseInt($('#multiplicand-dec-value').text()),
-					parseInt($('#multiplier-dec-value').text())
-				);
+		case algoNames[1] /* Booth's Algorithm */:
+			break;
 
-				/* Start at step 0 (description). */
-				initStepNumber(0);
-				extendedBoothsDescription();
-				withPreviousAndNextStep();
-				noPreviousStep();
+		case algoNames[2] /* Extended Booth's Algorithm */:
+			extendedBoothsDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
 
-				if ($('#display-mode-text').text().trim() == 'Show All Steps') {
-					showAllSteps();
-					window.scrollTo(0, 0);
-				}
+			/* Start at step 0 (description). */
+			initStepNumber(0);
+			extendedBoothsDescription();
+			withPreviousAndNextStep();
+			noPreviousStep();
 
-				break;
-			default:
-				/* Should not cascade here */
-				break;
-		}
+			break;
+		default:
+			/* Should not cascade here */
+			break;
+	}
+
+	if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+		showAllSteps();
+		window.scrollTo(0, 0);
 	}
 }
 
