@@ -76,3 +76,26 @@ function isValidDec(inputField, operand, value) {
 	$('#' + operand + '-error > p').html('');
 	return true;
 }
+
+function isValidBin(inputField, operand, value) {
+	const pattern = /^[0-1]*$/;
+	if (!pattern.test(value)) {
+		$(inputField).val(value.slice(0, -1));
+		return false;
+	}
+
+	if (value.length > MAX_NUM_BITS) {
+		$('#' + operand + '-error > p').html(
+			`${EXCEED_BITS} ${value.length} bits)`
+		);
+		return false;
+	}
+
+	if (value.length == 0) {
+		$('#' + operand + '-error > p').html('');
+		return false;
+	}
+
+	$('#' + operand + '-error > p').html('');
+	return true;
+}

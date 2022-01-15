@@ -11,4 +11,4 @@ const MIN_ERROR = `Should not be less than &ndash;2<sup>${
 	MAX_NUM_BITS - 1
 )}<br>(smallest ${MAX_NUM_BITS}-bit signed integer)`;
 
-const EXCEED_BITS = `Should not exceed ${MAX_NUM_BITS} bits. Your input currently has`;
+const EXCEED_BITS = `Should not exceed ${MAX_NUM_BITS} bits<br>(Your input currently has`;

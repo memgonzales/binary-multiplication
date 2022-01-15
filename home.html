@@ -209,7 +209,11 @@
 					</p>
 					<p>
 						<label>Binary</label>
-						<input type="text" id="multiplicand-bin" />
+						<input
+							type="text"
+							id="multiplicand-bin"
+							oninput="isValidBin(this, 'multiplicand', value)"
+						/>
 					</p>
 				</div>
 
@@ -237,7 +241,11 @@
 					</p>
 					<p>
 						<label id="multiplier-bin-label">Binary</label>
-						<input type="text" id="multiplier-bin" />
+						<input
+							type="text"
+							id="multiplier-bin"
+							oninput="isValidBin(this, 'multiplier', value)"
+						/>
 					</p>
 				</div>
 
