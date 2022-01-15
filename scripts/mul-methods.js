@@ -183,6 +183,11 @@ function clickMulMethodUtil(elems, clickedElem) {
 				withPreviousAndNextStep();
 				noPreviousStep();
 
+				if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+					showAllSteps();
+					window.scrollTo(0, 0);
+				}
+
 				break;
 			default:
 				/* Should not cascade here */

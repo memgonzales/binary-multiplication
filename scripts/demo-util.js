@@ -261,6 +261,24 @@ function handleAmbiguousCases() {
 	hideTriviaDiv();
 }
 
+function showAllSteps() {
+	const multiplicandBin = $('#multiplicand-bin').val();
+	const multiplierBin = $('#multiplier-bin').val();
+
+	switch ($('#algo-value').text()) {
+		case algoNames[0] /* Pencil-and-Paper Method */:
+			break;
+		case algoNames[1] /* Booth's Algorithm */:
+			break;
+		case algoNames[2] /* Extended Booth's Algorithm */:
+			extendedBoothsGoTo(LARGE_STEP, multiplicandBin, multiplierBin);
+			break;
+		default:
+			/* Should not cascade here */
+			break;
+	}
+}
+
 /**
  * Starts the demonstration (simulation) when the multiply button is clicked.
  */
@@ -273,6 +291,11 @@ function demo() {
 			$('#prev-step').show();
 			$('#next-step').show();
 			demoUtil();
+
+			if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+				showAllSteps();
+				window.scrollTo(0, 0);
+			}
 		} else {
 			handleAmbiguousCases();
 		}
