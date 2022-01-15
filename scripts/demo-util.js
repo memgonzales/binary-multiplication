@@ -232,11 +232,25 @@ function demoUtil() {
 
 function handleAmbiguousCases() {
 	if (isAmbiguousCase($('#multiplicand-bin').val())) {
-		const numZeroes = $('#multiplicand-error > p').html('hello');
+		const val = $('#multiplicand-bin').val().trim();
+		const numZeroes = val.length - 1;
+		const powerOfTwo = Math.pow(2, numZeroes);
+		const errorMessage = `${AMBIGUOUS_BIN_1}<br>
+			• ${AMBIGUOUS_BIN_2} &ndash;${powerOfTwo}${AMBIGUOUS_BIN_3} 1${val}. <br>
+			• ${AMBIGUOUS_BIN_2} ${powerOfTwo}${AMBIGUOUS_BIN_3} 0${val}.`;
+
+		$('#multiplicand-error > p').html(errorMessage);
 	}
 
 	if (isAmbiguousCase($('#multiplier-bin').val())) {
-		$('#multiplier-error > p').html('hi');
+		const val = $('#multiplier-bin').val().trim();
+		const numZeroes = val.length - 1;
+		const powerOfTwo = Math.pow(2, numZeroes);
+		const errorMessage = `${AMBIGUOUS_BIN_1}<br>
+			• ${AMBIGUOUS_BIN_2} &ndash;${powerOfTwo}${AMBIGUOUS_BIN_3} 1${val}. <br>
+			• ${AMBIGUOUS_BIN_2} ${powerOfTwo}${AMBIGUOUS_BIN_3} 0${val}.`;
+
+		$('#multiplier-error > p').html(errorMessage);
 	}
 
 	hideTriviaDiv();

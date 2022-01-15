@@ -10,3 +10,7 @@ const EXCEED_BITS = `Should not exceed ${MAX_NUM_BITS} bits<br>(Your input curre
 
 const INVALID_DEC = `Should be a decimal number`;
 const INVALID_BIN = `Should be a binary number in two's complement`;
+
+const AMBIGUOUS_BIN_1 = `This calculator accepts 16-bit two's complement:`;
+const AMBIGUOUS_BIN_2 = `If you meant`;
+const AMBIGUOUS_BIN_3 = ', enter';
