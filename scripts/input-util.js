@@ -70,6 +70,7 @@ function isValidDec(inputField, operand, value) {
 			$(inputField).val(slicedVal);
 		} else {
 			$('#' + operand + '-error > p').html(INVALID_DEC);
+			$('#multiply').attr('disabled', true);
 		}
 
 		return false;
@@ -77,16 +78,19 @@ function isValidDec(inputField, operand, value) {
 
 	if (parseInt(value) > Math.pow(2, MAX_NUM_BITS - 1) - 1) {
 		$('#' + operand + '-error > p').html(MAX_ERROR);
+		$('#multiply').attr('disabled', true);
 		return false;
 	}
 
 	if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
 		$('#' + operand + '-error > p').html(MIN_ERROR);
+		$('#multiply').attr('disabled', true);
 		return false;
 	}
 
 	if (value.length == 0) {
 		$('#' + operand + '-error > p').html('');
+		$('#multiply').attr('disabled', true);
 		return false;
 	}
 
@@ -103,6 +107,7 @@ function isValidBin(inputField, operand, value) {
 			$(inputField).val(slicedVal);
 		} else {
 			$('#' + operand + '-error > p').html(INVALID_BIN);
+			$('#multiply').attr('disabled', true);
 			hideTriviaDiv();
 		}
 
@@ -113,12 +118,14 @@ function isValidBin(inputField, operand, value) {
 		$('#' + operand + '-error > p').html(
 			`${EXCEED_BITS} ${value.length} bits)`
 		);
+		$('#multiply').attr('disabled', true);
 		hideTriviaDiv();
 		return false;
 	}
 
 	if (value.length == 0) {
 		$('#' + operand + '-error > p').html('');
+		$('#multiply').attr('disabled', true);
 		showTriviaDiv();
 		return false;
 	}
