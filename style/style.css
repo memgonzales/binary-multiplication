@@ -60,7 +60,7 @@ i:hover {
 }
 
 /* Input fields */
-input[type='text'] {
+input {
 	-moz-appearance: textfield;
 	font-size: 16px;
 	font-family: 'Open Sans';
