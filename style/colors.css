@@ -2,12 +2,13 @@
 
 :root {
 	--gray-emphasis: rgb(192, 172, 172);
-	--gray-disabled: rgb(69, 97, 66);
+	--gray-disabled: rgb(69, 107, 69);
+	--gray-disabled-lighter: rgb(86, 121, 86);
 	--green-bg: rgb(25, 44, 2);
 	--green-emphasis: rgb(61, 83, 33);
 	--green-lighter: rgb(73, 95, 52);
 	--yellow-emphasis: rgb(240, 240, 119);
 	--gray-bg: rgb(250, 250, 250);
 	--red-emphasis: rgb(255, 38, 0);
-	--green-hover: rgb(16, 26, 3);
+	--green-hover: rgb(38, 71, 24);
 }

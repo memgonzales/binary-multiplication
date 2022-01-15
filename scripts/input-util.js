@@ -14,7 +14,8 @@ function decimalToBinary(operand) {
 				$('#' + operand + '-dec'),
 				operand,
 				$('#' + operand + '-dec').val()
-			)
+			) &&
+			!isSignOnly($('#' + operand + '-dec').val())
 		) {
 			$('#' + operand + '-bin').val(
 				toBinary($('#' + operand + '-dec').val())
@@ -44,6 +45,10 @@ function binaryToDecimal(operand) {
 			$('#' + operand + '-dec').val('');
 		}
 	});
+}
+
+function isSignOnly(value) {
+	return value.trim() == '+' || value.trim() == '-';
 }
 
 function isValidDec(inputField, operand, value) {
