@@ -93,8 +93,13 @@ function toDecimal(number) {
 }
 
 function isAmbiguousCase(number) {
+	let negativeBias = '1';
+	for (let i = 0; i < MAX_NUM_BITS - 1; i++) {
+		negativeBias = `${negativeBias}0`;
+	}
+
 	const pattern = /^10*$/;
-	return pattern.test(number);
+	return pattern.test(number) && number != negativeBias;
 }
 
 /**
