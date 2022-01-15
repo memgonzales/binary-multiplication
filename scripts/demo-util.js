@@ -230,6 +230,11 @@ function demoUtil() {
 	}
 }
 
+/**
+ * Handles the case where one of the operands (in binary) is of the form 10...0.
+ *
+ * More information is provided in the documentation of the methods isAmbiguousCase() in binary.js.
+ */
 function handleAmbiguousCases() {
 	if (isAmbiguousCase($('#multiplicand-bin').val())) {
 		const val = $('#multiplicand-bin').val().trim();

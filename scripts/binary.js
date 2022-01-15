@@ -97,7 +97,7 @@ function toDecimal(number) {
  * number of bits supported by this calculator).
  *
  * @param {string} number Binary number to be checked against the pattern 10...0.
- * @returns `true` if the binary number is of the form 10...0; `false`, otherwise. If the binary number is
+ * @returns {boolean} `true` if the binary number is of the form 10...0; `false`, otherwise. If the binary number is
  * 1 followed by (`NUM_BITS` - 1) zeroes, where `NUM_BITS` is the maximum number of bits supported by this
  * calculator, `false` is returned instead.
  */

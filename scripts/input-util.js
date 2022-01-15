@@ -166,6 +166,10 @@ function showTriviaDiv() {
 	$('#trivia-div').css('-o-user-select', 'none');
 }
 
+/**
+ *
+ * @returns `true`
+ */
 function allFieldsBlank() {
 	return (
 		$('#multiplicand-bin').val().length == 0 &&
