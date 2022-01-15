@@ -14,10 +14,7 @@ function hoverElemUtil(elem, color) {
 		if (color == white) {
 			$('#' + elem + '-logo').attr('src', 'assets/' + elem + '.png');
 		} else if (color == yellow) {
-			$('#' + elem + '-logo').attr(
-				'src',
-				'assets/' + elem + '-yellow.png'
-			);
+			$('#' + elem + '-logo').attr('src', 'assets/' + elem + '-yellow.png');
 		}
 
 		$('#' + elem + '-text').css('color', color);
@@ -92,10 +89,7 @@ function changeColorMulMethod(elems, clickedElem) {
 		$('#' + elem + '-text').removeClass('selected');
 	}
 
-	$('#' + clickedElem + '-logo').attr(
-		'src',
-		'assets/' + clickedElem + '-yellow.png'
-	);
+	$('#' + clickedElem + '-logo').attr('src', 'assets/' + clickedElem + '-yellow.png');
 	$('#' + clickedElem + '-text').addClass('selected');
 }
 

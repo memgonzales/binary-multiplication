@@ -93,9 +93,7 @@ function extendedBoothsDisplayEqualizedBits(
 	multiplicand,
 	multiplier
 ) {
-	const bitDifference = Math.abs(
-		multiplicandBin.length - multiplierBin.length
-	);
+	const bitDifference = Math.abs(multiplicandBin.length - multiplierBin.length);
 
 	let multiplicandFormatted = multiplicand;
 	let multiplierFormatted = multiplier;
@@ -238,9 +236,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 
 	for (let i = multiplierForRecoding.length - 1; i >= 2; i -= 2) {
 		/* Get three bits at a time. */
-		const recode = recodeMap.get(
-			`${multiplierForRecoding.substring(i - 2, i + 1)}`
-		);
+		const recode = recodeMap.get(`${multiplierForRecoding.substring(i - 2, i + 1)}`);
 
 		extendedBooths = `${recode} ${extendedBooths}`;
 
@@ -267,12 +263,10 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
 	/* Isolate the first element (corresponding to the least three significant bits of the product). */
 	extendedBoothsDisplay[0] = `<b class = "emphasized">${extendedBoothsArray[0]}</b>`;
 	for (let i = 1; i < extendedBoothsArray.length; i++) {
-		extendedBoothsDisplay[i] = `<b class = "emphasized">${
-			extendedBoothsArray[i]
-		}</b> ${extendedBoothsArray[i - 1]}`;
-		extendedBoothsArray[i] = `${extendedBoothsArray[i]} ${
+		extendedBoothsDisplay[i] = `<b class = "emphasized">${extendedBoothsArray[i]}</b> ${
 			extendedBoothsArray[i - 1]
 		}`;
+		extendedBoothsArray[i] = `${extendedBoothsArray[i]} ${extendedBoothsArray[i - 1]}`;
 	}
 
 	const templateNoDiv = `<table class = "demo-box-table">
@@ -311,9 +305,7 @@ function extendedBoothsRecode(recodeNumber, multiplierForRecoding) {
  */
 function showExtendedBoothsRecoding() {
 	if ($('#extended-booths-step-c-table-provision').html() == '') {
-		$('#extended-booths-step-c-table-provision').html(
-			`${extendedBoothsStepCTable}`
-		);
+		$('#extended-booths-step-c-table-provision').html(`${extendedBoothsStepCTable}`);
 		$('#show-hide-extended-booths-recoding').text('hide');
 	} else {
 		$('#extended-booths-step-c-table-provision').html('');
@@ -328,10 +320,7 @@ function showExtendedBoothsRecoding() {
  * and performing sign extension depending on its number of bits.
  * @param {string} extendedBoothsRecoding Extended Booth's equivalent of the multiplier.
  */
-function extendedBoothsDisplayStepD(
-	multiplierForRecoding,
-	extendedBoothsRecoding
-) {
+function extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding) {
 	appendTemplate(
 		`${extendedBoothsStepD}${extendedBoothsStepDShowTable}${extendedBoothsStepDTableProvision}`
 	);
@@ -363,30 +352,20 @@ function extendedBoothsPencil(
 ) {
 	let summands = []; /* Summands (without format) */
 	let summandsFormatted = []; /* Summands (with format) */
-	let extendedBoothsDisplay =
-		[]; /* Extended Booth's equivalent (with format) */
+	let extendedBoothsDisplay = []; /* Extended Booth's equivalent (with format) */
 
 	/* Extended Booth's equivalent (without format) */
-	const extendedBoothsArray = extendedBoothsRecoding
-		.trim()
-		.split(' ')
-		.reverse();
+	const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
 
 	for (let i = 0; i < extendedBoothsArray.length; i++) {
 		const multiplier = parseInt(extendedBoothsArray[i]);
 
 		/* Multiply the multiplicand by the digit in the recoding, starting at the rightmost digit. */
-		summands.push(
-			multiply(multiplicandDec, multiplier, 2 * (multiplicand.length - i))
-		);
-		summandsFormatted.push(
-			emphasizeProduct(multiplicand, multiplier, summands[i])
-		);
+		summands.push(multiply(multiplicandDec, multiplier, 2 * (multiplicand.length - i)));
+		summandsFormatted.push(emphasizeProduct(multiplicand, multiplier, summands[i]));
 
 		/* Highlight the digit in the recoding by which the multiplicand is multiplied. */
-		extendedBoothsDisplay.push(
-			extendedBoothsRecoding.trim().split(' ').reverse()
-		);
+		extendedBoothsDisplay.push(extendedBoothsRecoding.trim().split(' ').reverse());
 		extendedBoothsDisplay[i][
 			i
 		] = `<b class = "emphasized no-underline">${extendedBoothsArray[i]}</b>`;
@@ -423,11 +402,7 @@ function extendedBoothsPencil(
 	const numBitsProduct = 2 * multiplicand.length;
 	const numSummands = extendedBoothsArray.length;
 
-	const product = multiply(
-		multiplicandDec,
-		multiplierDec,
-		numBitsProduct
-	); /* Without format */
+	const product = multiply(multiplicandDec, multiplierDec, numBitsProduct); /* Without format */
 	const productDisplay = formatProductDisplay(product); /* With format */
 
 	/*
@@ -457,14 +432,10 @@ function extendedBoothsPencil(
 		$('#step-d-extended-booths-multiplicand').html(
 			`<b class = "emphasized no-underline">${multiplicand}</b>`
 		);
-		$('#step-d-extended-booths-display').html(
-			`${extendedBoothsDisplay[displayNumber - 1]}`
-		);
+		$('#step-d-extended-booths-display').html(`${extendedBoothsDisplay[displayNumber - 1]}`);
 
 		/* Remove the highlight of the previous summand (thus, subtract 2 from the step number). */
-		$(`#extended-booths-summands-${displayNumber - 2}`).html(
-			`${summands[displayNumber - 2]}`
-		);
+		$(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
 	} else if (displayNumber <= extendedBoothsArray.length + numBitsProduct) {
 		/*
 		 * If it is the least significant bit of the product:
@@ -474,9 +445,7 @@ function extendedBoothsPencil(
 		 */
 		if (displayNumber == extendedBoothsArray.length + 1) {
 			$('#step-d-extended-booths-multiplicand').html(`${multiplicand}`);
-			$('#step-d-extended-booths-display').html(
-				`${extendedBoothsRecoding}`
-			);
+			$('#step-d-extended-booths-display').html(`${extendedBoothsRecoding}`);
 
 			/* Remove the highlight of the last summand (thus, subtract 2 from the step number). */
 			$(`#extended-booths-summands-${displayNumber - 2}`).html(
@@ -485,10 +454,7 @@ function extendedBoothsPencil(
 			$('.carry-over b').css('display', 'block');
 
 			appendRow('extended-booths-pencil-table', `${productRow}`);
-		} else if (
-			displayNumber ==
-			extendedBoothsArray.length + numBitsProduct
-		) {
+		} else if (displayNumber == extendedBoothsArray.length + numBitsProduct) {
 			/*
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
@@ -503,8 +469,7 @@ function extendedBoothsPencil(
 		 * Highlight the bit column being summed.
 		 * Calculate the index so that the rightmost bit column is highlighted first.
 		 */
-		const index =
-			numBitsProduct - (displayNumber - extendedBoothsArray.length);
+		const index = numBitsProduct - (displayNumber - extendedBoothsArray.length);
 		for (let i = 0; i < numSummands; i++) {
 			const summand = $(`#extended-booths-summands-${i}`).text();
 			let summandFormatted = '';
@@ -541,9 +506,7 @@ function extendedBoothsPencil(
  */
 function showExtendedBoothsOperations() {
 	if ($('#extended-booths-step-d-table-provision').html() == '') {
-		$('#extended-booths-step-d-table-provision').html(
-			`${extendedBoothsStepDTable}`
-		);
+		$('#extended-booths-step-d-table-provision').html(`${extendedBoothsStepDTable}`);
 		$('#show-hide-extended-booths-operations').text('hide');
 	} else {
 		$('#extended-booths-step-d-table-provision').html('');
@@ -559,12 +522,7 @@ function showExtendedBoothsOperations() {
  * @param {string} product Binary product.
  * @param {number} numSummands Number of intermediate summands.
  */
-function extendedBoothsVerify(
-	multiplicandDec,
-	multiplierDec,
-	product,
-	numSummands
-) {
+function extendedBoothsVerify(multiplicandDec, multiplierDec, product, numSummands) {
 	const productDec = multiplicandDec * multiplierDec;
 	const doubleCheck = `${multiplicandDec}<sub>10</sub><span class = "tab-9"></span>&times;<span class = "tab-9"></span>${multiplierDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span>${productDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span><span class = "final-answer">${product}<sub>2</sub></span><br>`;
 
@@ -589,17 +547,9 @@ function extendedBoothsVerify(
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  */
-function extendedBoothsSteps(
-	multiplicandBin,
-	multiplierBin,
-	multiplicandDec,
-	multiplierDec
-) {
+function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
 	/* Equalize the number of bits of the operands. */
-	const [multiplicand, multiplier] = equalizeBits(
-		multiplicandBin,
-		multiplierBin
-	);
+	const [multiplicand, multiplier] = equalizeBits(multiplicandBin, multiplierBin);
 
 	/* Append zero to the least significant bit of the multiplier. */
 	const multiplierZeroAppended = `${multiplier}0`;
@@ -658,14 +608,8 @@ function extendedBoothsSteps(
 					multiplierForRecoding
 				);
 			} else if (stepNumber == 7 + numDigitsRecoding) {
-				extendedBoothsDisplayStepD(
-					multiplierForRecoding,
-					extendedBoothsRecoding
-				);
-			} else if (
-				stepNumber <=
-				8 + 2 * numDigitsRecoding + 2 * multiplicand.length
-			) {
+				extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecoding);
+			} else if (stepNumber <= 8 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
 				/*
 				 * The number of steps taken is one more than the number of digits in the extended Booth's equivalent
 				 * plus the number of number of bits in the product (1 + numDigitsRecoding + 2 * multiplicand.length).
@@ -682,16 +626,8 @@ function extendedBoothsSteps(
 					multiplierDec,
 					extendedBoothsRecoding
 				);
-			} else if (
-				stepNumber ==
-				9 + 2 * numDigitsRecoding + 2 * multiplicand.length
-			) {
-				extendedBoothsVerify(
-					multiplicandDec,
-					multiplierDec,
-					product,
-					numDigitsRecoding
-				);
+			} else if (stepNumber == 9 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
+				extendedBoothsVerify(multiplicandDec, multiplierDec, product, numDigitsRecoding);
 
 				/* Hide the next step button. */
 				$('#next-step').css('visibility', 'hidden');
@@ -771,7 +707,7 @@ function extendedBoothsGoToStep0() {
 	extendedBoothsDescription();
 
 	noPreviousStep();
-	
+
 	/* Scroll back to the top. */
 	window.scrollTo(0, 0);
 }
@@ -826,21 +762,11 @@ function scrollToExtendedBoothsOperations() {
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  */
-function extendedBoothsDemo(
-	multiplicandBin,
-	multiplierBin,
-	multiplicandDec,
-	multiplierDec
-) {
+function extendedBoothsDemo(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
 	extendedBoothsInit();
 	extendedBoothsInitRecodeMap();
 	extendedBoothsTotalSteps(multiplicandBin, multiplierBin);
-	extendedBoothsSteps(
-		multiplicandBin,
-		multiplierBin,
-		multiplicandDec,
-		multiplierDec
-	);
+	extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec);
 	extendedBoothsRewind(multiplicandBin, multiplierBin);
 	extendedBoothsGoToStep(multiplicandBin, multiplierBin);
 }

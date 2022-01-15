@@ -51,9 +51,7 @@ function animateTitle() {
 
 	setTimeout(function () {
 		$('#title-logo').attr('src', 'assets/title.png');
-		$('#title-text').html(
-			'BINARY<span style = "margin-left: 11px;"></span>MULTIPLICATION'
-		);
+		$('#title-text').html('BINARY<span style = "margin-left: 11px;"></span>MULTIPLICATION');
 		$('.hidden').css('visibility', 'visible');
 
 		$('#step-number-value').hide();

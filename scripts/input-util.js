@@ -10,16 +10,10 @@
 function decimalToBinary(operand) {
 	$('#' + operand + '-dec').on('keyup', function () {
 		if (
-			isValidDec(
-				$('#' + operand + '-dec'),
-				operand,
-				$('#' + operand + '-dec').val()
-			) &&
+			isValidDec($('#' + operand + '-dec'), operand, $('#' + operand + '-dec').val()) &&
 			!isSignOnly($('#' + operand + '-dec').val())
 		) {
-			$('#' + operand + '-bin').val(
-				toBinary($('#' + operand + '-dec').val())
-			);
+			$('#' + operand + '-bin').val(toBinary($('#' + operand + '-dec').val()));
 		} else {
 			$('#' + operand + '-bin').val('');
 		}
@@ -42,16 +36,8 @@ function decimalToBinary(operand) {
  */
 function binaryToDecimal(operand) {
 	$('#' + operand + '-bin').on('keyup', function () {
-		if (
-			isValidBin(
-				$('#' + operand + '-bin'),
-				operand,
-				$('#' + operand + '-bin').val()
-			)
-		) {
-			$('#' + operand + '-dec').val(
-				toDecimal($('#' + operand + '-bin').val())
-			);
+		if (isValidBin($('#' + operand + '-bin'), operand, $('#' + operand + '-bin').val())) {
+			$('#' + operand + '-dec').val(toDecimal($('#' + operand + '-bin').val()));
 		} else {
 			$('#' + operand + '-dec').val('');
 		}
@@ -128,9 +114,7 @@ function isValidBin(inputField, operand, value) {
 	}
 
 	if (value.length > MAX_NUM_BITS) {
-		$('#' + operand + '-error > p').html(
-			`${EXCEED_BITS} ${value.length} bits)`
-		);
+		$('#' + operand + '-error > p').html(`${EXCEED_BITS} ${value.length} bits)`);
 		$('#multiply').attr('disabled', true);
 		hideTriviaDiv();
 		return false;
@@ -148,9 +132,7 @@ function isValidBin(inputField, operand, value) {
 
 function isValidBinNoDisplay(value) {
 	const pattern = /^[0-1]*$/;
-	return (
-		pattern.test(value) && value.length != 0 && value.length <= MAX_NUM_BITS
-	);
+	return pattern.test(value) && value.length != 0 && value.length <= MAX_NUM_BITS;
 }
 
 function canMultiply() {

@@ -7,11 +7,7 @@
  */
 
 /* --- ALGORITHM NAMES --- */
-const algoNames = [
-	`Pencil-and-Paper Method`,
-	`Booth's Algorithm`,
-	`Extended Booth's Algorithm`
-];
+const algoNames = [`Pencil-and-Paper Method`, `Booth's Algorithm`, `Extended Booth's Algorithm`];
 
 /* --- TRIVIA HEADER --- */
 /* End with a period (or any other terminal punctuation mark), followed by a space. */
@@ -19,11 +15,7 @@ const pencilTriviaHeader = '. ';
 const boothsTriviaHeader = '. ';
 const extendedBoothsTriviaHeader = 'Triple Treat. ';
 
-const triviaHeaders = [
-	pencilTriviaHeader,
-	boothsTriviaHeader,
-	extendedBoothsTriviaHeader
-];
+const triviaHeaders = [pencilTriviaHeader, boothsTriviaHeader, extendedBoothsTriviaHeader];
 
 /* --- TRIVIA --- */
 const pencilTrivia = ``;

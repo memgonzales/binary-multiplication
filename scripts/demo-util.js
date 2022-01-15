@@ -102,22 +102,16 @@ function formatProductDisplay(product) {
 	let productArray = []; /* Without highlighted bits */
 
 	/* Isolate the first element (corresponding to the least significant bit of the product). */
-	productDisplay.push(
-		`<b class = "emphasized no-underline">${
-			product[product.length - 1]
-		}</b>`
-	);
+	productDisplay.push(`<b class = "emphasized no-underline">${product[product.length - 1]}</b>`);
 	productArray.push(product[product.length - 1]);
 
 	for (let i = 1; i < product.length; i++) {
 		productDisplay.push(
-			`<b class = "emphasized no-underline">${
-				product[product.length - i - 1]
-			}</b>${productArray[i - 1]}`
+			`<b class = "emphasized no-underline">${product[product.length - i - 1]}</b>${
+				productArray[i - 1]
+			}`
 		);
-		productArray.push(
-			`${product[product.length - i - 1]}${productArray[i - 1]}`
-		);
+		productArray.push(`${product[product.length - i - 1]}${productArray[i - 1]}`);
 	}
 
 	return productDisplay;
