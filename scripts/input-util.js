@@ -23,6 +23,10 @@ function decimalToBinary(operand) {
 		} else {
 			$('#' + operand + '-bin').val('');
 		}
+
+		if (canMultiply()) {
+			$('#multiply').attr('disabled', false);
+		}
 	});
 }
 
@@ -45,6 +49,10 @@ function binaryToDecimal(operand) {
 			);
 		} else {
 			$('#' + operand + '-dec').val('');
+		}
+
+		if (canMultiply()) {
+			$('#multiply').attr('disabled', false);
 		}
 	});
 }
@@ -121,7 +129,18 @@ function isValidBin(inputField, operand, value) {
 }
 
 function canMultiply() {
-	$('#multiplicand-');
+	return (
+		isValidBin(
+			$('#multiplicand-bin'),
+			'multiplicand',
+			$('#multiplicand-bin').val()
+		) &&
+		isValidBin(
+			$('#multiplier-bin'),
+			'multiplier',
+			$('#multiplier-bin').val()
+		)
+	);
 }
 
 function hideTriviaDiv() {

@@ -2,8 +2,8 @@
 
 :root {
 	--gray-emphasis: rgb(192, 172, 172);
-	--gray-disabled: rgba(25, 44, 2, 0.75);
-	--gray-disabled-lighter: rgba(25, 44, 2, 0.67);
+	--gray-disabled: rgba(25, 44, 2, 0.74);
+	--gray-disabled-lighter: rgba(25, 44, 2, 0.66);
 	--green-bg: rgb(25, 44, 2);
 	--green-emphasis: rgb(61, 83, 33);
 	--green-lighter: rgb(73, 95, 52);
