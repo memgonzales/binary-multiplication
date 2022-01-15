@@ -98,3 +98,11 @@ button:disabled:hover {
 #trivia-header {
 	font-weight: bold;
 }
+
+#trivia-body a {
+	color: inherit !important;
+}
+
+#trivia-body a i {
+	color: inherit !important;
+}

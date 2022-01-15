@@ -26,6 +26,11 @@ function decimalToBinary(operand) {
 
 		if (canMultiply()) {
 			$('#multiply').attr('disabled', false);
+			showTriviaDiv();
+		}
+
+		if (allFieldsBlank()) {
+			showTriviaDiv();
 		}
 	});
 }
@@ -53,6 +58,11 @@ function binaryToDecimal(operand) {
 
 		if (canMultiply()) {
 			$('#multiply').attr('disabled', false);
+			showTriviaDiv();
+		}
+
+		if (allFieldsBlank()) {
+			showTriviaDiv();
 		}
 	});
 }
@@ -71,6 +81,7 @@ function isValidDec(inputField, operand, value) {
 		} else {
 			$('#' + operand + '-error > p').html(INVALID_DEC);
 			$('#multiply').attr('disabled', true);
+			hideTriviaDiv();
 		}
 
 		return false;
@@ -79,12 +90,14 @@ function isValidDec(inputField, operand, value) {
 	if (parseInt(value) > Math.pow(2, MAX_NUM_BITS - 1) - 1) {
 		$('#' + operand + '-error > p').html(MAX_ERROR);
 		$('#multiply').attr('disabled', true);
+		hideTriviaDiv();
 		return false;
 	}
 
 	if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
 		$('#' + operand + '-error > p').html(MIN_ERROR);
 		$('#multiply').attr('disabled', true);
+		hideTriviaDiv();
 		return false;
 	}
 
@@ -126,27 +139,25 @@ function isValidBin(inputField, operand, value) {
 	if (value.length == 0) {
 		$('#' + operand + '-error > p').html('');
 		$('#multiply').attr('disabled', true);
-		showTriviaDiv();
 		return false;
 	}
 
 	$('#' + operand + '-error > p').html('');
-	showTriviaDiv();
 	return true;
+}
+
+function isValidBinNoDisplay(value) {
+	const pattern = /^[0-1]*$/;
+
+	return (
+		pattern.test(value) && value.length != 0 && value.length <= MAX_NUM_BITS
+	);
 }
 
 function canMultiply() {
 	return (
-		isValidBin(
-			$('#multiplicand-bin'),
-			'multiplicand',
-			$('#multiplicand-bin').val()
-		) &&
-		isValidBin(
-			$('#multiplier-bin'),
-			'multiplier',
-			$('#multiplier-bin').val()
-		)
+		isValidBinNoDisplay($('#multiplicand-bin').val()) &&
+		isValidBinNoDisplay($('#multiplier-bin').val())
 	);
 }
 
@@ -172,4 +183,13 @@ function showTriviaDiv() {
 	$('#trivia-div').css('-khtml-user-select', 'none');
 	$('#trivia-div').css('-webkit-user-select', 'none');
 	$('#trivia-div').css('-o-user-select', 'none');
+}
+
+function allFieldsBlank() {
+	return (
+		$('#multiplicand-bin').val().length == 0 &&
+		$('#multiplicand-dec').val().length == 0 &&
+		$('#multiplier-bin').val().length == 0 &&
+		$('#multiplier-dec').val().length == 0
+	);
 }
