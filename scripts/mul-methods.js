@@ -166,6 +166,9 @@ function clickMulMethodUtil(elems, clickedElem) {
 	}
 }
 
+/**
+ * Starts the demonstration (simulation) at step 0 (that is, the description of the algorithm).
+ */
 function demoUtilStartAtDesc() {
 	switch ($('#algo-value').text()) {
 		case algoNames[0] /* Pencil-and-Paper Method */:

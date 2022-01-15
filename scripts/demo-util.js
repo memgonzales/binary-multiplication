@@ -261,6 +261,9 @@ function handleAmbiguousCases() {
 	hideTriviaDiv();
 }
 
+/**
+ * Handles the behavior when the "Show All Steps" display mode is selected.
+ */
 function showAllSteps() {
 	const multiplicandBin = $('#multiplicand-bin').val();
 	const multiplierBin = $('#multiplier-bin').val();
@@ -280,7 +283,7 @@ function showAllSteps() {
 }
 
 /**
- * Starts the demonstration (simulation) when the multiply button is clicked.
+ * Starts the demonstration (simulation) at step 1 (that is, the first step of the algorithm).
  */
 function demo() {
 	$('#multiply').on('click', function () {
