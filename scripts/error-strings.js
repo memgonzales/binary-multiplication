@@ -16,8 +16,9 @@ const INVALID_BIN = `Should be a binary number in two's complement`;
 /*
  * Parts of the error message displayed when the input is a binary number of the form 10..0.
 
- * The only unambiguous binary number of the form 10...0 is 1 followed by NUM_BITS - 1 zeroes, 
- * which represents the smallest signed integer representable using NUM_BITS bits.
+ * The only unambiguous binary number of the form 10...0 is 1 followed by (`NUM_BITS` - 1) zeroes, 
+ * which represents the smallest signed integer representable using NUM_BITS bits (`NUM_BITS`
+ * is the maximum number of bits supported by this calculator).
  */
 const AMBIGUOUS_BIN_1 = `This calculator accepts 16-bit two's complement:`;
 const AMBIGUOUS_BIN_2 = `If you meant`;

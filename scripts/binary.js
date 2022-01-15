@@ -57,7 +57,7 @@ function toBinary(number) {
 /**
  * Converts a binary number to its signed decimal equivalent.
  *
- * This method converts the binary number 1 to -1.
+ * This method converts the binary number 10...0 to -2^n, where n is the number of terminal zeroes.
  *
  * Precondition:
  * - The binary number should have less than or equal to 16 bits.
@@ -73,18 +73,17 @@ function toDecimalRaw(number) {
 /**
  * Converts a binary number to its signed decimal equivalent.
  *
- * This method converts the binary number 1 to an empty string (instead of -1) to reduce ambiguity.
+ * This method converts binary numbers of the form 10...0 to an empty string to prevent ambiguity.
+ * The only exception is 1 followed by (`NUM_BITS` - 1) zeroes, which represents the smallest signed integer
+ * representable using NUM_BITS bits (`NUM_BITS` is the maximum number of bits supported by this calculator).
  *
  * Precondition:
  * - The binary number should have less than or equal to 16 bits.
- * - The number is captured as a string to isolate the special case (binary number '1') and differentiate it
- *   from other equivalents of the number 1 (e.g., binary number '01').
  *
  * @param {string} number Binary number to be converted to its signed decimal equivalent.
  * @returns {number} Decimal equivalent of the binary number, or empty string if the binary number is 1.
  */
 function toDecimal(number) {
-	/* Convert the binary number 1 to an empty string (instead of -1) to reduce ambiguity. */
 	if (isAmbiguousCase(number)) {
 		return '';
 	}
@@ -92,12 +91,23 @@ function toDecimal(number) {
 	return toDecimalRaw(signExtend(number, MAX_NUM_BITS));
 }
 
+/**
+ * Checks if a binary number is of the form 10...0. The only exception is 1 followed by (NUM_BITS - 1) zeroes,
+ * which represents the smallest signed integerrepresentable using `NUM_BITS` bits (`NUM_BITS` is the maximum
+ * number of bits supported by this calculator).
+ *
+ * @param {string} number Binary number to be checked against the pattern 10...0.
+ * @returns `true` if the binary number is of the form 10...0; `false`, otherwise. If the binary number is
+ * 1 followed by (`NUM_BITS` - 1) zeroes, where `NUM_BITS` is the maximum number of bits supported by this
+ * calculator, `false` is returned instead.
+ */
 function isAmbiguousCase(number) {
 	let negativeBias = '1';
 	for (let i = 0; i < MAX_NUM_BITS - 1; i++) {
 		negativeBias = `${negativeBias}0`;
 	}
 
+	/* Regex for 1 followed by zero or more 0s */
 	const pattern = /^10*$/;
 	return pattern.test(number) && number != negativeBias;
 }
