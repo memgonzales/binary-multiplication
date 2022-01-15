@@ -10,9 +10,6 @@
 function decimalToBinary(operand) {
 	$('#' + operand + '-dec').on('keyup', function () {
 		if (
-			$('#' + operand + '-dec')
-				.val()
-				.trim().length > 0 &&
 			isValidDec(
 				$('#' + operand + '-dec'),
 				operand,
@@ -63,6 +60,11 @@ function isValidDec(inputField, operand, value) {
 
 	if (parseInt(value) < -1 * Math.pow(2, MAX_NUM_BITS - 1)) {
 		$('#' + operand + '-error > p').html(MIN_ERROR);
+		return false;
+	}
+
+	if (value.length == 0) {
+		$('#' + operand + '-error > p').html('');
 		return false;
 	}
 
