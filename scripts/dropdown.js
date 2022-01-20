@@ -88,7 +88,7 @@ function controlDropdown(elem) {
  * @param {event} e Click event.
  * @param {string} elem Display mode.
  * @param {booelan} isDropdownOpen `true` if the display mode dropdown content is open; `false`, otherwise.
- * @returns `true` if the display mode dropdown content should be closed by the click event; `false`, otherwise.
+ * @returns {boolean} `true` if the display mode dropdown content should be closed by the click event; `false`, otherwise.
  */
 function canCloseDropdown(e, elem, isDropdownOpen) {
 	return (
@@ -115,5 +115,17 @@ function clickDropdown(elem) {
 		$('#' + elem + '-option').text(currentOption);
 
 		isDropdownOpen = false;
+
+		$('#prev-step').show();
+		$('#next-step').show();
+		demoUtil();
+
+		/* Return to the description. */
+		$('#prev-step').trigger('click');
+
+		if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+			showAllSteps();
+			window.scrollTo(0, 0);
+		}
 	});
 }

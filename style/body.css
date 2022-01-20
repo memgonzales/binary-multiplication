@@ -4,9 +4,7 @@
 	width: calc(71% - 20px); /* Calculated as 100% - margin-left */
 	min-height: calc(100vh - 30px);
 	padding: 0px;
-	margin-left: calc(
-		29% + 20px
-	); /* Should be greater than width of #input-numbers */
+	margin-left: calc(29% + 20px); /* Should be greater than width of #input-numbers */
 	margin-top: 20px;
 	color: var(--green-emphasis);
 	font-size: 16px;

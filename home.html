@@ -8,37 +8,17 @@
 		<title>Binary Multiplication</title>
 
 		<!-- FAVICON -->
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="assets/favicon/apple-touch-icon.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="assets/favicon/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="assets/favicon/favicon-16x16.png"
-		/>
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
 
 		<!-- STYLE SHEETS -->
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Open Sans"
-		/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
@@ -69,6 +49,7 @@
 
 		<!-- JS files containing constants and strings. Should be included before all other scripts -->
 		<script src="scripts/constants.js"></script>
+		<script src="scripts/error-strings.js"></script>
 		<script src="scripts/colors.js"></script>
 		<script src="scripts/algo-strings.js"></script>
 
@@ -123,9 +104,7 @@
 				</div>
 				<div class="inner">
 					<a class="no-decor">
-						<span id="pencil-text" class="selected">
-							Pencil and Paper
-						</span>
+						<span id="pencil-text" class="selected">Pencil and Paper</span>
 					</a>
 				</div>
 			</div>
@@ -146,10 +125,7 @@
 			<div id="extended-booths" class="hidden mul-methods">
 				<div class="inner">
 					<a class="no-decor">
-						<img
-							id="extended-booths-logo"
-							src="assets/extended-booths.png"
-						/>
+						<img id="extended-booths-logo" src="assets/extended-booths.png" />
 					</a>
 				</div>
 				<div class="inner">
@@ -163,23 +139,15 @@
 				<div class="inner">
 					<div id="display-mode-container">
 						<a class="no-decor">
-							<span id="display-mode-text" tabindex="0">
-								Step by Step
-							</span>
+							<span id="display-mode-text" tabindex="0">Step by Step</span>
 						</a>
 						&nbsp;
-						<i
-							id="display-mode-dropdown"
-							class="fa fa-caret-down"
-							tabindex="0"
-						></i>
+						<i id="display-mode-dropdown" class="fa fa-caret-down" tabindex="0"></i>
 						&nbsp;
 
 						<div id="display-mode-content">
 							<a class="no-decor">
-								<span id="display-mode-option">
-									Show All Steps
-								</span>
+								<span id="display-mode-option">Show All Steps</span>
 							</a>
 						</div>
 					</div>
@@ -200,16 +168,24 @@
 							Decimal
 							<span class="tab-18"></span>
 						</label>
-						<input type="number" id="multiplicand-dec" />
+						<input
+							type="text"
+							id="multiplicand-dec"
+							oninput="isValidDec(this, 'multiplicand', value)"
+						/>
 					</p>
 					<p>
 						<label>Binary</label>
-						<input type="number" id="multiplicand-bin" />
+						<input
+							type="text"
+							id="multiplicand-bin"
+							oninput="isValidBin(this, 'multiplicand', value)"
+						/>
 					</p>
 				</div>
 
-				<div class="error">
-					<p>Error message goes here</p>
+				<div class="error" id="multiplicand-error">
+					<p></p>
 				</div>
 
 				<br />
@@ -224,23 +200,31 @@
 							Decimal
 							<span class="tab-18"></span>
 						</label>
-						<input type="number" id="multiplier-dec" />
+						<input
+							type="text"
+							id="multiplier-dec"
+							oninput="isValidDec(this, 'multiplier', value)"
+						/>
 					</p>
 					<p>
 						<label id="multiplier-bin-label">Binary</label>
-						<input type="number" id="multiplier-bin" />
+						<input
+							type="text"
+							id="multiplier-bin"
+							oninput="isValidBin(this, 'multiplier', value)"
+						/>
 					</p>
 				</div>
 
-				<div class="error">
-					<p>Error message goes here</p>
+				<div class="error" id="multiplier-error">
+					<p></p>
 				</div>
 
 				<br />
 
 				<div id="multiply-div">
 					<div>
-						<button id="multiply" type="button">MULTIPLY</button>
+						<button id="multiply" type="button" disabled>MULTIPLY</button>
 					</div>
 				</div>
 
@@ -250,9 +234,8 @@
 					<p>
 						<span id="trivia-header">Lorem Ipsum.</span>
 						<span id="trivia-body">
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Proin in nisl nec metus tristique mattis.
-							Vestibulum ante ipsum primis in faucibus
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nisl
+							nec metus tristique mattis. Vestibulum ante ipsum primis in faucibus
 						</span>
 					</p>
 				</div>
@@ -269,9 +252,7 @@
 		<!-- RESULTS AREA (RIGHT SECTION) -->
 		<div id="workspace" class="flex-container">
 			<div id="results" class="hidden">
-				<div id="algo-value" class="tracking-only">
-					Pencil-and-Paper Method
-				</div>
+				<div id="algo-value" class="tracking-only">Pencil-and-Paper Method</div>
 
 				<div id="algo-name">Pencil-and-Paper Method</div>
 
@@ -309,11 +290,7 @@
 
 			<div id="playback-control" class="hidden">
 				<div class="inner">
-					<i
-						id="prev-step"
-						class="fa fa-step-backward"
-						class="play-control"
-					></i>
+					<i id="prev-step" class="fa fa-step-backward" class="play-control"></i>
 					&nbsp;&nbsp;
 					<!-- Only one of these two spans (namely, description and step) will be displayed at any given time. -->
 					<span id="description">Description</span>
@@ -324,11 +301,7 @@
 						<span id="total-steps">30</span>
 					</span>
 					&nbsp;&nbsp;
-					<i
-						id="next-step"
-						class="fa fa-step-forward"
-						class="play-control"
-					></i>
+					<i id="next-step" class="fa fa-step-forward" class="play-control"></i>
 				</div>
 			</div>
 

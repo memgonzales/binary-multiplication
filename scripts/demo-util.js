@@ -28,7 +28,7 @@ function incrementStepNumber() {
  * Checks whether the selected multiplication method is the same as the specified method.
  *
  * @param {string} mulMethod Multiplication method.
- * @returns `true` if the selected multiplication method is the same as the specified method; `false`, otherwise.
+ * @returns {boolean} `true` if the selected multiplication method is the same as the specified method; `false`, otherwise.
  */
 function checkMulMethod(mulMethod) {
 	return $('#algo-value').text() == mulMethod;
@@ -46,7 +46,7 @@ function checkMulMethod(mulMethod) {
  * @param {string} multiplicandBin Binary multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} product Binary product.
- * @returns Product with the non-sign-extended portion highlighted.
+ * @returns {string} Product with the non-sign-extended portion highlighted.
  */
 function emphasizeProduct(multiplicandBin, multiplierDec, product) {
 	let formattedProduct = product;
@@ -95,29 +95,23 @@ function hideCarryOver() {
  * in asterisks referring to the highlighted bit.
  *
  * @param {string} product Binary product.
- * @returns Array with each element corresponding to the product with one bit highlighted.
+ * @returns {array} Array with each element corresponding to the product with one bit highlighted.
  */
 function formatProductDisplay(product) {
 	let productDisplay = []; /* With highlighted bits */
 	let productArray = []; /* Without highlighted bits */
 
 	/* Isolate the first element (corresponding to the least significant bit of the product). */
-	productDisplay.push(
-		`<b class = "emphasized no-underline">${
-			product[product.length - 1]
-		}</b>`
-	);
+	productDisplay.push(`<b class = "emphasized no-underline">${product[product.length - 1]}</b>`);
 	productArray.push(product[product.length - 1]);
 
 	for (let i = 1; i < product.length; i++) {
 		productDisplay.push(
-			`<b class = "emphasized no-underline">${
-				product[product.length - i - 1]
-			}</b>${productArray[i - 1]}`
+			`<b class = "emphasized no-underline">${product[product.length - i - 1]}</b>${
+				productArray[i - 1]
+			}`
 		);
-		productArray.push(
-			`${product[product.length - i - 1]}${productArray[i - 1]}`
-		);
+		productArray.push(`${product[product.length - i - 1]}${productArray[i - 1]}`);
 	}
 
 	return productDisplay;
@@ -237,12 +231,76 @@ function demoUtil() {
 }
 
 /**
- * Starts the demonstration (simulation) when the multiply button is clicked.
+ * Handles the case where one of the operands (in binary) is of the form 10...0.
+ *
+ * More information is provided in the documentation of the methods isAmbiguousCase() in binary.js.
+ */
+function handleAmbiguousCases() {
+	if (isAmbiguousCase($('#multiplicand-bin').val())) {
+		const val = $('#multiplicand-bin').val().trim();
+		const numZeroes = val.length - 1;
+		const powerOfTwo = Math.pow(2, numZeroes);
+		const errorMessage = `${AMBIGUOUS_BIN_1}<br>
+			• ${AMBIGUOUS_BIN_2} &ndash;${powerOfTwo}${AMBIGUOUS_BIN_3} 1${val}. <br>
+			• ${AMBIGUOUS_BIN_2} ${powerOfTwo}${AMBIGUOUS_BIN_3} 0${val}.`;
+
+		$('#multiplicand-error > p').html(errorMessage);
+	}
+
+	if (isAmbiguousCase($('#multiplier-bin').val())) {
+		const val = $('#multiplier-bin').val().trim();
+		const numZeroes = val.length - 1;
+		const powerOfTwo = Math.pow(2, numZeroes);
+		const errorMessage = `${AMBIGUOUS_BIN_1}<br>
+			• ${AMBIGUOUS_BIN_2} &ndash;${powerOfTwo}${AMBIGUOUS_BIN_3} 1${val}. <br>
+			• ${AMBIGUOUS_BIN_2} ${powerOfTwo}${AMBIGUOUS_BIN_3} 0${val}.`;
+
+		$('#multiplier-error > p').html(errorMessage);
+	}
+
+	hideTriviaDiv();
+}
+
+/**
+ * Handles the behavior when the "Show All Steps" display mode is selected.
+ */
+function showAllSteps() {
+	const multiplicandBin = $('#multiplicand-bin').val();
+	const multiplierBin = $('#multiplier-bin').val();
+
+	switch ($('#algo-value').text()) {
+		case algoNames[0] /* Pencil-and-Paper Method */:
+			break;
+		case algoNames[1] /* Booth's Algorithm */:
+			break;
+		case algoNames[2] /* Extended Booth's Algorithm */:
+			extendedBoothsGoTo(LARGE_STEP, multiplicandBin, multiplierBin);
+			break;
+		default:
+			/* Should not cascade here */
+			break;
+	}
+}
+
+/**
+ * Starts the demonstration (simulation) at step 1 (that is, the first step of the algorithm).
  */
 function demo() {
 	$('#multiply').on('click', function () {
-		$('#prev-step').show();
-		$('#next-step').show();
-		demoUtil();
+		if (
+			!isAmbiguousCase($('#multiplicand-bin').val()) &&
+			!isAmbiguousCase($('#multiplier-bin').val())
+		) {
+			$('#prev-step').show();
+			$('#next-step').show();
+			demoUtil();
+
+			if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+				showAllSteps();
+				window.scrollTo(0, 0);
+			}
+		} else {
+			handleAmbiguousCases();
+		}
 	});
 }

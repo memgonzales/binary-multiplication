@@ -14,10 +14,7 @@ function hoverElemUtil(elem, color) {
 		if (color == white) {
 			$('#' + elem + '-logo').attr('src', 'assets/' + elem + '.png');
 		} else if (color == yellow) {
-			$('#' + elem + '-logo').attr(
-				'src',
-				'assets/' + elem + '-yellow.png'
-			);
+			$('#' + elem + '-logo').attr('src', 'assets/' + elem + '-yellow.png');
 		}
 
 		$('#' + elem + '-text').css('color', color);
@@ -92,10 +89,7 @@ function changeColorMulMethod(elems, clickedElem) {
 		$('#' + elem + '-text').removeClass('selected');
 	}
 
-	$('#' + clickedElem + '-logo').attr(
-		'src',
-		'assets/' + clickedElem + '-yellow.png'
-	);
+	$('#' + clickedElem + '-logo').attr('src', 'assets/' + clickedElem + '-yellow.png');
 	$('#' + clickedElem + '-text').addClass('selected');
 }
 
@@ -134,7 +128,7 @@ function showAlgoSteps(index) {
  * Checks if the user has already entered a multiplicand and a multiplier and clicked the
  * Multiply button.
  *
- * @returns `true` if the user has already entered a multiplicand and a multiplier and clicked the
+ * @returns {boolean} `true` if the user has already entered a multiplicand and a multiplier and clicked the
  * Multiply button; `false`, otherwise.
  */
 function noInput() {
@@ -168,32 +162,44 @@ function clickMulMethodUtil(elems, clickedElem) {
 	if (noInput()) {
 		noPreviousNextStep();
 	} else {
-		switch ($('#algo-value').text()) {
-			case algoNames[0] /* Pencil-and-Paper Method */:
-				break;
+		demoUtilStartAtDesc();
+	}
+}
 
-			case algoNames[1] /* Booth's Algorithm */:
-				break;
+/**
+ * Starts the demonstration (simulation) at step 0 (that is, the description of the algorithm).
+ */
+function demoUtilStartAtDesc() {
+	switch ($('#algo-value').text()) {
+		case algoNames[0] /* Pencil-and-Paper Method */:
+			break;
 
-			case algoNames[2] /* Extended Booth's Algorithm */:
-				extendedBoothsDemo(
-					$('#multiplicand-bin-value').text(),
-					$('#multiplier-bin-value').text(),
-					parseInt($('#multiplicand-dec-value').text()),
-					parseInt($('#multiplier-dec-value').text())
-				);
+		case algoNames[1] /* Booth's Algorithm */:
+			break;
 
-				/* Start at step 0 (description). */
-				initStepNumber(0);
-				extendedBoothsDescription();
-				withPreviousAndNextStep();
-				noPreviousStep();
+		case algoNames[2] /* Extended Booth's Algorithm */:
+			extendedBoothsDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
 
-				break;
-			default:
-				/* Should not cascade here */
-				break;
-		}
+			/* Start at step 0 (description). */
+			initStepNumber(0);
+			extendedBoothsDescription();
+			withPreviousAndNextStep();
+			noPreviousStep();
+
+			break;
+		default:
+			/* Should not cascade here */
+			break;
+	}
+
+	if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+		showAllSteps();
+		window.scrollTo(0, 0);
 	}
 }
 

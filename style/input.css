@@ -49,6 +49,31 @@
 }
 
 /* Multiply button and related elements */
+button {
+	font-size: 16px;
+	font-family: 'Open Sans';
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--green-bg);
+	border: 0px;
+	color: white;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: var(--green-hover);
+}
+
+button:disabled {
+	cursor: not-allowed;
+	background-color: var(--gray-disabled);
+}
+
+button:disabled:hover {
+	cursor: not-allowed;
+	background-color: var(--gray-disabled-lighter);
+}
+
 #multiply-div {
 	width: 100%;
 	margin-top: 20px;
@@ -72,4 +97,12 @@
 
 #trivia-header {
 	font-weight: bold;
+}
+
+#trivia-body a {
+	color: inherit !important;
+}
+
+#trivia-body a i {
+	color: inherit !important;
 }
