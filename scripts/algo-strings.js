@@ -15,7 +15,7 @@ const algoNames = [
 
 /* --- TRIVIA HEADER --- */
 /* End with a period (or any other terminal punctuation mark), followed by a space. */
-const pencilTriviaHeader = '. ';
+const pencilTriviaHeader = 'Are We There Yet? ';
 const boothsTriviaHeader = '. ';
 const extendedBoothsTriviaHeader = 'Triple Treat. ';
 
@@ -26,7 +26,12 @@ const triviaHeaders = [
 ];
 
 /* --- TRIVIA --- */
-const pencilTrivia = ``;
+const pencilTrivia = `Hardware implementations optimize the paper-and-pencil method by adding multiple partial products together in
+    a single cycle, such as Wallace trees&nbsp; 
+    <a class = "no-decor no-hover trivia" href = "https://uma.ac.ir/files/site1/g_zare_3fd00a8/a_suggestion_for_a_fast_multiplier.pdf" target = "_blank">
+    <i class = "fa fa-external-link no-hover"></i></a> and Dadda multipliers&nbsp; 
+    <a class = "no-decor no-hover trivia" href = "https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC280/Web-page/papers/Arithmetic/Dadda_mult.pdf" target = "_blank">
+    <i class = "fa fa-external-link no-hover"></i></a>`;
 
 const boothsTrivia = ``;
 

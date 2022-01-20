@@ -1,7 +1,7 @@
 /* Style sheet for the RGB definitions of the colors */
 
 :root {
-	--gray-emphasis: rgb(192, 172, 172);
+	--gray-emphasis: rgb(168, 152, 152);
 	--green-bg: rgb(25, 44, 2);
 	--green-emphasis: rgb(61, 83, 33);
 	--green-lighter: rgb(73, 95, 52);
