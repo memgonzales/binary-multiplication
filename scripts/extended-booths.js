@@ -98,17 +98,27 @@ function extendedBoothsDisplayEqualizedBits(
 	let multiplicandFormatted = multiplicand;
 	let multiplierFormatted = multiplier;
 
+	/* Store formatted values in hidden spans for export use. */
+	$('#multiplicand-equalized').text(multiplicandFormatted);
+	$('#multiplier-equalized').text(multiplierFormatted);
+
 	/* If the multiplier has more bits, highlight the sign extension of the multiplicand, and vice versa. */
 	if (multiplicandBin.length < multiplierBin.length) {
 		multiplicandFormatted = `<b class = "emphasized">${multiplicand.substring(
 			0,
 			bitDifference
 		)}</b>${multiplicand.substring(bitDifference)}`;
+
+		/* Change value in hidden span accordingly. */
+		$('#multiplicand-equalized').text(`${multiplicand.substring(0,bitDifference)}${multiplicand.substring(bitDifference)}`);
 	} else {
 		multiplierFormatted = `<b class = "emphasized">${multiplier.substring(
 			0,
 			bitDifference
 		)}</b>${multiplier.substring(bitDifference)}`;
+
+		/* Change value in hidden span accordingly. */
+		$('#multiplier-equalized').text(`${multiplier.substring(0,bitDifference)}${multiplier.substring(bitDifference)}`);
 	}
 
 	const template = `<div class = "indented-2 demo-box">
@@ -495,6 +505,18 @@ function extendedBoothsPencil(
 		);
 	}
 
+	let tempSummands = "";
+	for(let i = 0; i < summands.length; i++){
+
+		if(i == summands.length - 1){
+				tempSummands = tempSummands.concat(summands[i]);
+		}else{
+			tempSummands = tempSummands.concat(summands[i] + ",");
+		}
+	}
+
+	$('#tracking-summands').text(tempSummands);
+
 	incrementStepNumber();
 
 	/* Return the binary product. */
@@ -550,6 +572,10 @@ function extendedBoothsVerify(multiplicandDec, multiplierDec, product, numSumman
 function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec) {
 	/* Equalize the number of bits of the operands. */
 	const [multiplicand, multiplier] = equalizeBits(multiplicandBin, multiplierBin);
+
+	/* Store formatted values in hidden spans for export use. */
+	$('#multiplicand-equalized').text(multiplicand);
+	$('#multiplier-equalized').text(multiplier);
 
 	/* Append zero to the least significant bit of the multiplier. */
 	const multiplierZeroAppended = `${multiplier}0`;
@@ -637,6 +663,33 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 			window.scrollTo(0, document.body.scrollHeight);
 		}
 	});
+
+	/* Perform initial computations so that the steps can already be exported upon clicking the multiply button. */
+	const numBitsProduct = 2 * multiplicand.length;
+
+	if(product == ''){
+		product = multiply(multiplicandDec, multiplierDec, numBitsProduct);
+	}
+
+	if(extendedBoothsRecoding == ''){
+		extendedBoothsRecoding = extendedBoothsRecode(
+					2,
+					multiplierForRecoding
+				);
+	}
+
+	extendedBoothsPencil(
+					2,
+					multiplicand,
+					multiplicandDec,
+					multiplierDec,
+					extendedBoothsRecoding
+				);
+	
+	$('#multiplier-zero-appended').text(multiplierZeroAppended);
+	$('#multiplier-for-recoding').text(multiplierForRecoding);
+	$('#extended-booths-recoding').text(extendedBoothsRecoding);
+	$('#tracking-product').text(product);
 }
 
 /**
