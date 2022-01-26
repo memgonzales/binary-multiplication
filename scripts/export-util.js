@@ -31,7 +31,7 @@ function extendedBoothsText(multiplicandBin, multiplierBin, multiplicandDec, mul
 			returnString = returnString.concat("\n\tMultiplier:\t", multiplierEqualized);
 
 			if(multiplicandBin.length == multiplierBin.length){
-				returnString = returnString.concat("\tno need for sign extension");
+				returnString = returnString.concat("\t(no need for sign extension)");
 			}
 		}
 		else if(i == 2){
