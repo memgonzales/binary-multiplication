@@ -35,7 +35,47 @@ const extendedBoothsTrivia = `In 2008, an extension of Booth's algorithm for mul
 const trivia = [pencilTrivia, boothsTrivia, extendedBoothsTrivia];
 
 /* --- PENCIL-AND-PAPER ALGORITHM --- */
-const pencilAlgo = ``;
+const pencilIntro = `Similar to decimal multiplication, the Pencil-and-Paper method involves multiplying every digit of 
+    the multiplicand to each digit of the multiplier and adding the intermediate products to arrive at the final answer. 
+    However, due to the smaller radix of the binary number system, computing for the intermediate products is much simpler 
+    than doing so for decimal multiplication. <br><br>`;
+
+const pencilStepA = `<div class = "hanging-indent">
+        <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
+    </div>
+    <div class = "indented hanging-indent">
+        1.<span class="tab-13"></span>If the user enters a decimal number, it is represented using the fewest number of bits.
+    </div>
+    <div class = "indented hanging-indent">
+        2.<span class="tab-13"></span>If the user enters a binary number, the number of bits follows the user's input. 
+    </div>`;
+
+const pencilStepB = `<div class = "hanging-indent">
+        <b>B.<span class="tab-13"></span>If necessary, perform sign extension to make the number of bits of the operands equal.</b>
+    </div>`;
+
+const pencilStepC = `<div class = "hanging-indent">
+        <b>C.<span class="tab-12"></span>Multiply the multiplicand with each digit of the multiplier.<br></b>
+    </div>
+    <div class = "indented hanging-indent">
+        1.<span class="tab-13"></span>Sign extend the intermediate product until it has the same number
+        of digits as the sum of the number of digits of the multiplicand and multiplier.
+    </div>
+    <div class = "indented hanging-indent">
+        2.<span class="tab-13"></span>Similar to decimal pencil-and-paper multiplication, skip one bit after each 
+        intermediate product. 
+    </div>`;
+
+const pencilStepD = `<div class = "hanging-indent">
+        <b>D.<span class="tab-12"></span>If the multiplier is negative, add the 2's complement of the multiplicand as 
+        the last intermediate product.</b>
+    </div>`;
+
+const pencilAlgo = `${pencilIntro}
+    ${pencilStepA}
+    ${pencilStepB}
+    ${pencilStepC}
+    ${pencilStepD}`;
 
 /* --- BOOTH'S ALGORITHM --- */
 const boothsAlgo = ``;
