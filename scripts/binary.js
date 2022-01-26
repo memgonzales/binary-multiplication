@@ -93,7 +93,7 @@ function toDecimal(number) {
 
 /**
  * Checks if a binary number is of the form 10...0. The only exception is 1 followed by (NUM_BITS - 1) zeroes,
- * which represents the smallest signed integerrepresentable using `NUM_BITS` bits (`NUM_BITS` is the maximum
+ * which represents the smallest signed integer representable using `NUM_BITS` bits (`NUM_BITS` is the maximum
  * number of bits supported by this calculator).
  *
  * @param {string} number Binary number to be checked against the pattern 10...0.
