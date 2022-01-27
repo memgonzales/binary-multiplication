@@ -78,7 +78,118 @@ const pencilAlgo = `${pencilIntro}
     ${pencilStepD}`;
 
 /* --- BOOTH'S ALGORITHM --- */
-const boothsAlgo = ``;
+const boothsIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> <br>`;
+
+const boothsStepStrings = [
+    "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
+    "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
+    "\n\nC. Convert the multiplier to its Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
+    "\n\n\t3. Pair two bits starting at the least significant bit.\n\n",
+    "\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince an adjacent pair of bits is encoded, skip one bit for each intermediate product.\n\n"
+]
+
+const boothsStepA = `<div class = "hanging-indent">
+        <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
+    </div>
+    <div class = "indented hanging-indent">
+        1.<span class="tab-13"></span>If the user enters a decimal number, it is represented using the fewest number of bits.
+    </div>
+    <div class = "indented hanging-indent">
+        2.<span class="tab-13"></span>If the user enters a binary number, the number of bits follows the user's input. 
+    </div>`;
+
+const boothsStepB = `<div class = "hanging-indent">
+        <b>B.<span class="tab-13"></span>If necessary, perform sign extension to make the number of bits of the operands equal.</b>
+    </div>`;
+
+const boothsStepC0 = `<div class = "hanging-indent">
+        <b>C.<span class="tab-13"></span>Convert the multiplier to its Booth's equivalent.</b>
+    </div>`;
+
+const boothsStepC1 = `<div class = "indented hanging-indent">
+        1.<span class="tab-13"></span>Append 0 to the least significant bit.
+    </div>`;
+
+const boothsStepC2 = `<div class = "indented hanging-indent">
+        2.<span class="tab-13"></span>Pair two bits starting at the least significant bit.
+    </div>`;
+
+const boothsStepC = `${boothsStepC0}
+    ${boothsStepC1}
+    ${boothsStepC2}`;
+
+const boothsStepCShowTable = `<div class = "indented-1">
+        Click <a onclick = "showBoothsRecoding(); scrollToBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-booths-recording">here</a> 
+        to <span id = "show-hide-booths-recoding">show</span> the recoding table.
+    </div>`;
+
+const boothsStepCTableProvision = `<span id = "booths-step-c-table-provision"></span>`;
+
+const boothsStepCTable = `<table class = "indented-2 procedure">
+        <tr>
+            <th>b<sub>i</sub> b<sub>i-1</sub></th>  
+            <th>Conversion<sub></sub></th>
+        </tr>
+        <tr>
+            <td><b>00</b></td>
+            <td><b>0</b></td>
+        </tr>
+        <tr>
+            <td><b>01</b></td>
+            <td><b>+1</b></td>
+        </tr>
+        <tr>
+            <td><b>10</b></td>
+            <td><b>-1</b></td>
+        </tr>
+        <tr>
+            <td><b>11</b></td>
+            <td><b>0</b></td>
+        </tr>
+    </table>`;
+
+const boothsStepD = `<div class = "hanging-indent">
+        <b>D.<span class="tab-12"></span>Multiply using pencil-and-paper method &mdash; but ignore the extra step even if the multiplier 
+        is negative.<br>
+        Since an adjacent pair of bits is encoded, skip <u>one</u> bit for each 
+        intermediate product.</b>
+    </div>`;
+
+const boothsStepDShowTable = `<div class = "indented-0 small-top-space">
+        Click <a onclick = "showBoothsOperations(); scrollToBoothsOperations();" class = "with-underline no-decor no-hover" id = "show-booths-recording">here</a> 
+        to <span id = "show-hide-booths-operations">show</span> the multiplication guide.
+    </div>`;
+
+const boothsStepDTableProvision = `<span id = "booths-step-d-table-provision"></span>`;
+
+const boothsStepDTable = `<table class = "indented-2 procedure">
+        <tr>
+            <th>Multiply by</th>
+            <th>Procedure</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>+1</td>
+            <td>Itself</td>
+        </tr>
+        <tr>
+            <td>-1</td>
+            <td>Two's complement</td>
+        </tr>
+    </table>`;
+
+    const boothsAlgo = `${boothsIntro}
+    ${boothsStepA}
+    ${boothsStepB}
+    ${boothsStepC}
+    ${boothsStepCTable}
+    ${boothsStepD}
+    ${boothsStepDTable}`;
 
 /* --- EXTENDED BOOTH'S ALGORITHM --- */
 const extendedBoothsIntro = `Introduced by O.L. MacSorley in 1961 
