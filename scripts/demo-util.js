@@ -25,6 +25,14 @@ function incrementStepNumber() {
 }
 
 /**
+ * Decrements the step number.
+ */
+function decrementStepNumber() {
+	$('#step-number-value').text(parseInt($('#step-number-value').text()) - 2);
+	$('#step-number').val($('#step-number-value').text());
+}
+
+/**
  * Checks whether the selected multiplication method is the same as the specified method.
  *
  * @param {string} mulMethod Multiplication method.
