@@ -175,6 +175,19 @@ function demoUtilStartAtDesc() {
 			break;
 
 		case algoNames[1] /* Booth's Algorithm */:
+			boothsDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
+
+			/* Start at step 0 (description). */
+			initStepNumber(0);
+			boothsDescription();
+			withPreviousAndNextStep();
+			noPreviousStep();
+			
 			break;
 
 		case algoNames[2] /* Extended Booth's Algorithm */:

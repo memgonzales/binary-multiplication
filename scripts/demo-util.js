@@ -215,6 +215,12 @@ function demoUtil() {
 		case algoNames[0] /* Pencil-and-Paper Method */:
 			break;
 		case algoNames[1] /* Booth's Algorithm */:
+			boothsDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
 			break;
 		case algoNames[2] /* Extended Booth's Algorithm */:
 			extendedBoothsDemo(
@@ -272,6 +278,7 @@ function showAllSteps() {
 		case algoNames[0] /* Pencil-and-Paper Method */:
 			break;
 		case algoNames[1] /* Booth's Algorithm */:
+			boothsGoTo(LARGE_STEP, multiplicandBin, multiplierBin);
 			break;
 		case algoNames[2] /* Extended Booth's Algorithm */:
 			extendedBoothsGoTo(LARGE_STEP, multiplicandBin, multiplierBin);
