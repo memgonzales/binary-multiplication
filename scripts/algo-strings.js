@@ -122,7 +122,7 @@ const boothsStepC = `${boothsStepC0}
 
 const boothsStepCShowTable = `<div class = "indented-1">
         Click <a onclick = "showBoothsRecoding(); scrollToBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-booths-recording">here</a> 
-        to <span id = "show-hide-booths-recoding">show</span> the recoding table.
+        to <span id = "show-hide-booths-recoding">show</span> the encoding table.
     </div>`;
 
 const boothsStepCTableProvision = `<span id = "booths-step-c-table-provision"></span>`;
