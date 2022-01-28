@@ -197,6 +197,7 @@ function exportText() {
 		) {
 			switch ($('#algo-value').text()) {
 				case algoNames[0] /* Pencil-and-Paper Method */:
+					download(algoNames[0]);
 					break;
 				case algoNames[1] /* Booth's Algorithm */:
 					download(algoNames[1]);
