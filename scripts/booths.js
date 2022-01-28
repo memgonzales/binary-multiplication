@@ -161,7 +161,7 @@ function boothsAppendZero(multiplierZeroAppended) {
 	const template = `<div class = "indented-3 demo-box">
             <table class = "demo-box-table">
                 <tr>
-                    <th class = "no-bold">${multiplierFormatted}</th>
+                    <th class = "no-bold"><span id="scroll-booths-recoding-table">${multiplierFormatted}</span></th>
                 </tr>
             </table>
         </div><br>`;
