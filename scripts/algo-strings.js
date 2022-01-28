@@ -64,18 +64,16 @@ const pencilStepC = `<div class = "hanging-indent">
     <div class = "indented hanging-indent">
         2.<span class="tab-13"></span>Similar to decimal pencil-and-paper multiplication, skip one bit after each 
         intermediate product. 
-    </div>`;
-
-const pencilStepD = `<div class = "hanging-indent">
-        <b>D.<span class="tab-12"></span>If the multiplier is negative, add the two's complement of the multiplicand as 
-        the last intermediate product.</b>
+    </div>
+    <div class = "indented hanging-indent">
+        3.<span class="tab-13"></span>If the multiplier is negative, add the two's complement of the multiplicand as 
+        the last intermediate product. 
     </div>`;
 
 const pencilAlgo = `${pencilIntro}
     ${pencilStepA}
     ${pencilStepB}
-    ${pencilStepC}
-    ${pencilStepD}`;
+    ${pencilStepC}`;
 
 /* --- BOOTH'S ALGORITHM --- */
 const boothsIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
