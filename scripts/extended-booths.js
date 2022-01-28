@@ -685,6 +685,8 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 					multiplierDec,
 					extendedBoothsRecoding
 				);
+
+	decrementStepNumber();
 	
 	$('#multiplier-zero-appended').text(multiplierZeroAppended);
 	$('#multiplier-for-recoding').text(multiplierForRecoding);

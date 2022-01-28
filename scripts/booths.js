@@ -462,7 +462,6 @@ function boothsPencil(
 		}else{
 			tempSummands = tempSummands.concat(summands[i] + ",");
 		}
-		console.log(tempSummands);
 	}
 
 	$('#tracking-summands').text(tempSummands);
@@ -547,29 +546,6 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 		if (checkMulMethod(algoNames[1])) {
 			const stepNumber = parseInt($('#step-number-value').text());
 			if (stepNumber == 0) {
-
-				/* Perform initial computations so that the steps can already be exported upon clicking the multiply button. */
-				const numBitsProduct = 2 * multiplicand.length;
-
-				if(product == ''){
-					product = multiply(multiplicandDec, multiplierDec, numBitsProduct);
-				}
-
-				if(boothsRecoding == ''){
-					boothsRecoding = boothsRecode(
-								2,
-								multiplierForRecoding
-							);
-				}
-
-				boothsPencil(
-								2,
-								multiplicand,
-								multiplicandDec,
-								multiplierDec,
-								boothsRecoding
-							);
-
 				boothsInit();
 				initStepNumber(1);
 			} else if (stepNumber == 1) {
@@ -627,7 +603,22 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 			window.scrollTo(0, document.body.scrollHeight);
 		}
 	});
-	
+
+	boothsRecoding = boothsRecode(
+								2,
+								multiplierForRecoding
+							);
+
+	product = boothsPencil(
+					2,
+					multiplicand,
+					multiplicandDec,
+					multiplierDec,
+					boothsRecoding
+				);
+
+	decrementStepNumber();
+
 	$('#multiplier-zero-appended').text(multiplierZeroAppended);
 	$('#multiplier-for-recoding').text(multiplierForRecoding);
 	$('#booths-recoding').text(boothsRecoding);

@@ -86,7 +86,7 @@ const boothsStepStrings = [
     "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
     "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
     "\n\nC. Convert the multiplier to its Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
-    "\n\n\t3. Pair two bits starting at the least significant bit.\n\n",
+    "\n\n\t2. Pair two bits starting at the least significant bit.\n\n",
     "\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince an adjacent pair of bits is encoded, skip one bit for each intermediate product.\n\n"
 ]
 
@@ -122,7 +122,7 @@ const boothsStepC = `${boothsStepC0}
 
 const boothsStepCShowTable = `<div class = "indented-1">
         Click <a onclick = "showBoothsRecoding(); scrollToBoothsRecoding();" class = "with-underline no-decor no-hover" id = "show-booths-recording">here</a> 
-        to <span id = "show-hide-booths-recoding">show</span> the recoding table.
+        to <span id = "show-hide-booths-recoding">show</span> the encoding table.
     </div>`;
 
 const boothsStepCTableProvision = `<span id = "booths-step-c-table-provision"></span>`;
