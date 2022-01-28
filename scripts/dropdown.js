@@ -87,7 +87,7 @@ function controlDropdown(elem) {
  *
  * @param {event} e Click event.
  * @param {string} elem Display mode.
- * @param {booelan} isDropdownOpen `true` if the display mode dropdown content is open; `false`, otherwise.
+ * @param {boolean} isDropdownOpen `true` if the display mode dropdown content is open; `false`, otherwise.
  * @returns {boolean} `true` if the display mode dropdown content should be closed by the click event; `false`, otherwise.
  */
 function canCloseDropdown(e, elem, isDropdownOpen) {

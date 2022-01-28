@@ -324,7 +324,7 @@ function showExtendedBoothsRecoding() {
 }
 
 /**
- * Displays step D.
+ * Displays step C.
  *
  * @param {string} multiplierForRecoding Multiplier after appending zero to its least significant bit
  * and performing sign extension depending on its number of bits.

@@ -67,7 +67,7 @@ const pencilStepC = `<div class = "hanging-indent">
     </div>`;
 
 const pencilStepD = `<div class = "hanging-indent">
-        <b>D.<span class="tab-12"></span>If the multiplier is negative, add the 2's complement of the multiplicand as 
+        <b>D.<span class="tab-12"></span>If the multiplier is negative, add the two's complement of the multiplicand as 
         the last intermediate product.</b>
     </div>`;
 

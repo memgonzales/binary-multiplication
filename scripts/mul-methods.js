@@ -172,6 +172,19 @@ function clickMulMethodUtil(elems, clickedElem) {
 function demoUtilStartAtDesc() {
 	switch ($('#algo-value').text()) {
 		case algoNames[0] /* Pencil-and-Paper Method */:
+			pencilDemo(
+				$('#multiplicand-bin-value').text(),
+				$('#multiplier-bin-value').text(),
+				parseInt($('#multiplicand-dec-value').text()),
+				parseInt($('#multiplier-dec-value').text())
+			);
+
+			/* Start at step 0 (description). */
+			initStepNumber(0);
+			pencilDescription();
+			withPreviousAndNextStep();
+			noPreviousStep();
+		
 			break;
 
 		case algoNames[1] /* Booth's Algorithm */:
