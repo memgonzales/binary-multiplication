@@ -12,7 +12,7 @@ const algoNames = [`Pencil-and-Paper Method`, `Booth's Algorithm`, `Extended Boo
 /* --- TRIVIA HEADER --- */
 /* End with a period (or any other terminal punctuation mark), followed by a space. */
 const pencilTriviaHeader = 'Are We There Yet? ';
-const boothsTriviaHeader = '. ';
+const boothsTriviaHeader = 'From Small Beginnings. ';
 const extendedBoothsTriviaHeader = 'Triple Treat. ';
 
 const triviaHeaders = [pencilTriviaHeader, boothsTriviaHeader, extendedBoothsTriviaHeader];
@@ -25,7 +25,12 @@ const pencilTrivia = `Hardware implementations optimize the paper-and-pencil met
     <a class = "no-decor no-hover trivia" href = "https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC280/Web-page/papers/Arithmetic/Dadda_mult.pdf" target = "_blank">
     <i class = "fa fa-external-link no-hover"></i></a>`;
 
-const boothsTrivia = ``;
+const boothsTrivia = `Originally devised to simply help optimize signed binary multiplication, Booth's algorithm now has applications in various technologies such as Face Recognition&nbsp;
+    <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/abstract/document/7208966" target = "_blank">
+    <i class = "fa fa-external-link no-hover"></i></a>
+    and Digital Signal Processing&nbsp;
+    <a class = "no-decor no-hover trivia" href = "https://www.researchgate.net/profile/Kuan-Hung-Chen-4/publication/224317087_A_Spurious-Power_Suppression_Technique_for_MultimediaDSP_Applications/links/54ed2ac70cf27fbfd772341e/A-Spurious-Power-Suppression-Technique-for-Multimedia-DSP-Applications.pdf" target = "_blank">
+    <i class = "fa fa-external-link no-hover"></i></a>`;
 
 const extendedBoothsTrivia = `In 2008, an extension of Booth's algorithm for multiplying three operands on field-programmable gate arrays (FPGAs) 
     was proposed by Israeli researchers Y. Ben Asher and E. Stein&nbsp; 
@@ -76,9 +81,10 @@ const pencilAlgo = `${pencilIntro}
     ${pencilStepC}`;
 
 /* --- BOOTH'S ALGORITHM --- */
-const boothsIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> <br>`;
+const boothsIntro = `The Booth's Algorithm is a signed binary multiplication technique that was introduced by Andrew D. Booth in 1951 
+    <a class = "no-decor no-hover trivia" href = "https://academic.oup.com/qjmam/article-abstract/4/2/236/1874893" target = "_blank">
+    <i class = "fa fa-external-link no-hover"></i></a>.
+     Using this technique, two signed binary numbers are multiplied in two's complement notation, and an encoding scheme is employed to simplify the operation and make it more efficient. <br> <br>`;
 
 const boothsStepStrings = [
     "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
