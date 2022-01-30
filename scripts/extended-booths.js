@@ -351,6 +351,7 @@ function extendedBoothsDisplayStepD(multiplierForRecoding, extendedBoothsRecodin
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} extendedBoothsRecoding Extended Booth's equivalent of the multiplier.
+ * @param {number} carry Carry of the current addition step.
  * @returns {string} Binary product.
  */
 function extendedBoothsPencil(
@@ -358,11 +359,13 @@ function extendedBoothsPencil(
 	multiplicand,
 	multiplicandDec,
 	multiplierDec,
-	extendedBoothsRecoding
+	extendedBoothsRecoding,
+	carry
 ) {
 	let summands = []; /* Summands (without format) */
 	let summandsFormatted = []; /* Summands (with format) */
 	let extendedBoothsDisplay = []; /* Extended Booth's equivalent (with format) */
+	let currentCarry = carry;	/* Carry of the current addition step */
 
 	/* Extended Booth's equivalent (without format) */
 	const extendedBoothsArray = extendedBoothsRecoding.trim().split(' ').reverse();
@@ -448,6 +451,23 @@ function extendedBoothsPencil(
 		$(`#extended-booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
 	} else if (displayNumber <= extendedBoothsArray.length + numBitsProduct) {
 		/*
+		 * Compute for the total of the bit column being summed.
+		 * Calculate the index so that the rightmost bit column is processed first.
+		 */
+		const index = numBitsProduct - (displayNumber - extendedBoothsArray.length);
+		let total = currentCarry;
+		for (let i = 0; i < numSummands; i++) {
+			let summand = $(`#extended-booths-summands-${i}`).text();
+			
+			if (summand[index] != undefined) {
+				total = total + parseInt(summand[index]);
+			}
+		}
+		
+		/* Compute for the carry based on the sum of the bit column. */
+		currentCarry = Math.floor(total / 2);
+		
+		/*
 		 * If it is the least significant bit of the product:
 		 * - Remove the highlight of the multiplicand and extended Booth's equivalent.
 		 * - Display the carryover.
@@ -469,17 +489,16 @@ function extendedBoothsPencil(
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
 			 */
-			$('#extended-booths-product-carry-over').text('shoob');
+			$('#extended-booths-product-carry-over').text(currentCarry);
 		}
 
 		/* Update the carry-over after summation of each bit column. */
-		$('#extended-booths-carry-over').text('SHOOB');
+		$('#extended-booths-carry-over').text(currentCarry);
 
 		/*
 		 * Highlight the bit column being summed.
 		 * Calculate the index so that the rightmost bit column is highlighted first.
 		 */
-		const index = numBitsProduct - (displayNumber - extendedBoothsArray.length);
 		for (let i = 0; i < numSummands; i++) {
 			const summand = $(`#extended-booths-summands-${i}`).text();
 			let summandFormatted = '';
@@ -520,7 +539,7 @@ function extendedBoothsPencil(
 	incrementStepNumber();
 
 	/* Return the binary product. */
-	return product;
+	return [product, currentCarry];
 }
 
 /**
@@ -596,6 +615,9 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 	let extendedBoothsRecoding = '';
 	let product = '';
 
+	/* The carry initially has a value of 0. */
+	let carry = 0;
+
 	$('#next-step').on('click', function () {
 		withPreviousAndNextStep();
 
@@ -645,12 +667,13 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 				 *
 				 * The first argument refers to the step number relative to the pencil-and-paper method.
 				 */
-				product = extendedBoothsPencil(
+				[product, carry] = extendedBoothsPencil(
 					stepNumber - 8 - numDigitsRecoding,
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					extendedBoothsRecoding
+					extendedBoothsRecoding,
+					carry
 				);
 			} else if (stepNumber == 9 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
 				extendedBoothsVerify(multiplicandDec, multiplierDec, product, numDigitsRecoding);
@@ -683,7 +706,8 @@ function extendedBoothsSteps(multiplicandBin, multiplierBin, multiplicandDec, mu
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					extendedBoothsRecoding
+					extendedBoothsRecoding,
+					carry
 				);
 
 	decrementStepNumber();

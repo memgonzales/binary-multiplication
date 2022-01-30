@@ -300,6 +300,7 @@ function boothsDisplayStepD(multiplierForRecoding, boothsRecoding) {
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} boothsRecoding Booth's equivalent of the multiplier.
+ * @param {number} carry Carry of the current addition step.
  * @returns {string} Binary product.
  */
 function boothsPencil(
@@ -307,11 +308,13 @@ function boothsPencil(
 	multiplicand,
 	multiplicandDec,
 	multiplierDec,
-	boothsRecoding
+	boothsRecoding,
+	carry
 ) {
 	let summands = []; /* Summands (without format) */
 	let summandsFormatted = []; /* Summands (with format) */
 	let boothsDisplay = []; /* Booth's equivalent (with format) */
+	let currentCarry = carry;	/* Carry of the current addition step */
 
 	/* Booth's equivalent (without format) */
 	const boothsArray = boothsRecoding.trim().split(' ').reverse();
@@ -397,6 +400,23 @@ function boothsPencil(
 		$(`#booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
 	} else if (displayNumber <= boothsArray.length + numBitsProduct) {
 		/*
+		 * Compute for the total of the bit column being summed.
+		 * Calculate the index so that the rightmost bit column is processed first.
+		 */
+		const index = numBitsProduct - (displayNumber - boothsArray.length);
+		let total = currentCarry;
+		for (let i = 0; i < numSummands; i++) {
+			let summand = $(`#booths-summands-${i}`).text();
+			
+			if (summand[index] != undefined) {
+				total = total + parseInt(summand[index]);
+			}
+		}
+		
+		/* Compute for the carry based on the sum of the bit column. */
+		currentCarry = Math.floor(total / 2);
+
+		/*
 		 * If it is the least significant bit of the product:
 		 * - Remove the highlight of the multiplicand and Booth's equivalent.
 		 * - Display the carryover.
@@ -418,17 +438,16 @@ function boothsPencil(
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
 			 */
-			$('#booths-product-carry-over').text('shoob');
+			$('#booths-product-carry-over').text(currentCarry);
 		}
 
 		/* Update the carry-over after summation of each bit column. */
-		$('#booths-carry-over').text('SHOOB');
+		$('#booths-carry-over').text(currentCarry);
 
 		/*
 		 * Highlight the bit column being summed.
 		 * Calculate the index so that the rightmost bit column is highlighted first.
 		 */
-		const index = numBitsProduct - (displayNumber - boothsArray.length);
 		for (let i = 0; i < numSummands; i++) {
 			const summand = $(`#booths-summands-${i}`).text();
 			let summandFormatted = '';
@@ -469,7 +488,7 @@ function boothsPencil(
 	incrementStepNumber();
 
 	/* Return the binary product. */
-	return product;
+	return [product, currentCarry];
 }
 
 /**
@@ -539,6 +558,9 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 	let boothsRecoding = '';
 	let product = '';
 
+	/* The carry initially has a value of 0. */
+	let carry = 0;
+
 	$('#next-step').on('click', function () {
 		withPreviousAndNextStep();
 
@@ -585,12 +607,13 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 				 *
 				 * The first argument refers to the step number relative to the pencil-and-paper method.
 				 */
-				product = boothsPencil(
+				[product, carry] = boothsPencil(
 					stepNumber - 6 - numDigitsRecoding,
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					boothsRecoding
+					boothsRecoding,
+					carry
 				);
 			} else if (stepNumber == 7 + 2 * numDigitsRecoding + 2 * multiplicand.length) {
 				boothsVerify(multiplicandDec, multiplierDec, product, numDigitsRecoding);
@@ -614,7 +637,8 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					boothsRecoding
+					boothsRecoding,
+					carry
 				);
 
 	decrementStepNumber();
