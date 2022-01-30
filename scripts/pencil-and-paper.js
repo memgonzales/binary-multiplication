@@ -465,10 +465,7 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 
 	decrementStepNumber();
 
-	// $('#multiplier-zero-appended').text(multiplierZeroAppended);
-	// $('#multiplier-for-recoding').text(multiplierForRecoding);
-	// $('#booths-recoding').text(boothsRecoding);
-	// $('#tracking-product').text(product);
+	$('#tracking-product').text(product);
 }
 
 /**

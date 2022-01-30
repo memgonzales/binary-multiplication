@@ -1,4 +1,64 @@
 /**
+ * Generates the string for the content of the exported .txt file for the pencil-and-paper method.
+ *
+ * @param {string} multiplicandBin Binary multiplicand.
+ * @param {string} multiplierBin Binary multiplier.
+ * @param {number} multiplicandDec Decimal multiplicand.
+ * @param {number} multiplierDec Decimal multiplier.
+ * @param {number} productDec Decimal product.
+ * @returns {string} The string for the pencil-and-paper method to be inputted into the file.
+ */
+ function pencilText(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec, productDec){
+
+	let returnString = "Multiplicand\n\tDecimal\t" + multiplicandDec + "\n\tBinary\t" + multiplicandBin + "\n\nMultiplier\n\tDecimal\t" + multiplierDec + "\n\tBinary\t" + multiplierBin + "\n\n----------------------------------------------------------------\n\n";
+
+	/* Obtain the values needed from the hidden spans */
+	let multiplierEqualized = $('#multiplier-equalized').text();
+	let multiplicandEqualized = $('#multiplicand-equalized').text();
+	let productBin = $('#tracking-product').text();
+	let summands = $('#tracking-summands').text().split(",");
+
+	/* Build the string per line. */
+	for(let i = 0; i < pencilStepStrings.length; i++){
+		returnString = returnString.concat(pencilStepStrings[i]);
+
+		if(i == 1){
+			returnString = returnString.concat("\tMultiplicand:\t", multiplicandEqualized);
+			returnString = returnString.concat("\n\tMultiplier:\t", multiplierEqualized);
+
+			if(multiplicandBin.length == multiplierBin.length){
+				returnString = returnString.concat("\t");
+			}
+		}
+		else if(i == 2){
+
+			/* Build the pencil-and-paper portion of the pencil-and-paper method. */
+			returnString = returnString.concat("\t", multiplicandEqualized);
+			returnString = returnString.concat("\n x\t", multiplierEqualized);
+			returnString = returnString.concat("\n----------------------------------------\n");
+
+			for(let j = 0; j < summands.length; j++){
+
+				if(j == summands.length - 1){
+					returnString = returnString.concat(" +\t", summands[j] + "\n");
+				}else{
+					returnString = returnString.concat("\t", summands[j] + "\n");
+				}
+			}
+
+			returnString = returnString.concat("----------------------------------------\n");
+			returnString = returnString.concat("\t", productBin + "\n");
+
+			let verificationString = "Verification:  " +  multiplicandDec + "  x  " + multiplierDec + "  =  " + productDec + "  =  0b" + productBin ;
+
+			returnString = returnString.concat("\n", verificationString);
+		}
+	}
+
+	return returnString;
+}
+
+/**
  * Generates the string for the content of the exported .txt file for Booth's Algorithm.
  *
  * @param {string} multiplicandBin Binary multiplicand.
@@ -158,6 +218,7 @@ function generateContent(algorithm) {
 	let productDec = parseInt(multiplierDec) * parseInt(multiplicandDec);
 
 	if(algorithm == algoNames[0]){
+		finalString = pencilText(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec, productDec)
 	}
 	else if(algorithm == algoNames[1]){
 		finalString = boothsText(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec, productDec)

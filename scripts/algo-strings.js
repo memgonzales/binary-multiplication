@@ -45,6 +45,12 @@ const pencilIntro = `Similar to decimal multiplication, the Pencil-and-Paper met
     However, due to the smaller radix of the binary number system, computing for the intermediate products is much simpler 
     than doing so for decimal multiplication. <br><br>`;
 
+const pencilStepStrings = [
+        "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
+        "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
+        "\n\nC. Multiply the multiplicand with each digit of the multiplier.\n\t1. Sign extend the intermediate product until it has the same number of digits as the sum of the number of digits of the multiplicand and multiplier.\n\t2. Similar to decimal pencil-and-paper multiplication, skip one bit after each intermediate product.\n\t3. If the multiplier is negative, add the two's complement of the multiplicand as the last intermediate product.\n\n",
+    ]
+
 const pencilStepA = `<div class = "hanging-indent">
         <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
     </div>
