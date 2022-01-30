@@ -118,7 +118,7 @@ function isAmbiguousCase(number) {
  * If the binary number has more bits than the specified number of bits, this method returns the number
  * without any modification.
  *
- * @param {string} number Binary number to be sign extended.
+ * @param {string} number Binary number to be sign-extended.
  * @param {number} numBits Number of bits after performing sign extension.
  * @returns {string} Sign-extended equivalent of the given binary number.
  */
