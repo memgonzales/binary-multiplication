@@ -349,6 +349,10 @@ function pencilDisplayStepC() {
 
 	incrementStepNumber();
 
+	console.log("product = " + product);
+
+	$('#tracking-product').text(product);
+
 	/* Return the binary product and the carry. */
 	return [product, currentCarry];
 }
@@ -462,7 +466,7 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 		}
 	});
 
-	product = pencilPencil(
+	pencilPencil(
 					2,
 					multiplicand,
 					multiplicandDec,
@@ -473,7 +477,7 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 
 	decrementStepNumber();
 
-	$('#tracking-product').text(product);
+	
 }
 
 /**
