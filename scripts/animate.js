@@ -59,5 +59,7 @@ function animateTitle() {
 		$('#step').hide();
 		$('#next-step').hide();
 		$('#prev-step').hide();
+
+		$('#pencil-text').trigger('click');
 	}, 9 * timer);
 }
