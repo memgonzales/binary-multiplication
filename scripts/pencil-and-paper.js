@@ -142,6 +142,7 @@ function pencilDisplayStepC() {
  * @param {number} multiplicandDec Decimal multiplicand.
  * @param {number} multiplierDec Decimal multiplier.
  * @param {string} multiplierFull Multiplier after number of bits has been equalized.
+ * @param {number} carry Carry of the current addition step.
  * @returns {string} Binary product.
  */
  function pencilPencil(
@@ -149,11 +150,13 @@ function pencilDisplayStepC() {
 	multiplicand,
 	multiplicandDec,
 	multiplierDec,
-	multiplierFull
+	multiplierFull,
+	carry
 ) {
 	let summands = []; /* Summands (without format) */
 	let summandsFormatted = []; /* Summands (with format) */
 	let multiplierDisplay = []; /* Multiplier (with format) */
+	let currentCarry = carry;	/* Carry of the current addition step */
 
 	/* Multiplier (without format) */
 	const multiplierArray = multiplierFull.trim().split('').reverse();
@@ -210,9 +213,16 @@ function pencilDisplayStepC() {
         </tr>`;
 
 	const numBitsProduct = 2 * multiplicand.length;
+
 	let numSummands = multiplierArray.length;
+	let offset = 0;
+
+	/* If the multiplier is negative, the number of summands, and subsequently the number of steps, is 
+	 * increased by 1.
+	 */
 	if (multiplierFull[0] == '1') {
 		numSummands = numSummands + 1;
+		offset = 1;
 	}
 
 	const product = multiply(multiplicandDec, multiplierDec, numBitsProduct); /* Without format */
@@ -233,7 +243,7 @@ function pencilDisplayStepC() {
 		if (displayNumber == numSummands) {
 			addlRow = `<tr class = "summands bottom-border">
                     <th class = "no-bold right-align">+</th>
-                    <td id = "booths-summands-${displayNumber - 1}">${
+                    <td id = "pencil-summands-${displayNumber - 1}">${
 				summandsFormatted[displayNumber - 1]
 			}</td>
                 </tr>`;
@@ -249,40 +259,54 @@ function pencilDisplayStepC() {
 
 		/* Remove the highlight of the previous summand (thus, subtract 2 from the step number). */
 		$(`#pencil-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
-	} else if (displayNumber <= multiplierArray.length + numBitsProduct) {
+	} else if (displayNumber <= multiplierArray.length + numBitsProduct + offset) {
+		/*
+		 * Compute for the total of the bit column being summed.
+		 * Calculate the index so that the rightmost bit column is processed first.
+		 */
+		const index = numBitsProduct - (displayNumber - multiplierArray.length - offset);
+		let total = currentCarry;
+		for (let i = 0; i < numSummands; i++) {
+			let summand = $(`#pencil-summands-${i}`).text();
+			
+			if (summand[index] != undefined) {
+				total = total + parseInt(summand[index]);
+			}
+		}
+		
+		/* Compute for the carry based on the sum of the bit column. */
+		currentCarry = Math.floor(total / 2);
+
 		/*
 		 * If it is the least significant bit of the product:
 		 * - Remove the highlight of the multiplicand and multiplier.
 		 * - Display the carryover.
 		 * - Append the row for displaying the product.
 		 */
-		if (displayNumber == multiplierArray.length + 1) {
+		if (displayNumber == multiplierArray.length + 1 + offset) {
 			$('#step-c-pencil-multiplicand').html(`${multiplicand}`);
-			$('#step-c-pencil-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 1px;">${multiplierFull}</span>`);
+			$('#step-c-pencil-display').html(`<span id="booths-display-spacing-span">${multiplierFull}</span>`);
 
 			/* Remove the highlight of the last summand (thus, subtract 2 from the step number). */
-			$(`#pencil-summands-${displayNumber - 2}`).html(
-				`${summands[displayNumber - 2]}`
-			);
+			$(`#pencil-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
 			$('.carry-over b').css('display', 'block');
 
 			appendRow('pencil-pencil-table', `${pencilProductRow}`);
-		} else if (displayNumber == multiplierArray.length + numBitsProduct) {
+		} else if (displayNumber == multiplierArray.length + numBitsProduct + offset) {
 			/*
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
 			 */
-			$('#pencil-product-carry-over').text('shoob');
+			$('#pencil-product-carry-over').text(currentCarry);
 		}
 
 		/* Update the carry-over after summation of each bit column. */
-		$('#pencil-carry-over').text('SHOOB');
+		$('#pencil-carry-over').text(currentCarry);
 
 		/*
 		 * Highlight the bit column being summed.
 		 * Calculate the index so that the rightmost bit column is highlighted first.
 		 */
-		const index = numBitsProduct - (displayNumber - multiplierArray.length);
 		for (let i = 0; i < numSummands; i++) {
 			const summand = $(`#pencil-summands-${i}`).text();
 			let summandFormatted = '';
@@ -304,7 +328,7 @@ function pencilDisplayStepC() {
 
 		/* Highlight the bit in the product that corresponds to the sum of the bit column. */
 		$('#pencil-product').html(
-			`${productDisplay[displayNumber - multiplierArray.length - 1]}`
+			`${productDisplay[displayNumber - multiplierArray.length - 1 - offset]}`
 		);
 	}
 
@@ -322,8 +346,8 @@ function pencilDisplayStepC() {
 
 	incrementStepNumber();
 
-	/* Return the binary product. */
-	return product;
+	/* Return the binary product and the carry. */
+	return [product, currentCarry];
 }
 
 /**
@@ -370,6 +394,9 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 	/* This will be set by the method calls. */
 	let product = '';
 
+	/* The carry initially has a value of 0. */
+	let carry = 0;
+
 	$('#next-step').on('click', function () {
 		withPreviousAndNextStep();
 
@@ -406,13 +433,15 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 				 *
 				 * The first argument refers to the step number relative to the pencil-and-paper method.
 				 */
-				product = pencilPencil(
+				[product, carry] = pencilPencil(
 					stepNumber - 3,
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					multiplier
+					multiplier,
+					carry
 				);
+
 			} else if (stepNumber == offset + 4 + multiplier.length + 2 * multiplier.length) {
 				pencilVerify(multiplicandDec, multiplierDec, product, multiplier.length);
 
@@ -430,7 +459,8 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 					multiplicand,
 					multiplicandDec,
 					multiplierDec,
-					multiplier
+					multiplier,
+					carry
 				);
 
 	decrementStepNumber();
