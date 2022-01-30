@@ -60,6 +60,11 @@ function animateTitle() {
 		$('#next-step').hide();
 		$('#prev-step').hide();
 
+		/* Start at pencil-and-paper method by default. */
 		$('#pencil-text').trigger('click');
+
+		/* Disable saving to text file when multiply button is not yet clicked. */
+		$('#save-text').css('cursor', 'not-allowed');
+		$('#save-logo').css('cursor', 'not-allowed');
 	}, 9 * timer);
 }

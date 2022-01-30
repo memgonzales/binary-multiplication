@@ -321,6 +321,10 @@ function demo() {
 				showAllSteps();
 				window.scrollTo(0, 0);
 			}
+
+			/* Enable saving to text file. */
+			$('#save-text').css('cursor', 'pointer');
+			$('#save-logo').css('cursor', 'pointer');
 		} else {
 			handleAmbiguousCases();
 		}

@@ -332,10 +332,20 @@ function exportTextUtil() {
  */
 function exportText() {
 	$('#save-text').on('click', function () {
-		exportTextUtil();
+		const saveCursor = $('#save-text').css('cursor');
+
+		/* Disable saving to text file when multiply button is not yet clicked. */
+		if (saveCursor != 'not-allowed') {
+			exportTextUtil();
+		}
 	});
 
 	$('#save-logo').on('click', function () {
-		exportTextUtil();
+		const saveCursor = $('#save-text').css('cursor');
+
+		/* Disable saving to text file when multiply button is not yet clicked. */
+		if (saveCursor != 'not-allowed') {
+			exportTextUtil();
+		}
 	});
 }
