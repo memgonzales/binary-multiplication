@@ -22,6 +22,7 @@ const pencilProductRow = `<tr>
 function pencilInit() {
 	$('#algo-name').hide();
 	$('#algo-steps').html(`${pencilStepA}<br>${pencilStepB}`);
+	incrementStepNumber();
 }
 
 /**
@@ -255,7 +256,7 @@ function pencilDisplayStepC() {
 		$('#step-c-pencil-multiplicand').html(
 			`<b class = "emphasized no-underline">${multiplicand}</b>`
 		);
-		$('#step-c-pencil-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 1px;">${multiplierDisplay[displayNumber - 1]}</span>`);
+		$('#step-c-pencil-display').html(`<span id="pencil-display-spacing-span" style="letter-spacing: 1px;">${multiplierDisplay[displayNumber - 1]}</span>`);
 
 		/* Remove the highlight of the previous summand (thus, subtract 2 from the step number). */
 		$(`#pencil-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
@@ -285,7 +286,7 @@ function pencilDisplayStepC() {
 		 */
 		if (displayNumber == multiplierArray.length + 1 + offset) {
 			$('#step-c-pencil-multiplicand').html(`${multiplicand}`);
-			$('#step-c-pencil-display').html(`<span id="booths-display-spacing-span">${multiplierFull}</span>`);
+			$('#step-c-pencil-display').html(`${multiplierFull}`);
 
 			/* Remove the highlight of the last summand (thus, subtract 2 from the step number). */
 			$(`#pencil-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
@@ -297,11 +298,11 @@ function pencilDisplayStepC() {
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
 			 */
-			$('#pencil-product-carry-over').text(currentCarry);
+			$('#pencil-product-carry-over').text(toBinaryRaw(currentCarry));
 		}
 
 		/* Update the carry-over after summation of each bit column. */
-		$('#pencil-carry-over').text(currentCarry);
+		$('#pencil-carry-over').text(toBinaryRaw(currentCarry));
 
 		/*
 		 * Highlight the bit column being summed.
@@ -363,6 +364,11 @@ function pencilVerify(multiplicandDec, multiplierDec, product, numSummands) {
 	const doubleCheck = `${multiplicandDec}<sub>10</sub><span class = "tab-9"></span>&times;<span class = "tab-9"></span>${multiplierDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span>${productDec}<sub>10</sub><span class = "tab-10"></span>=<span class = "tab-10"></span><span class = "final-answer">${product}<sub>2</sub></span><br>`;
 
 	appendTemplate(`${verify}<span class = "tab-13"></span>${doubleCheck}`);
+
+	/* If the multiplier is negative, the number of summands is increased by 1. */
+	if (parseInt(multiplierDec) < 0) {
+		numSummands = numSummands + 1;
+	}
 
 	/* Hide the carry-over and remove the highlights from the previous step. */
 	hideCarryOver();

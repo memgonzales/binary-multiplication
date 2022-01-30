@@ -13,4 +13,4 @@ const MAX_NUM_BITS = 16;
  * The value of this constant should be greater than the largest possible number of steps
  * that can result from applying any of the multiplication algorithms.
  */
-const LARGE_STEP = 150;
+const LARGE_STEP = 200;

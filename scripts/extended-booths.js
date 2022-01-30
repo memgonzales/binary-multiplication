@@ -489,11 +489,11 @@ function extendedBoothsPencil(
 			 * If it is the most significant bit of the product, display the final carry-over at the cell
 			 * to the left of the product.
 			 */
-			$('#extended-booths-product-carry-over').text(currentCarry);
+			$('#extended-booths-product-carry-over').text(toBinaryRaw(currentCarry));
 		}
 
 		/* Update the carry-over after summation of each bit column. */
-		$('#extended-booths-carry-over').text(currentCarry);
+		$('#extended-booths-carry-over').text(toBinaryRaw(currentCarry));
 
 		/*
 		 * Highlight the bit column being summed.
