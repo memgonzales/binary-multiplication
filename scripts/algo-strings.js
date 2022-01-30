@@ -25,10 +25,10 @@ const pencilTrivia = `Hardware implementations optimize the paper-and-pencil met
     <a class = "no-decor no-hover trivia" href = "https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC280/Web-page/papers/Arithmetic/Dadda_mult.pdf" target = "_blank">
     <i class = "fa fa-external-link no-hover"></i></a>`;
 
-const boothsTrivia = `Originally devised to simply help optimize signed binary multiplication, Booth's algorithm now has applications in various technologies such as Face Recognition&nbsp;
+const boothsTrivia = `Originally devised only to optimize signed binary multiplication, Booth's algorithm is now applied in various technologies such as face recognition&nbsp;
     <a class = "no-decor no-hover trivia" href = "https://ieeexplore.ieee.org/abstract/document/7208966" target = "_blank">
     <i class = "fa fa-external-link no-hover"></i></a>
-    and Digital Signal Processing&nbsp;
+    and digital signal processing&nbsp;
     <a class = "no-decor no-hover trivia" href = "https://www.researchgate.net/profile/Kuan-Hung-Chen-4/publication/224317087_A_Spurious-Power_Suppression_Technique_for_MultimediaDSP_Applications/links/54ed2ac70cf27fbfd772341e/A-Spurious-Power-Suppression-Technique-for-Multimedia-DSP-Applications.pdf" target = "_blank">
     <i class = "fa fa-external-link no-hover"></i></a>`;
 
@@ -40,16 +40,15 @@ const extendedBoothsTrivia = `In 2008, an extension of Booth's algorithm for mul
 const trivia = [pencilTrivia, boothsTrivia, extendedBoothsTrivia];
 
 /* --- PENCIL-AND-PAPER ALGORITHM --- */
-const pencilIntro = `Similar to decimal multiplication, the Pencil-and-Paper method involves multiplying every digit of 
-    the multiplicand to each digit of the multiplier and adding the intermediate products to arrive at the final answer. 
-    However, due to the smaller radix of the binary number system, computing for the intermediate products is much simpler 
-    than doing so for decimal multiplication. <br><br>`;
+const pencilIntro = `Similar to decimal multiplication, the pencil-and-paper method involves multiplying every bit of 
+    the multiplicand by each bit of the multiplier and adding the intermediate products to arrive at the final answer. 
+    However, due to the smaller radix of the binary number system, computing for the intermediate products is much simpler. <br><br>`;
 
 const pencilStepStrings = [
-        "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
-        "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
-        "\n\nC. Multiply the multiplicand with each digit of the multiplier.\n\t1. Sign extend the intermediate product until it has the same number of digits as the sum of the number of digits of the multiplicand and multiplier.\n\t2. Similar to decimal pencil-and-paper multiplication, skip one bit after each intermediate product.\n\t3. If the multiplier is negative, add the two's complement of the multiplicand as the last intermediate product.\n\n",
-    ]
+	"A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
+	'B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n',
+	"\n\nC. Multiply the multiplicand with each digit of the multiplier.\n\t1. Sign-extend the intermediate product until it has the same number of digits as the sum of the number of digits of the multiplicand and multiplier.\n\t2. Similar to decimal pencil-and-paper multiplication, skip one bit after each intermediate product.\n\t3. If the multiplier is negative, add the two's complement of the multiplicand as the last intermediate product.\n\n"
+];
 
 const pencilStepA = `<div class = "hanging-indent">
         <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
@@ -69,7 +68,7 @@ const pencilStepC = `<div class = "hanging-indent">
         <b>C.<span class="tab-12"></span>Multiply the multiplicand with each digit of the multiplier.<br></b>
     </div>
     <div class = "indented hanging-indent">
-        1.<span class="tab-13"></span>Sign extend the intermediate product until it has the same number
+        1.<span class="tab-13"></span>Sign-extend the intermediate product until it has the same number
         of digits as the sum of the number of digits of the multiplicand and multiplier.
     </div>
     <div class = "indented hanging-indent">
@@ -93,12 +92,12 @@ const boothsIntro = `The Booth's Algorithm is a signed binary multiplication tec
      Using this technique, two signed binary numbers are multiplied in two's complement notation, and an encoding scheme is employed to simplify the operation and make it more efficient. <br> <br>`;
 
 const boothsStepStrings = [
-    "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
-    "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
-    "\n\nC. Convert the multiplier to its Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
-    "\n\n\t2. Pair two bits starting at the least significant bit.\n\n",
-    "\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince an adjacent pair of bits is encoded, skip one bit for each intermediate product.\n\n"
-]
+	"A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
+	'B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n',
+	"\n\nC. Convert the multiplier to its Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
+	'\n\n\t2. Pair two bits starting at the least significant bit.\n\n',
+	'\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince an adjacent pair of bits is encoded, skip one bit for each intermediate product.\n\n'
+];
 
 const boothsStepA = `<div class = "hanging-indent">
         <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
@@ -193,7 +192,7 @@ const boothsStepDTable = `<table class = "indented-2 procedure">
         </tr>
     </table>`;
 
-    const boothsAlgo = `${boothsIntro}
+const boothsAlgo = `${boothsIntro}
     ${boothsStepA}
     ${boothsStepB}
     ${boothsStepC}
@@ -212,13 +211,13 @@ const extendedBoothsIntro = `Introduced by O.L. MacSorley in 1961
     <b>bit-pair recoding</b>, reduces the number of intermediate summands by half. <br> <br>`;
 
 const extendedBoothsStepStrings = [
-    "A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
-    "B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n",
-    "\n\nC. Convert the multiplier to its extended Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
-    "\n\n\t2. If the multiplier has an odd number of bits (prior to appending 0), perform sign extension. \n",
-    "\n\n\t3. Perform bit-pair recoding starting at the least significant bit.\n\n",
-    "\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince a bit-pair is equivalent to two bits, skip two bits for each intermediate product.\n\n"
-]
+	"A. Represent the operands in two's complement.\n\t1. If the user enters a decimal number, it is represented using the fewest number of bits.\n\t2. If the user enters a binary number, the number of bits follows the user's input. \n\n",
+	'B. If necessary, perform sign extension to make the number of bits of the operands equal.\n\n',
+	"\n\nC. Convert the multiplier to its extended Booth's equivalent.\n\t1. Append 0 to the least significant bit. \n",
+	'\n\n\t2. If the multiplier has an odd number of bits (prior to appending 0), perform sign extension. \n',
+	'\n\n\t3. Perform bit-pair recoding starting at the least significant bit.\n\n',
+	'\n\nD. Multiply using pencil-and-paper method — but ignore the extra step even if the multiplier is negative. \nSince a bit-pair is equivalent to two bits, skip two bits for each intermediate product.\n\n'
+];
 
 const extendedBoothsStepA = `<div class = "hanging-indent">
         <b>A.<span class="tab-13"></span>Represent the operands in two's complement.</b>
