@@ -86,6 +86,7 @@ The website was refactored into a [PHP](https://www.php.net/) application for fa
 
 -   <b>Lander Peter E. Cua</b> <br/>
     lander_peter_cua@dlsu.edu.ph <br/>
+    landercua@gmail.com <br/>
 -   <b>Jacob Bryan B. Gaba</b> <br/>
     jacob_bryan_gaba@dlsu.edu.ph <br/>
 -   <b>Mark Edward M. Gonzales</b> <br/>
