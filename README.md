@@ -15,12 +15,12 @@ This project is an interactive website for demonstrating or simulating **signed 
 
 This website is a major course output in a computer organization and architecture class. The following are its key features:
 
--   Support for both **decimal and binary number input**, up to a maximum of 16 bits (minimum: &ndash;2<sup>15</sup> = &ndash;32768, maximum: 2<sup>15</sup> &ndash; 1 = 32767)
--   Option to switch between **demonstrating each step one at a time** and **displaying all the steps at once**
--   **Playback controls** for navigating through the step-by-step demonstration
--   Exporting of step-by-step demonstration to a **text file**
+-   Support for both decimal and binary number input, up to a maximum of 16 bits (minimum: &ndash;2<sup>15</sup> = &ndash;32768, maximum: 2<sup>15</sup> &ndash; 1 = 32767)
+-   Option to switch between demonstrating each step one at a time and displaying all the steps at once
+-   Playback controls for navigating through the step-by-step demonstration
+-   Exporting of step-by-step demonstration to a text file
 
-**_The deployed website can be accessed through this link: [INSERT LINK HERE]_**
+**The deployed website can be accessed through this link: https://cggl-bin-multiply.herokuapp.com/**
 
 ## Project Structure
 
@@ -45,7 +45,7 @@ It also includes the following files:
 
 ### Running on the Web
 
-Open the following website: [INSERT LINK HERE]
+Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
 ### Running Locally
 
