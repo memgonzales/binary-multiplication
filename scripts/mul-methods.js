@@ -184,7 +184,7 @@ function demoUtilStartAtDesc() {
 			pencilDescription();
 			withPreviousAndNextStep();
 			noPreviousStep();
-		
+
 			break;
 
 		case algoNames[1] /* Booth's Algorithm */:
@@ -200,7 +200,7 @@ function demoUtilStartAtDesc() {
 			boothsDescription();
 			withPreviousAndNextStep();
 			noPreviousStep();
-			
+
 			break;
 
 		case algoNames[2] /* Extended Booth's Algorithm */:
@@ -237,8 +237,6 @@ function demoUtilStartAtDesc() {
  * @param {string} clickedElem Selected multiplication method.
  */
 function clickMulMethod(elems, clickedElem) {
-	const index = elems.indexOf(clickedElem);
-
 	$('#' + clickedElem + '-text').on('click', function () {
 		clickMulMethodUtil(elems, clickedElem);
 	});
