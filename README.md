@@ -65,6 +65,13 @@ Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
 3. [INSERT PORTION ON USER MANUAL]
 
+   <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot1.PNG?raw=True" alt="Pencil-and-paper method" width = 750> <br>
+   
+   <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot2.PNG?raw=True" alt="Extended booth's algorithm" width = 750> <br>
+   
+   <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot3.PNG?raw=True" alt="Booth's algorithm" width = 750> <br>
+
+
 ## Built Using
 
 This project uses **JavaScript** to carry out all the operations and computations on the client-side. Additional libraries and toolkits are enumerated in the following table:
