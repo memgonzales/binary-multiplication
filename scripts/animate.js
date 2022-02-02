@@ -66,5 +66,12 @@ function animateTitle() {
 		/* Disable saving to text file when multiply button is not yet clicked. */
 		$('#save-text').css('cursor', 'not-allowed');
 		$('#save-logo').css('cursor', 'not-allowed');
+
+		/*
+		 * Trigger click of the display mode to fix footer elements.
+		 * The click is triggered twice since the default is step-by-step demonstration.
+		 */
+		$('#display-mode-option').trigger('click');
+		$('#display-mode-option').trigger('click');
 	}, 9 * timer);
 }
