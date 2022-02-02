@@ -486,6 +486,7 @@ function boothsPencil(
 	}
 
 	$('#tracking-summands').text(tempSummands);
+	$('#tracking-product').text(product);
 
 	incrementStepNumber();
 
@@ -634,7 +635,7 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 								multiplierForRecoding
 							);
 
-	product = boothsPencil(
+	boothsPencil(
 					2,
 					multiplicand,
 					multiplicandDec,
@@ -648,7 +649,6 @@ function boothsSteps(multiplicandBin, multiplierBin, multiplicandDec, multiplier
 	$('#multiplier-zero-appended').text(multiplierZeroAppended);
 	$('#multiplier-for-recoding').text(multiplierForRecoding);
 	$('#booths-recoding').text(boothsRecoding);
-	$('#tracking-product').text(product);
 }
 
 /**

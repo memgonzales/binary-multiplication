@@ -10,6 +10,7 @@
  */
 function pencilText(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec, productDec) {
 	let returnString =
+		'PENCIL-AND-PAPER METHOD\n\n' + 
 		'Multiplicand\n\tDecimal\t' +
 		multiplicandDec +
 		'\n\tBinary\t' +
@@ -32,7 +33,7 @@ function pencilText(multiplicandBin, multiplierBin, multiplicandDec, multiplierD
 
 		if (i == 1) {
 			returnString = returnString.concat('\tMultiplicand:\t', multiplicandEqualized);
-			returnString = returnString.concat('\n\tMultiplier:\t', multiplierEqualized);
+			returnString = returnString.concat('\n\t  Multiplier:\t', multiplierEqualized);
 
 			if (multiplicandBin.length == multiplierBin.length) {
 				returnString = returnString.concat('\t');
@@ -83,6 +84,7 @@ function pencilText(multiplicandBin, multiplierBin, multiplicandDec, multiplierD
  */
 function boothsText(multiplicandBin, multiplierBin, multiplicandDec, multiplierDec, productDec) {
 	let returnString =
+		"BOOTH'S ALGORITHM\n\n" + 
 		'Multiplicand\n\tDecimal\t' +
 		multiplicandDec +
 		'\n\tBinary\t' +
@@ -108,7 +110,7 @@ function boothsText(multiplicandBin, multiplierBin, multiplicandDec, multiplierD
 
 		if (i == 1) {
 			returnString = returnString.concat('\tMultiplicand:\t', multiplicandEqualized);
-			returnString = returnString.concat('\n\tMultiplier:\t', multiplierEqualized);
+			returnString = returnString.concat('\n\t  Multiplier:\t', multiplierEqualized);
 
 			if (multiplicandBin.length == multiplierBin.length) {
 				returnString = returnString.concat('\t');
@@ -116,7 +118,6 @@ function boothsText(multiplicandBin, multiplierBin, multiplicandDec, multiplierD
 		} else if (i == 2) {
 			returnString = returnString.concat('\n\t\t', multiplierZeroAppended);
 		} else if (i == 3) {
-			returnString = returnString.concat('\t\t', multiplierForRecoding);
 			returnString = returnString.concat('\n\t\t', boothRecoding);
 		} else if (i == 4) {
 			/* Build the pencil-and-paper portion of the extended booth's algorithm. */
@@ -170,6 +171,7 @@ function extendedBoothsText(
 	productDec
 ) {
 	let returnString =
+		"EXTENDED BOOTH'S ALGORITHM\n\n" + 
 		'Multiplicand\n\tDecimal\t' +
 		multiplicandDec +
 		'\n\tBinary\t' +
@@ -195,7 +197,7 @@ function extendedBoothsText(
 
 		if (i == 1) {
 			returnString = returnString.concat('\tMultiplicand:\t', multiplicandEqualized);
-			returnString = returnString.concat('\n\tMultiplier:\t', multiplierEqualized);
+			returnString = returnString.concat('\n\t  Multiplier:\t', multiplierEqualized);
 
 			if (multiplicandBin.length == multiplierBin.length) {
 				returnString = returnString.concat('\t(no need for sign extension)');
@@ -205,7 +207,6 @@ function extendedBoothsText(
 		} else if (i == 3) {
 			returnString = returnString.concat('\n\t\t', multiplierForRecoding);
 		} else if (i == 4) {
-			returnString = returnString.concat('\t\t', multiplierForRecoding);
 			returnString = returnString.concat('\n\t\t', extendedBoothsRecoding);
 		} else if (i == 5) {
 			/* Build the pencil-and-paper portion of the extended booth's algorithm. */
