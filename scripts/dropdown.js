@@ -123,9 +123,15 @@ function clickDropdown(elem) {
 		/* Return to the description. */
 		$('#prev-step').trigger('click');
 
-		if ($('#display-mode-text').text().trim() == 'Show All Steps') {
-			showAllSteps();
-			window.scrollTo(0, 0);
+		/* Do nothing if the multiply button is not yet clicked. */
+		const saveCursor = $('#save-text').css('cursor');
+		if (saveCursor == 'not-allowed') {
+			$('#next-step').css('visibility', 'hidden');
+		} else {
+			if ($('#display-mode-text').text().trim() == 'Show All Steps') {
+				showAllSteps();
+				window.scrollTo(0, 0);
+			}
 		}
 	});
 }
