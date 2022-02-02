@@ -345,7 +345,7 @@ function boothsPencil(
                 </tr>
                 <tr class = "bottom-border">
                     <th class = "no-bold right-align">&times;</th>
-                    <td id = "step-d-booths-display" class = "right-align"><span id="booths-display-spacing-span" style="letter-spacing: 1px;">${boothsRecoding}</span></td>
+                    <td id = "step-d-booths-display" class = "right-align"><span id="booths-display-spacing-span" style="letter-spacing: 0.5px;">${boothsRecoding}&nbsp;</span></td>
                     <td class = "carry-over">
                         <span id = "booths-carry-over"></span>
                     </td>
@@ -394,7 +394,7 @@ function boothsPencil(
 		$('#step-d-booths-multiplicand').html(
 			`<b class = "emphasized no-underline">${multiplicand}</b>`
 		);
-		$('#step-d-booths-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 1px;">${boothsDisplay[displayNumber - 1]}</span>`);
+		$('#step-d-booths-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 0.5px;">${boothsDisplay[displayNumber - 1]}&nbsp;</span>`);
 
 		/* Remove the highlight of the previous summand (thus, subtract 2 from the step number). */
 		$(`#booths-summands-${displayNumber - 2}`).html(`${summands[displayNumber - 2]}`);
@@ -424,7 +424,7 @@ function boothsPencil(
 		 */
 		if (displayNumber == boothsArray.length + 1) {
 			$('#step-d-booths-multiplicand').html(`${multiplicand}`);
-			$('#step-d-booths-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 1px;">${boothsRecoding}</span>`);
+			$('#step-d-booths-display').html(`<span id="booths-display-spacing-span" style="letter-spacing: 0.5px;">${boothsRecoding}&nbsp;</span>`);
 
 			/* Remove the highlight of the last summand (thus, subtract 2 from the step number). */
 			$(`#booths-summands-${displayNumber - 2}`).html(
