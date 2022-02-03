@@ -198,14 +198,14 @@ function extendedBoothsText(
 		if (i == 1) {
 			returnString = returnString.concat('\tMultiplicand:\t', multiplicandEqualized);
 			returnString = returnString.concat('\n\t  Multiplier:\t', multiplierEqualized);
-
-			if (multiplicandBin.length == multiplierBin.length) {
-				returnString = returnString.concat('\t(no need for sign extension)');
-			}
 		} else if (i == 2) {
 			returnString = returnString.concat('\n\t\t', multiplierZeroAppended);
 		} else if (i == 3) {
 			returnString = returnString.concat('\n\t\t', multiplierForRecoding);
+						
+			if (multiplierEqualized.length % 2 == 0) {
+				returnString = returnString.concat('\t(no need for sign extension)');
+			}
 		} else if (i == 4) {
 			returnString = returnString.concat('\n\t\t', extendedBoothsRecoding);
 		} else if (i == 5) {
