@@ -809,6 +809,13 @@ function extendedBoothsGoTo(stepNumber, multiplicandBin, multiplierBin) {
 	for (let i = 0; i < stepNumber; i++) {
 		$('#next-step').trigger('click');
 	}
+
+	/* Hide the next button if going to the last step (for example, when 'Show All Steps' is selected). */
+	if (parseInt(stepNumber) >= parseInt($('#total-steps').text())) {
+		$('#next-step').css('visibility', 'hidden');
+	} else {
+		$('#next-step').css('visibility', 'visible');
+	}
 }
 
 /**
