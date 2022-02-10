@@ -1,4 +1,4 @@
-# Binary Multiplication
+# Binary Multiplication Simulator
 
 ![badge][badge-html5]
 ![badge][badge-js]
@@ -41,7 +41,7 @@ It also includes the following files:
 | [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html)         | Home (main) page of the website                             |
 | [`index.php`](https://github.com/memgonzales/binary-multiplication/blob/master/index.php)         | Entry point of the PHP project                              |
 
-## Running the Website
+## Running the Simulator
 
 ### Running on the Web
 
@@ -63,7 +63,9 @@ Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
     - There is no need to install any additional software or dependency. However, internet connection is required to load fonts, libraries, and toolkits from their respective content delivery networks (CDNs).
 
-3. [INSERT PORTION ON USER MANUAL]
+### User Manual
+
+For additional help in using the simulator, you may refer to this [user manual](https://drive.google.com/file/d/1fnbvULjXiHCyZDnfTP-1C7q55ou5YHJR/view?usp=sharing). <br>
 
    <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot1.PNG?raw=True" alt="Pencil-and-paper method" width = 750> <br>
    
