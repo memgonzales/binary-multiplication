@@ -116,6 +116,9 @@ function clickDropdown(elem) {
 
 		isDropdownOpen = false;
 
+		/* Show playback controls. */
+		$('#playback-control').css('visibility', 'visible');
+
 		$('#prev-step').show();
 		$('#next-step').show();
 		demoUtil();
@@ -131,6 +134,8 @@ function clickDropdown(elem) {
 			if ($('#display-mode-text').text().trim() == 'Show All Steps') {
 				showAllSteps();
 				window.scrollTo(0, 0);
+				$('#playback-control').css('visibility', 'hidden');
+				$('#prev-step').css('visibility', 'hidden');
 			}
 		}
 	});

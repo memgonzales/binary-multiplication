@@ -320,6 +320,8 @@ function demo() {
 			if ($('#display-mode-text').text().trim() == 'Show All Steps') {
 				showAllSteps();
 				window.scrollTo(0, 0);
+				$('#playback-control').css('visibility', 'hidden');
+				$('#prev-step').css('visibility', 'hidden');
 			}
 
 			/* Enable saving to text file. */
