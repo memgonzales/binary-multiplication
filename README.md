@@ -3,7 +3,6 @@
 ![badge][badge-html5]
 ![badge][badge-js]
 ![badge][badge-jquery]
-![badge][badge-php]
 ![badge][badge-prettier]
 ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=binary-multiply)
 
@@ -91,7 +90,7 @@ _The descriptions of these technologies are taken from their respective websites
 
 The opinionated code formatter [Prettier](https://prettier.io/) was employed to enforce uniformity and consistency of coding style.
 
-The website was refactored into a [PHP](https://www.php.net/) application for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
+The website was refactored into a PHP application for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
 
 💡 **UPDATE (12/22/2022):** With the shutting down of free Heroku services, we have migrated to [Vercel](https://vercel.com/), another cloud PaaS.
 
