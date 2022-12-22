@@ -12,7 +12,7 @@ This project is an interactive website for demonstrating or simulating **signed 
 -   Booth's algorithm
 -   Extended Booth's algorithm (also known as *modified Booth's algorithm*, *radix-4 Booth's algorithm*, or *bit-pair recoding*)
 
-This website is a major course output in a computer organization and architecture class. The following are its key features:
+This website is a major course output in a computer organization and architecture class under Mr. Roger Luis T. Uy of the Department of Computer Technology, De La Salle University. The following are its key features:
 
 -   Support for both decimal and binary number input, up to a maximum of 16 bits (minimum: &ndash;2<sup>15</sup> = &ndash;32768, maximum: 2<sup>15</sup> &ndash; 1 = 32767)
 -   Option to switch between demonstrating each step one at a time and displaying all the steps at once
