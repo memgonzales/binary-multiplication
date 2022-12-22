@@ -43,6 +43,10 @@ It also includes the following files:
 
 ## Running the Simulator
 
+### User Manual
+
+For additional help in using the simulator, you may refer to this [user manual](https://github.com/memgonzales/binary-multiplication/blob/master/User%20Manual.pdf). 
+
 ### Running on the Web
 
 Open the following website: https://cggl-bin-multiply.herokuapp.com/
@@ -63,9 +67,7 @@ Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
     - There is no need to install any additional software or dependency. However, internet connection is required to load fonts, libraries, and toolkits from their respective content delivery networks (CDNs).
 
-### User Manual
-
-For additional help in using the simulator, you may refer to this [user manual]([https://drive.google.com/file/d/1fnbvULjXiHCyZDnfTP-1C7q55ou5YHJR/view?usp=sharing](https://github.com/memgonzales/binary-multiplication/blob/master/User%20Manual.pdf)). <br>
+<br>
 
    <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot1.PNG?raw=True" alt="Pencil-and-paper method" width = 750> <br>
    
