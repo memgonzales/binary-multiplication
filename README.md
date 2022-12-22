@@ -65,7 +65,7 @@ Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
 ### User Manual
 
-For additional help in using the simulator, you may refer to this [user manual](https://drive.google.com/file/d/1fnbvULjXiHCyZDnfTP-1C7q55ou5YHJR/view?usp=sharing). <br>
+For additional help in using the simulator, you may refer to this [user manual]([https://drive.google.com/file/d/1fnbvULjXiHCyZDnfTP-1C7q55ou5YHJR/view?usp=sharing](https://github.com/memgonzales/binary-multiplication/blob/master/User%20Manual.pdf)). <br>
 
    <img src="https://github.com/memgonzales/binary-multiplication/blob/master/screenshots/screenshot1.PNG?raw=True" alt="Pencil-and-paper method" width = 750> <br>
    
