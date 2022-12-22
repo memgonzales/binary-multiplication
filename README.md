@@ -5,7 +5,7 @@
 ![badge][badge-jquery]
 ![badge][badge-php]
 ![badge][badge-prettier]
-![badge][badge-heroku]
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=binary-multiply)
 
 This project is an interactive website for demonstrating or simulating **signed binary multiplication** via three methods:
 
@@ -20,7 +20,7 @@ This website is a major course output in a computer organization and architectur
 -   Playback controls for navigating through the step-by-step demonstration
 -   Exporting of step-by-step demonstration to a text file
 
-**The deployed website can be accessed through this link: https://cggl-bin-multiply.herokuapp.com/**
+💡 **UPDATE (12/22/2022): With the shutting down of free Heroku services, we have migrated to Vercel: https://binary-multiply.vercel.app/**
 
 ## Project Structure
 
@@ -38,7 +38,7 @@ It also includes the following files:
 | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [`composer.json`](https://github.com/memgonzales/binary-multiplication/blob/master/composer.json) | Contains the list of dependencies of the PHP project        |
 | [`Procfile`](https://github.com/memgonzales/binary-multiplication/blob/master/Procfile)           | Specifies the commands run by the project's dynos on Heroku |
-| [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html)         | Home (main) page of the website                             |
+| [`index.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html)        | Home (main) page of the website                             |
 | [`index.php`](https://github.com/memgonzales/binary-multiplication/blob/master/index.php)         | Entry point of the PHP project                              |
 
 ## Running the Simulator
@@ -49,7 +49,7 @@ For detailed instructions on how to use this simulator, you may refer to our [us
 
 ### Running on the Web
 
-Open the following website: https://cggl-bin-multiply.herokuapp.com/
+Open the following website: https://binary-multiply.vercel.app/
 
 ### Running Locally
 
@@ -63,7 +63,7 @@ Open the following website: https://cggl-bin-multiply.herokuapp.com/
 
     - If git is not installed, click the green `Code` button near the top right of the repository and choose [`Download ZIP`](https://github.com/memgonzales/binary-multiplication/archive/refs/heads/master.zip). Once the zipped folder has been downloaded, extract its contents.
 
-2. Open [`home.html`](https://github.com/memgonzales/binary-multiplication/blob/master/home.html).
+2. Open [`index.html`](https://github.com/memgonzales/binary-multiplication/blob/master/index.html).
 
     - There is no need to install any additional software or dependency. However, internet connection is required to load fonts, libraries, and toolkits from their respective content delivery networks (CDNs).
 
@@ -92,6 +92,8 @@ _The descriptions of these technologies are taken from their respective websites
 The opinionated code formatter [Prettier](https://prettier.io/) was employed to enforce uniformity and consistency of coding style.
 
 The website was refactored into a [PHP](https://www.php.net/) application for faster and lightweight deployment on [Heroku](https://dashboard.heroku.com/), a cloud platform as a service (PaaS).
+
+💡 **UPDATE (12/22/2022):** With the shutting down of free Heroku services, we have migrated to [Vercel](https://vercel.com/), another cloud PaaS.
 
 ## Authors
 
