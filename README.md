@@ -45,7 +45,7 @@ It also includes the following files:
 
 ### User Manual
 
-For additional help in using the simulator, you may refer to this [user manual](https://github.com/memgonzales/binary-multiplication/blob/master/User%20Manual.pdf). 
+For detailed instructions on how to use this simulator, you may refer to our [user manual](https://github.com/memgonzales/binary-multiplication/blob/master/User%20Manual.pdf). 
 
 ### Running on the Web
 
