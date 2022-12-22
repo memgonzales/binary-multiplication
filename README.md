@@ -9,9 +9,9 @@
 
 This project is an interactive website for demonstrating or simulating **signed binary multiplication** via three methods:
 
--   **Pencil-and-paper method**
--   **Booth's algorithm**
--   **Extended Booth's algorithm** (also known as **modified Booth's algorithm**, **radix-4 Booth's algorithm**, or **bit-pair recoding**)
+-   Pencil-and-paper method
+-   Booth's algorithm
+-   Extended Booth's algorithm (also known as *modified Booth's algorithm*, *radix-4 Booth's algorithm*, or *bit-pair recoding*)
 
 This website is a major course output in a computer organization and architecture class. The following are its key features:
 
